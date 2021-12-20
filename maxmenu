@@ -121,11 +121,11 @@ echo "\n[9] exit menu\n$Yellow\n";
         @system("clear");
         checkgems($maxaccounts);
         exit;
-      case "5" :
+      case "8" :
         @system("clear");
         harvestmaxgems($maxaccounts);
         exit;
-      case "6" :
+      case "9" :
         echo "\nThank you";
         echo "\nProgram exits\n\n";
         echo "$White";
@@ -472,12 +472,8 @@ foreach ($raters as $currentRater) :  //raters
     $devID=$PhoneID[rand(0,9)];
     $DevName=$PhoneModel[rand(0,50)];
     
-    echo "$Yellow";
-    echo "login to RATERS account\n$White\n";
-    echo "Account Details\n\n";
-//    echo "Phone Name : $Green $DevName\n$White";
-//    echo "Phone ID   : $Green $devID\n$White";
-    echo "Username    |$Green $currentRater\n$White";
+    echo "\n$White";
+    echo "Raters      |$Green $currentRater\n$White";
     
     $urll = "https://identity.mylykaapps.com/useraccounts/login";
     $curll = curl_init($urll);
@@ -507,6 +503,7 @@ foreach ($raters as $currentRater) :  //raters
     curl_setopt($curll, CURLOPT_POSTFIELDS, $DeviceInfo);
     $respp = curl_exec($curll);
     curl_close($curll);
+    sleep(1);
     $jsonn = json_decode($respp);
     $msgn = $jsonn->message;
 
@@ -517,13 +514,11 @@ foreach ($raters as $currentRater) :  //raters
     $bearer = $jsonn->data->token->accessToken;
     $json = json_decode($respp);  
     
-    //if login to raters is success
-    //if ($status==1) {
-    
     //display raters gems
     echo "$White";
     displaygems($bearer);
-    echo "$Cyan>$msgn\n";
+    echo "$Cyan";
+    echo "$msgn\n";
     
     ///// loop to each account to rate ////////
     foreach ($acct2rate as $BeingRated) : //rated
@@ -531,8 +526,7 @@ foreach ($raters as $currentRater) :  //raters
         if ($currentRater != $BeingRated) : //avoid rating own post
     
         echo "$White\n";
-        echo "[$currentRater] is rating $Green\n";
-        echo "[$BeingRated] $Cyan ";
+        echo "[$currentRater] ";
     
         $urlm = "https://users.mylykaapps.com/api/v3/users/searchsuggestedpeople?searchText=$BeingRated&os=android&pageIndex=1&pageSize=16";
         $curlm = curl_init($urlm);
@@ -549,17 +543,17 @@ foreach ($raters as $currentRater) :  //raters
     
         if ($BeingRated == $verifiedaccount) :
         
-            echo "connected\n\n";
+            echo "<rating> [$BeingRated]\n";
             sleep(1);  
-            $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=50&id=$verifiedaccountID&category=ALL";
+            $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=16&id=$verifiedaccountID&category=ALL";
             $curld = curl_init($urld);
             curl_setopt($curld, CURLOPT_URL, $urld);
             curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
-            $headersd = array("authorization: Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28)",);
+            $headersd = array("authorization: Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android 11)",);
             curl_setopt($curld, CURLOPT_HTTPHEADER, $headersd);
             $respd = curl_exec($curld);
             curl_close($curld);
-            $jsond = json_decode($respd, true);
+           // $jsond = json_decode($respd, true);
       
             $arr = json_decode($respd, true);
     
@@ -567,6 +561,7 @@ foreach ($raters as $currentRater) :  //raters
                 do {
                     $p[$x] = $arr["data"]["$x"]["id"];
                     $x++;
+                 
                 } while ($x !=10);
     
                     /// actual rating of posts /////
@@ -578,7 +573,7 @@ foreach ($raters as $currentRater) :  //raters
                         $DevName=$PhoneModel[rand(0,50)];
                     
                         echo "$White"; 
-                        echo "> rating posts $Green #$xcount ";
+                        echo "..rating$Green #$xcount ";
                     
                         $url = "https://posts.mylykaapps.com/api/v3/posts/ratepost";
                         $headers = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28))", "deviceos: android", "Content-Type: application/json",);
@@ -593,11 +588,11 @@ foreach ($raters as $currentRater) :  //raters
                         "deviceId"         : "$devID",
                         "deviceImei"       : "$devID",
                         "deviceModel"      : "$DevName",
-                        "deviceName"       : "android",
-                        "deviceOs"         : "Android O_MR1",
+                        "deviceName"       : "$DevName",
+                        "deviceOs"         : "Android",
                         "isEmulator"       : false,
                         "notificationToken": "eEBjxYrDSJyFw7N-DpEGNB:APA91bEZnWo-TRdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VDiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-pg",
-                        "osVersion"        : "30"
+                        "osVersion"        : "11"
                         },
                         "postId": $p[$PostNum],
                         "rate": 5,
@@ -606,56 +601,42 @@ foreach ($raters as $currentRater) :  //raters
                     DATA;
                         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
                         $resp = curl_exec($curl);
-                        sleep(2);
                         curl_close($curl);
-                        //var_dump($resp);
                         $json = json_decode($resp);
-                        echo "$Cyan\n";
+                        echo "$Cyan";
                         $postmessage=$json->message;
                         
                         if (strstr($postmessage,'Congratulations')) {
-                            echo "> You rated 10 posts already\n";
-                        }
-
-                        if ($postmessage=="You already have rated this post.")
+                            echo " > rated 10 posts \n";
+                        } elseif ($postmessage=="You already have rated this post.")
                         {
-                         echo "> Already rated this post\n";    
+                         echo " > already rated\n";    
+                        } elseif (strstr($postmessage,'Too many')) {
+                            echo " > http error\n";
+                            sleep(2);
+                        } elseif (strstr($postmessage,'Forbidden')) {
+                            echo " > forbidden\n";
+                            sleep(2);
+                        } elseif (strstr($postmessage,"Post rating")) {
+                           echo " > earnings saved\n";    
+                        } else {
+                           echo " >$postmessage\n";     
                         }
 
-                        if (strstr($postmessage,'Too many')) {
-                            echo "> Too many requests, skipping\n";
-                            sleep(1);
-                        }
-
-                        if (strstr($postmessage,'Forbidden')) {
-                            echo "> Forbidden, skipping\n";
-                            sleep(1);
-                        }
-
-                        if (strstr($postmessage,"Post rating")) {
-                           echo "> Rater earnings saved\n";    
-
-                        }
-                    
                         $PostNum++;
                         $xcount++;
 
                         sleep(2);
-                        curl_close($curl);
     
                     } while ($PostNum !=10);
-                    echo "$White\nDone rating posts of$Green [$BeingRated]\n\n";
+
+                    echo "$White\n[$currentRater]<completed>[$BeingRated]\n";
+                    echo "-------------\n";   
                     //// end of do...while /////////
                 else :
-                    echo "\n$Purple >> error connecting to$Green [$BeingRated]\n"  ; 
+                    echo "\n$Purple >> error connecting to [$BeingRated]\n"  ; 
                      
                 endif;
-    
-                echo "$White";
-                echo "==============================\n";
-                echo "Username    |$Green $currentRater\n$White";
-                      displaygems($bearer);
-                echo "$White==============================\n";
                   
                 else:
                     echo "\n$Yellow >> skip rating own account\n";
@@ -670,28 +651,20 @@ foreach ($raters as $currentRater) :  //raters
         echo "$msgn\n";
         echo "$White";
         break;
-    }  //endif
+    }  // endif
     
-    echo "$White\n$ScriptName\n$Yellow\n";
-    echo "pls. wait ";
-    sleep(1);
-    echo ".";
-    sleep(1);
-    echo ".";
-    sleep(1);
-    echo ".\n";
     sleep(2);
     
     endforeach;
     
     echo "$White\n\n";
     echo "$ScriptName\n";
-    echo "$Web\n\n";
+    echo "$Web\n\n\n";
     
     return;
     ///////////////// end of foreach loop to raters account //////////////////
 
-   } //end of ratemypost
+   } // end of ratemypost
 
    ///////////////////////////////////////////
    // checkgems
