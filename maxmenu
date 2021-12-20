@@ -325,8 +325,8 @@ do {
  if ($acct == 0)
  {
      echo "$Yellow";
-     echo " >pls. enter atleast one (1) username\n";
-     echo " > script will terminate\n\n";
+     echo "> pls. enter atleast one (1) username\n";
+     echo "> script will terminate\n\n";
      echo "$White";
      echo "Thank you\n\n";
      echo "$ScriptName\n";
@@ -519,7 +519,7 @@ foreach ($raters as $currentRater) :  //raters
         if ($currentRater != $BeingRated) : //avoid rating own post
     
         echo "$White\n";
-        echo "[$currentRater] ";
+        echo "[$currentRater]";
     
         $urlm = "https://users.mylykaapps.com/api/v3/users/searchsuggestedpeople?searchText=$BeingRated&os=android&pageIndex=1&pageSize=16";
         $curlm = curl_init($urlm);
@@ -536,7 +536,7 @@ foreach ($raters as $currentRater) :  //raters
     
         if ($BeingRated == $verifiedaccount) :
         
-            echo "<rating> [$BeingRated]\n";
+            echo "<rating>[$BeingRated]\n";
             sleep(1);  
             $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=16&id=$verifiedaccountID&category=ALL";
             $curld = curl_init($urld);
