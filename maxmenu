@@ -127,14 +127,14 @@ echo "\n[9] exit menu\n$Yellow\n";
         exit;
       case "9" :
         echo "\nThank you";
-        echo "\nProgram exits\n\n";
+        echo "\nscript exits\n\n";
         echo "$White";
         echo "$ScriptName\n";
         echo "$Web\n\n";
         exit;  
       default :
         echo "$Cyan\nPls. select Task by entering 1-9";
-        echo "\nProgram exits\n\n";
+        echo "\nscript exits\n\n";
         echo "$White";
         echo "$ScriptName\n";
         echo "$Web\n\n";
@@ -159,7 +159,7 @@ function max2max($maxaccounts)
     echo "$White";
     echo "$ScriptName\n";
     echo "$Web\n\n";
-    echo "max to rate max posts\n";
+    echo "max2max rating of posts\n";
     
     echo "$White\n#ActiveLYKA";
     echo date("l");
@@ -167,12 +167,12 @@ function max2max($maxaccounts)
     
     //should use one password per raters account
     echo "$Yellow\n";
-    echo "Input max default password\n$Green\n";
+    echo "Input max password\n$Green\n";
     $mainpassword=readline('Password : ');
     if ($mainpassword == '')
     {
-        echo "$Yellow\nNo password entered.\n";
-        echo "Program will terminate\n$White\n";
+        echo "$Yellow\no password entered\n";
+        echo "script will terminate\n$White\n";
         echo "$ScriptName\n";
         echo "$Web\n\n";
         exit;    
@@ -219,27 +219,25 @@ function max2u($maxaccounts)
     
     //should use one password per raters account
     echo "$Yellow\n";
-    echo "Input max default password\n$Green\n";
+    echo "Input max password\n$Green\n";
     $mainpassword=readline('Password : ');
     if ($mainpassword == '')
     {
-        echo "$Yellow\nNo password entered.\n";
-        echo "Program will terminate\n$White\n";
+        echo "$Yellow\nno password entered\n";
+        echo "script will terminate\n$White\n";
         echo "$ScriptName\n";
         echo "$Web\n\n";
         exit;    
     }
     
     
-    echo "$White\n";
     
     //get acct names to rate
     $acct2rate=[];
     $acct=0;
-    echo "$White";
-    echo "Need the username to RATE\n";
-    echo "enter as many username you have\n";
-    echo "press enter when done\n\n";
+    echo "$Yellow\n";
+    echo "Input username to RATE\n";
+    echo "press enter when done\n$Green\n";
     do {
         $inputusername = readline("Username : ");
        if ($inputusername !='') {
@@ -252,7 +250,7 @@ function max2u($maxaccounts)
      {
          echo "$Green";
          echo " > pls. enter atleast one (1) username\n";
-         echo " > program will terminate\n\n";
+         echo " > script will terminate\n\n";
          echo "$White";
          echo "Thank you\n\n";
          echo "$ScriptName\n";
@@ -288,18 +286,18 @@ echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "let max do the rating of your posts\n";
 
-echo "$Yellow\n#ActiveLYKA";
+echo "$White\n#ActiveLYKA";
 echo date("l");
 echo "\n";
 
 //should use one password per raters account
 echo "$Yellow\n";
-echo "Input max default password\n$Green\n";
+echo "Input max password\n$Green\n";
 $mainpassword=readline('Password : ');
 if ($mainpassword == '')
 {
     echo "$Yellow\nNo password entered.\n";
-    echo "Program will terminate\n$White\n";
+    echo "script will terminate\n$White\n";
     echo "$ScriptName\n";
     echo "$Web\n\n";
     exit;    
@@ -310,15 +308,12 @@ array_push($maxaccounts,"shib_aparri");
 array_push($maxaccounts,"reneaparri");
 $raters=$maxaccounts;
 
-echo "$White\n";
-
 //get acct names to rate
 $acct2rate=[];
 $acct=0;
-echo "$White";
-echo "Need the username to RATE\n";
-echo "enter as many username you have\n";
-echo "press enter when done\n\n";
+echo "$Yellow\n";
+echo "Input username to RATE\n";
+echo "press enter when done\n$Green\n";
 do {
     $inputusername = readline("Username : ");
    if ($inputusername !='') {
@@ -329,9 +324,9 @@ do {
  
  if ($acct == 0)
  {
-     echo "$Green";
+     echo "$Yellow";
      echo " >pls. enter atleast one (1) username\n";
-     echo " > program will terminate\n\n";
+     echo " > script will terminate\n\n";
      echo "$White";
      echo "Thank you\n\n";
      echo "$ScriptName\n";
@@ -367,9 +362,8 @@ echo "\n\n";
 $raters = [];
 $usr=0;
 echo "$Yellow";
-echo "Let's rate max posts\n";
-echo "enter as many username you have\n";
-echo "press enter when you are done\n$White\n";
+echo "Input RATERS username\n";
+echo "press enter when done\n$Green\n";
 do {
    $username = readline('Username : ');
   if ($username !='') {
@@ -380,8 +374,8 @@ do {
 
 if ($usr != 1)
 {
-    echo "$Yellow";
-    echo "\nno RATERS username was entered\n";
+    echo "$Yellow\n";
+    echo "no RATERS username was entered\n";
     echo "pls. enter atleast one (1) username\n\n";
     echo "$White";
     echo "$ScriptName\n";
@@ -391,14 +385,13 @@ if ($usr != 1)
 
 //should use one password for all accounts
 echo "$Yellow\n";
-echo "Input the default password of your accounts";
-echo "$Green\n";
+echo "Input the password of your accounts\n$Green\n";
 $mainpassword=readline('Password : ');
 if ($mainpassword == '')
 {
     echo "$Yellow";
-    echo "\nNo password entered\n";
-    echo "Program will terminate\n\n";
+    echo "\nno password entered\n";
+    echo "script will terminate\n\n";
     echo "$White";
     echo "$ScriptName\n";
     echo "$Web\n\n";
@@ -459,7 +452,7 @@ $PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
 @system("clear");
 echo "$White\n";
 echo "$ScriptName\n";
-echo "$Web\n\n";
+echo "$Web\n$Yellow\n";
 echo "details have been collected\n";
 echo "let's start rating posts...\n\n";
 sleep(2);
@@ -698,12 +691,12 @@ foreach ($raters as $currentRater) :  //raters
 
  //should use one password per raters account
     echo "$Yellow\n";
-    echo "Input max default password\n$Green";
+    echo "Input max password\n$Green\n";
     $mainpassword=readline('Password : ');
     if ($mainpassword == '')
     {
-        echo "$Yellow\nNo password entered.\n";
-        echo "Program will terminate\n$White\n";
+        echo "$Yellow\nno password entered\n";
+        echo "script will terminate\n$White\n";
         echo "$ScriptName\n";
         echo "$Web\n\n";
         exit;    
@@ -789,9 +782,9 @@ foreach ($raters as $currentRater) :  //raters
     
       //rene_wolverine uid = 700002814478
     
-      echo "$White============================\n";
+      echo "$White----------------------------\n";
       echo "Total GEMS > $Yellow $total\n";
-      echo "$White============================\n\n";
+      echo "$White\n\n";
       echo "$ScriptName\n";
       echo "$Web\n\n";
       echo "$White\n\n";
@@ -832,27 +825,27 @@ foreach ($raters as $currentRater) :  //raters
 
     //should use one password per raters account
     echo "$Yellow\n";
-    echo "Input max default password\n$Green\n";
+    echo "Input max password\n$Green\n";
     $mainpassword=readline('Password : ');
     if ($mainpassword == '')
     {
         echo "$Yellow\nNo password entered\n";
-        echo "Program will terminate\n$White\n";
+        echo "script will terminate\n$White\n";
         echo "$ScriptName\n";
         echo "$Web\n\n";
         exit;    
     }
 
     echo "$White";
-    echo "\nNumber of posts to add (default 10)?\n";
+    echo "\nNumber of posts to add (default 10)?\n$Green\n";
     $postcount=readline("Count : ");
 
     if ($postcount =='') {
         $postcount=10;
     }
 
-    echo "$White";
-    echo "\nPosts title e.g. #LYKAglobal\n";
+    echo "$White\n";
+    echo "[Optional] Posts title e.g. #LYKAglobal\n";
     $posttitle=readline("Enter Title : ");
 
     @system("clear");
@@ -926,7 +919,7 @@ foreach ($raters as $currentRater) :  //raters
     do {  
         
     echo "$White";
-    echo "adding posts #$postloop  > "; 
+    echo "..posts #$postloop  > "; 
     
     $device_id = $PhoneID[rand(0,9)];
 
@@ -1006,19 +999,19 @@ foreach ($raters as $currentRater) :  //raters
 
     //should use one password per raters account
     echo "$Yellow\n";
-    echo "Input max default password\n$Green\n";
+    echo "Input max password\n$Green\n";
     $mainpassword=readline('Password : ');
     if ($mainpassword == '')
     {
-        echo "$Yellow\nNo password entered\n";
-        echo "Program will terminate\n$White\n";
+        echo "$Yellow\nno password entered\n";
+        echo "script will terminate\n$White\n";
         echo "$ScriptName\n";
         echo "$Web\n\n";
         exit;    
     }
 
     echo "$White";
-    echo "\nNumber of moments to add (default 10)?\n";
+    echo "\nnumber of moments to add (default 10)?\n$Green\n";
     $postcount=readline("Count : ");
 
     if ($postcount =='') {
@@ -1105,7 +1098,7 @@ foreach ($raters as $currentRater) :  //raters
     $device_id = $PhoneID[rand(0,9)];
     
     echo "$White";
-    echo "> posting moments #$postloop > ";
+    echo "> moments #$postloop > ";
     echo "$Yellow"; 
     addMoments($vuser, $bearer, $device_id);
     echo "\n";
@@ -1172,12 +1165,12 @@ foreach ($raters as $currentRater) :  //raters
 
         //should use one password per raters account
         echo "$Yellow\n";
-        echo "Input max default password\n$Green";
+        echo "Input max password\n$Green\n";
         $mainpassword=readline('Password : ');
         if ($mainpassword == '')
         {
-            echo "$Yellow\nNo password entered.\n";
-            echo "Program will terminate\n$White\n";
+            echo "$Yellow\nno password entered\n";
+            echo "script will terminate\n$White\n";
             echo "$ScriptName\n";
             echo "$Web\n\n";
             exit;    
@@ -1187,14 +1180,14 @@ foreach ($raters as $currentRater) :  //raters
 
         //get the account where the harvested gems will be sent
 
-        echo "\nInput GEMS recipient username.\n";
-        echo "(blank) no transferring to do.\n";
+        echo "\nInput GEMS recipient username\n";
+        echo "(blank) cancel harvest\n$Green\n";
         $GEMReceiver=readline('Username : ');
 
         if ($GEMReceiver == '')
         {
-            echo "$Yellow\nNo recipient entered\n";
-            echo "Program will terminate\n$White\n";
+            echo "$Yellow\nno recipient entered\n";
+            echo "script will terminate\n$White\n";
             echo "$ScriptName\n";
             echo "$Web\n\n";
             exit;
@@ -1203,12 +1196,12 @@ foreach ($raters as $currentRater) :  //raters
         @system("clear");
         echo "$White\n";
         echo "$ScriptName\n";
-        echo "$Web\n\n";
+        echo "$Web\n$Yellow\n";
         echo "details have been collected\n";
-        echo "let's harvest your GEMS...\n\n";
+        echo "let's harvest your GEMS...\n$White\n";
         sleep(2);
 
-        echo "Recipient > $Yellow $GEMReceiver $White\n ";
+        echo "Recipient >$Yellow $GEMReceiver\n$White";
 
         foreach ($maxaccounts as $activeAcct) {
 
@@ -1262,7 +1255,6 @@ foreach ($raters as $currentRater) :  //raters
             curl_setopt($curlbal2, CURLOPT_SSL_VERIFYPEER, false);
             $respbal2 = curl_exec($curlbal2);
             curl_close($curlbal2);
-            //var_dump($respbal);
             $jsonbal2 = json_decode($respbal2);
             $TotalGEMS = $jsonbal2->data->totalGem;
 
@@ -1282,6 +1274,7 @@ foreach ($raters as $currentRater) :  //raters
             if ($GEMReceiver == $usernamex)
             {
 
+                $harvestedgems=0;
                 $SendGEMURL = "https://wallets.mylykaapps.com/api/v3/wallets/SendGem";
                 $curlGEMS = curl_init($SendGEMURL);
                 $headerGEMS = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28))", "deviceos: android", "Content-Type: application/json",);
@@ -1309,8 +1302,8 @@ foreach ($raters as $currentRater) :  //raters
                 $jsonbals = json_decode($respbals);
                 //echo $jsonbals->message;
 
-                echo "$Yellow\n";
-                echo "$activeAcct  GEMS > $TotalGEMS ...$Green sent";
+                echo "$Green\n";
+                echo "$activeAcct  GEMS | $TotalGEMS >$Cyan sent";
                 $harvestedgems =$harvestedgems+$TotalGEMS;
             } else {
                 echo "$Purple\nerror confirming recipient";
@@ -1330,9 +1323,9 @@ foreach ($raters as $currentRater) :  //raters
 
         } //end of loop for each dummy
 
-        echo "$White\n============================\n";
+        echo "$White\n----------------------------\n";
         echo "Total harvested GEMS :$Yellow$harvestedgems\n";
-        echo "$White============================\n\n";
+        echo "$White\n\n";
         echo "$ScriptName\n";
         echo "$Web\n\n";
         echo "\n";
