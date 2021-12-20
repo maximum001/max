@@ -344,7 +344,7 @@ do {
 
 } //end of allmax2u
 
-function u2max($ScriptName,$Web, $maxaccounts)
+function u2max($maxaccounts)
 {
 
     $Cyan     = "\033[0;36m" ;        # Cyan
