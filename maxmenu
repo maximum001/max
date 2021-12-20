@@ -79,17 +79,17 @@ echo "$White";
 echo "$ScriptName\n";
 echo "$Web\n$Green";
 echo "\nWhat do you want to do today?\n";
-echo "\n1. max2max rating";
-echo "\n2. max2u rating";
-echo "\n3. allmax2u rating";
-echo "\n4. u2max rating";
-echo "\n5. post2max";
-echo "\n6. moment2max";
-echo "\n7. checkmaxgems";
-echo "\n8. harvestmaxgems";
-echo "\n9. exit menu\n$Yellow\n";
+echo "\n[1] max2max rating";
+echo "\n[2] max2u rating";
+echo "\n[3] allmax2u rating";
+echo "\n[4] u2max rating";
+echo "\n[5] post2max";
+echo "\n[6] moment2max";
+echo "\n[7] checkmaxgems";
+echo "\n[8] harvestmaxgems";
+echo "\n[9] exit menu\n$Yellow\n";
 
-   $inputtask = readline("\nYour selection : ");
+   $inputtask = readline("Your selection : ");
 
    switch($inputtask) {
       case "1" :
