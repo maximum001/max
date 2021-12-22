@@ -156,9 +156,6 @@ echo "$White\n--------------------------\n$Yellow";
         @system("clear");
         echo "$White\n*** Invalid selection ***\n";   
         mainmenu();
-//        echo "$Cyan\nPls. select Task by entering$White [a-j]";
-//        echo "\nscript exits\n\n";
-//        exit;  
 
    } //end of switch..case
 
@@ -189,18 +186,18 @@ echo "$White\n[4]$Green Back\n\n";
       case "1" : //post to main
         @system("clear");
         $mydummy=[];
-       postit($mydummy,$myaccounts,"$posttype",$PhoneID,$PhoneModel); 
+       postit($mydummy,$myaccounts,"$posttype"); 
         exit;
       
       case "2" : //post to dummy
         @system("clear");
         $myaccounts=[];        
-       postit($mydummy,$myaccounts,"$posttype",$PhoneID,$PhoneModel);
+       postit($mydummy,$myaccounts,"$posttype");
         exit;
       
       case "3" : //post to other 
        @system("clear");
-       postit($mydummy,$myaccounts,"$posttype",$PhoneID,$PhoneModel);
+       post2others("$posttype");
        exit;
 
       case "4" :
@@ -318,7 +315,6 @@ function max2u($mydummy,$myaccounts)
    {
      array_push($raters,$acct);
    }
-
 
      ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
      return;
@@ -811,7 +807,7 @@ foreach ($raters as $currentRater) :  #//raters
     @system("clear");
     echo "$White\n";
     echo "$ScriptName\n";
-    echo "$Web\n\n";
+    echo "$Web\n$Yellow\n";
     echo "details have been collected\n";
     echo "let's check your GEMS...\n\n";
     sleep(2);
@@ -902,8 +898,9 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
     
       echo "$White----------------------------\n";
       echo "      Total GEMS > $Yellow $total\n";
-      echo "$White\n\n";
+      echo "$White\n";
       
+      mainmenu();
       return;
        
     } //end checkgems
@@ -964,6 +961,8 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
         echo "details have been collected\n";
         echo "let's harvest your GEMS...\n$White\n";
         sleep(2);
+        
+        $harvestedgems=0;
 
         echo "Recipient >$Yellow $GEMReceiver\n$White";
 
@@ -1041,7 +1040,6 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
             if ($GEMReceiver == $usernamex)
             {
 
-                $harvestedgems=0;
                 $SendGEMURL = "https://wallets.mylykaapps.com/api/v3/wallets/SendGem";
                 $curlGEMS = curl_init($SendGEMURL);
                 $headerGEMS = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28))", "deviceos: android", "Content-Type: application/json",);
@@ -1094,6 +1092,8 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
         echo "$White\n----------------------------\n";
         echo "Total harvested GEMS :$Yellow$harvestedgems\n";
         echo "$White\n\n";
+
+        mainmenu();
 
    } //end harverstmaxgems
 
@@ -1407,6 +1407,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
                 if (strstr($response_message, 'Post saved')) { echo "+1 post";}
                 if( $response_message == "Moment retrieved."){ echo "+1 moments"; }
 
+
             } //end post-json
        }
     }     
@@ -1414,7 +1415,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
 }  //end of postmoments
 /////////////////////////////////////////////////////////////////////////////
 
-function postit($mydummy,$myaccounts, $posttype,$PhoneID,$PhoneModel)
+function postit($mydummy, $myaccounts, $posttype)
 {
    @system("clear");
 
@@ -1430,19 +1431,6 @@ function postit($mydummy,$myaccounts, $posttype,$PhoneID,$PhoneModel)
    $Cyan     = "\033[0;36m" ;        # Cyan
    $White    = "\033[0;37m" ;       # White
    
-   $hash_tags =array("lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
-   "StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
-   "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas",    
-   "LykaGlobal","LykaShare","LykaWorld","MaxRate","LykaRetail",
-   "StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
-   "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas",    
-   "LykaGlobal","travelthainow2019","LykaUltraRater","LykaMerchants","travelthainow2019",
-   "lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
-   "StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
-   "LykaGlobal","LykaMall","LykaUltraRater","LykaMerchants","travelthainow2019",
-   "lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
-   "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas");
-   
    $ScriptName ="add $posttype (c) reneaparri";
    $Web="https://github.com/reneaparri/lykans";
    
@@ -1451,7 +1439,7 @@ function postit($mydummy,$myaccounts, $posttype,$PhoneID,$PhoneModel)
    echo "$White";
    echo "$ScriptName\n";
    echo "$Web\n\n";
-   echo "add $posttype to your account\n";
+   echo "add $posttype to dummy+main account\n";
    
    $acct2post = []; 
 
@@ -1465,7 +1453,7 @@ function postit($mydummy,$myaccounts, $posttype,$PhoneID,$PhoneModel)
     array_push($acct2post,$acct);      
    }
 
-   echo "$Green";
+   echo "$Green\n";
    echo "*Pls. use same password for your accounts*\n";
    echo "\n";
    
@@ -1494,116 +1482,240 @@ function postit($mydummy,$myaccounts, $posttype,$PhoneID,$PhoneModel)
    echo "fasten your seatbelt\n";
    sleep(2);
    
-   
-   foreach ($acct2post as $currentUser) {
-   
-       $deviceid=$PhoneID[rand(0,9)];
-       $devicenamemodel=$PhoneModel[rand(0,80)];
-   
-   echo "$White\n";
-   echo "Account Details\n\n";
-   echo "Username    | $currentUser\n";
-   echo "$Cyan";
-   
-   //Login to account
-   $urll = "https://identity.mylykaapps.com/useraccounts/login";
-   $curll = curl_init($urll);
-   curl_setopt($curll, CURLOPT_URL, $urll);
-   curl_setopt($curll, CURLOPT_POST, true);
-   curl_setopt($curll, CURLOPT_RETURNTRANSFER, true);
-   $headerss = array("Content-Type: application/json", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android R 30)");
-   curl_setopt($curll, CURLOPT_HTTPHEADER, $headerss);
-   $DeviceInfo = <<<DATA
-   {
-   "countryCode": "US",
-   "device": {
-   "deviceId": "$deviceid",
-   "deviceImei": "$deviceid",
-   "deviceModel": "$devicenamemodel",
-   "deviceName": "$devicenamemodel",
-   "deviceOs": "Android",
-   "isEmulator": false,
-   "notificationToken": "eEBjxYrDSJyFw7N-DpEGNG:APA91bEZnWo-TDdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VODiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-gz",
-   "osVersion": "11"
-   },
-   "password": "$mainpassword",
-   "username": "$currentUser"
-   }
-   DATA;
-   
-   curl_setopt($curll, CURLOPT_POSTFIELDS, $DeviceInfo);
-   $respp = curl_exec($curll);
-   curl_close($curll);
-   $jsonn = json_decode($respp);
-   $msgn = $jsonn->message;
-   
-   //if ($status == 1) {
-   
-   if ($msgn == "User logged in") {
-   
-   $status = $jsonn->status;
-   $vuser = $jsonn->data->username;
-   $bearer = $jsonn->data->token->accessToken;
-   //sleep(1);
-   
-   //echo "$msgn\n";
-   //exit;
-   
-         echo "$White";
-         displaygems($bearer);
-         echo "$Cyan";
-         echo "$msgn\n\n";
-   
-    $postloop=1;
-    do {  
-       
-      echo "$White";
-      echo "..$posttype #$postloop > "; 
-      
-      $device_id = $deviceID[rand(0,9)];
-   
-      echo "$Cyan";
-      
-        $title_content=$hash_tags[rand(0,57)];
-        $xhash=$hash_tags[rand(0,57)];
-   
-      postmoments($vuser, $bearer, $device_id, $title_content, $xhash, $posttype);
+   loop2accounts($acct2post,$mainpassword,$posttype,$postcount);
 
-//      addPosts($vuser, $bearer, $device_id, $title_content, $xhash);
-      
-      echo "\n";
-      $postloop++;
+} //end of postit
+//////////////////////////////////////////////////////////////////////////////////
+
+function post2others($posttype)
+{
+   @system("clear");
+
+   //Set font color
    
-   } while ($postloop !=$postcount+1);
+   // Regular Colors
+   $Black    = "\033[0;30m" ;     //  # Black
+   $CRed     = "\033[0;31m" ;     //  # Red
+   $Green    = "\033[0;32m" ;       # Green
+   $Yellow   = "\033[0;33m" ;      # Yellow
+   $Blue     = "\033[0;34m" ;        # Blue
+   $Purple   = "\033[0;35m" ;      # Purple
+   $Cyan     = "\033[0;36m" ;        # Cyan
+   $White    = "\033[0;37m" ;       # White
    
-   echo "$Yellow";
-   echo "\n$posttype has been added to [$currentUser]\n\n";
+   $ScriptName ="add $posttype (c) reneaparri";
+   $Web="https://github.com/reneaparri/lykans";
+   
+   $acct=0;
+   
+   echo "$White";
    echo "$ScriptName\n";
    echo "$Web\n\n";
+   echo "add $posttype to other account\n";
    
+   $acct2post = []; 
+
+        $acct=0;
+
+        echo "$Yellow\n";
+        echo "Input username to add $posttype\n";
+        echo "press enter when done\n$Green\n";
+        do {
+            $inputusername = readline("Username : ");
+        if ($inputusername !='') {
+            array_push($acct2post, "$inputusername",);
+            $acct=1;
+            }
+        } while ($inputusername !='');
+        
+        if ($acct == 0)  {
+            echo "$Yellow";
+            echo " > pls. enter atleast one (1) username\n\n";
+                mainmenu(); 
+                }
+        
+        echo "$Green\n";
+        echo "*Pls. use same password for your accounts*\n";
+        echo "\n";
+        
+        echo "$White";
+        $mainpassword=readline("Password : ");
+        if ($mainpassword == '')
+        {
+            echo "$Yellow";
+            echo "\n > sorry but no password was entered\n\n";
+            mainmenu();  
+        }
    
-   } else {
-       echo "$Yellow";
-       //echo " Error : username/password does not match.\n";
-       echo "$msgn\n";
-       echo "$White";
-       break;
-   } //end of status==1   
-   
-   
-   echo "\n$Green";
-   echo "Summary\n";
-   echo "Username    | $currentUser\n";
-   displaygems($bearer);
-   echo "--------------------------------\n";
-   sleep(2);
-   
-   } //end of loop for x username
+        echo "$White";
+        echo "\nNumber of $posttype to add (default 10)?\n";
+        $postcount=readline("Count : ");
+        
+        if ($postcount =='') {
+            $postcount=10;
+        }
+        
+        @system("clear");
+        echo "$White\n";
+        echo "$ScriptName\n";
+        echo "$Web\n$Yellow\n";
+        echo "time to add $posttype to your account\n";
+        echo "fasten your seatbelt\n";
+        sleep(2);
+ 
+        loop2accounts($acct2post,$mainpassword,$posttype,$postcount);
    
    echo "$White\n";
    mainmenu();  
 
-} //end of postit
-//////////////////////////////////////////////////////////////////////////////////
+} //end of post2other
+
+
+function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
+{
+
+    $Black    = "\033[0;30m" ;     //  # Black
+    $CRed     = "\033[0;31m" ;     //  # Red
+    $Green    = "\033[0;32m" ;       # Green
+    $Yellow   = "\033[0;33m" ;      # Yellow
+    $Blue     = "\033[0;34m" ;        # Blue
+    $Purple   = "\033[0;35m" ;      # Purple
+    $Cyan     = "\033[0;36m" ;        # Cyan
+    $White    = "\033[0;37m" ;       # White
+    
+    $PhoneID=['df0439087259ad38','a5ead687bdb3729c','87a87fe99d0039a5'];
+    array_push($PhoneID,'7d7e6f904741daea');
+    array_push($PhoneID,'9f78dab798ab0324');
+    array_push($PhoneID,'83d23b76250d2a97');
+    array_push($PhoneID,'7ae21b1182e2a323');
+    array_push($PhoneID,'29b3e709883d7321');
+    array_push($PhoneID,'c51e10db899a4cc4');
+    array_push($PhoneID,'47db99101c533bc5');
+
+    $PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
+    "iPhone 6","iPhone 6 Plus","iPhone 6s","iPhone 6s Plus",
+    "iPhone SE (1st generation)","iPhone 7","iPhone 7 Plus","iPhone 8",
+    "iPhone 8 Plus","iPhone X","iPhone XR","iPhone XS","iPhone XS Max",
+    "iPhone 11","iPhone 11 Pro","iPhone 11 Pro Max","iPhone SE","iPhone 12 mini","iPhone 12","iPhone 12 Pro",
+    "Tecno Spark 7","Tecno Spark 7 Pro","Vivo V11i","Vivo V11","Vivo V11 Pro",
+    "Oppo A94","Oppo A12","Vivo Z10","Samsung Galaxy S20","Vivo Y81","Vivo Nex S","Vivo Nex A","Vivo Y75s","Vivo Y83",
+    "Vivo X21i","Vivo Z1","Vivo Y53i","Nokia 5","Nokia 6","Vivo Y71","Vivo X21 UD","Vivo X21","Vivo V9",
+    "Vivo X20 Plus UD","Vivo Y75","Vivo V7","Samsung Galaxy S9","Vivo X20 Plus","Vivo X20","Vivo V7+",
+    "Vivo Y69","Vivo V5s","LG G+","Vivo Y66","Sony Xperia 10","Nokia 3315","Vivo Y55s","Tecno Spark 6 Air","Tecno Spark 6 Go","Vivo Xplay6",
+    "HTC U20 5G","Vivo X9","Google Pixel 5","OnePlus 9","OnePlus 10","Infinix Hot S10","Vivo X7","Vivo X6S Plus",
+    "Vivo X6S","Vivo Y31L","Oppo A2","Oppo A11","Vivo Xplay5 Elite","Vivo Y51L","Vivo X6 Plus",
+    "Vivo X6","Vivo Y51","Vivo Y27L","Vivo Y15S","Vivo V1Max","Vivo V1","Vivo X5Pro","Vivo X5Max+",
+    "Vivo X5S L","Vivo X Shot","Vivo X3S","Vivo Y15","Vivo Y22","Vivo X5Max","Nokia 3210");
+
+    $hash_tags =array("lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
+    "StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
+    "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas",    
+    "LykaGlobal","LykaShare","LykaWorld","MaxRate","LykaRetail",
+    "StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
+    "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas",    
+    "LykaGlobal","travelthainow2019","LykaUltraRater","LykaMerchants","travelthainow2019",
+    "lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
+    "StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
+    "LykaGlobal","LykaMall","LykaUltraRater","LykaMerchants","travelthainow2019",
+    "lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
+    "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas");
+ 
+    foreach ($acct2post as $currentUser) {
+   
+        $deviceid=$PhoneID[rand(0,9)];
+        $devicenamemodel=$PhoneModel[rand(0,80)];
+    
+    echo "$White\n";
+    echo "Account Details\n\n";
+    echo "Username    | $currentUser\n";
+    echo "$Cyan";
+    
+    //Login to account
+    $urll = "https://identity.mylykaapps.com/useraccounts/login";
+    $curll = curl_init($urll);
+    curl_setopt($curll, CURLOPT_URL, $urll);
+    curl_setopt($curll, CURLOPT_POST, true);
+    curl_setopt($curll, CURLOPT_RETURNTRANSFER, true);
+    $headerss = array("Content-Type: application/json", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android R 30)");
+    curl_setopt($curll, CURLOPT_HTTPHEADER, $headerss);
+    $DeviceInfo = <<<DATA
+    {
+    "countryCode": "US",
+    "device": {
+    "deviceId": "$deviceid",
+    "deviceImei": "$deviceid",
+    "deviceModel": "$devicenamemodel",
+    "deviceName": "$devicenamemodel",
+    "deviceOs": "Android",
+    "isEmulator": false,
+    "notificationToken": "eEBjxYrDSJyFw7N-DpEGNG:APA91bEZnWo-TDdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VODiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-gz",
+    "osVersion": "11"
+    },
+    "password": "$mainpassword",
+    "username": "$currentUser"
+    }
+    DATA;
+    
+    curl_setopt($curll, CURLOPT_POSTFIELDS, $DeviceInfo);
+    $respp = curl_exec($curll);
+    curl_close($curll);
+    $jsonn = json_decode($respp);
+    $msgn = $jsonn->message;
+    
+    if ($msgn == "User logged in") {
+    
+    $status = $jsonn->status;
+    $vuser = $jsonn->data->username;
+    $bearer = $jsonn->data->token->accessToken;
+    
+          echo "$White";
+          displaygems($bearer);
+          echo "$Cyan";
+          echo "$msgn\n\n";
+    
+     $postloop=1;
+     do {  
+        
+       echo "$White";
+       echo "..$posttype #$postloop > "; 
+       
+       $deviceid = $PhoneID[rand(0,9)];
+    
+       echo "$Cyan";
+       
+         $title_content=$hash_tags[rand(0,57)];
+         $xhash=$hash_tags[rand(0,57)];
+    
+       postmoments($vuser, $bearer, $deviceid, $title_content, $xhash, $posttype);
+       
+       echo "\n";
+       $postloop++;
+    
+    } while ($postloop !=$postcount+1);
+    
+    echo "$Yellow";
+    echo "\n$posttype has been added to [$currentUser]\n\n";
+    
+    } else {
+        echo "$Yellow";
+        echo "$msgn\n";
+        echo "$White";
+        break;
+    } //end of status==1   
+    
+    echo "\n$Green";
+    echo "Summary of add $posttype\n";
+    echo "Username    | $currentUser\n";
+    displaygems($bearer);
+    echo "--------------------------------\n";
+    sleep(2);
+    
+    } //end of loop for x username
+    echo "\n$White"; 
+    mainmenu();
+
+} // loop2accts
+
+
 
    ?>
