@@ -661,7 +661,7 @@ foreach ($raters as $currentRater) :  #//raters
       
             $arr = json_decode($respd, true);
        
-            var_dump($arr);
+            var_dump($arr["data"]);
             exit;
                    $x=0;
                    do {
