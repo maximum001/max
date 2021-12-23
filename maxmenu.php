@@ -662,24 +662,10 @@ foreach ($raters as $currentRater) :  #//raters
             $arr = json_decode($respd, true);
     
                 $px=0;
-       /*        do {
-                    $p[$px] = $arr["data"]["$px"]["id"];
+               do {
+                    $postid[$px] = $arr["data"]["$px"]["id"];
                     $px++;
-                 
                 } while ($px !=10);
-       */
-           var_dump($arr);
-           exit;
-           foreach($arr as $key => $value) {
-              $p[$px]=$arr["data"]["$px"]["id"];
-               
-               echo "$px -- $p[$px] \n";
-               $px++;
-           }
-       
-       if($px >10) {$px=10;}
-        echo "extracted post $px \n";
-        exit;
         
     #actual rating of posts
     #loop 10 times
@@ -711,7 +697,7 @@ foreach ($raters as $currentRater) :  #//raters
                         "notificationToken": "eEBjxYrDSJyFw7N-DpEGNB:APA91bEZnWo-TRdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VDiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-pg",
                         "osVersion"        : "11"
                         },
-                        "postId": $p[$PostNum],
+                        "postId": $postid[$PostNum],
                         "rate": 5,
                         "userid": $verifiedaccountID
                     }
@@ -746,7 +732,7 @@ foreach ($raters as $currentRater) :  #//raters
 
                         sleep(2);
     
-                    } while ($PostNum != $x); 
+                    } while ($PostNum != $px); 
                     //($PostNum !=10);
 
                     echo "$White\n[$BeingRated] >>> ratings done\n";
