@@ -661,11 +661,11 @@ foreach ($raters as $currentRater) :  #//raters
       
             $arr = json_decode($respd, true);
        
-            var_dump($arr["data"]);
-            exit;
+          //  var_dump($arr["data"]);
+          //  exit;
                    $x=0;
                    do {
-                       $p[$x] = $arr["data"]["$x"]["id"];
+                       $pid[$x] = $arr["data"]["$x"]["id"];
                        $x++;
                    } while ($x !=10);
         
@@ -700,7 +700,7 @@ foreach ($raters as $currentRater) :  #//raters
                         "notificationToken": "eEBjxYrDSJyFw7N-DpEGNB:APA91bEZnWo-TRdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VDiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-pg",
                         "osVersion"        : "11"
                         },
-                        "postId": $p[$PostNum],
+                        "postId": $pid[$PostNum],
                         "rate": 5,
                         "userid": $verifiedaccountID
                     }
@@ -738,8 +738,7 @@ foreach ($raters as $currentRater) :  #//raters
 
                         sleep(2);
     
-                    } while ($PostNum != $px); 
-                    //($PostNum !=10);
+                    } while ($PostNum !=10);
 
                     echo "$White\n[$BeingRated] >>> ratings done\n";
                     echo "-------------\n";   
