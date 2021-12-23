@@ -72,9 +72,10 @@ $PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
 "Vivo X5S L","Vivo X Shot","Vivo X3S","Vivo Y15","Vivo Y22","Vivo X5Max","Nokia 3210");
 
 $myaccounts=[];
+    array_push($myaccounts,"reneaparri");
     array_push($myaccounts,"rene_wolverine");
     array_push($myaccounts,"shib_aparri");
-    array_push($myaccounts,"reneaparri");
+    array_push($myaccounts,"lykapro001");
 
 $mydummy=[];
 
@@ -91,11 +92,14 @@ array_push($mydummy,"maximum030");
 array_push($mydummy,"maximum031");
 array_push($mydummy,"maximum032");
 array_push($mydummy,"maximum033");
+array_push($mydummy,"lykapro002");
+array_push($mydummy,"lykapro003");
+
 
 echo "$White\n--------------------------";
 echo "$White\n------- Main Menu --------";
 echo "$White\n[a]$Green dummy -> main rating";
-echo "$White\n[b]$Green dummy -> other rating";
+echo "$White\n[b]$Green main -> dummy rating";
 echo "$White\n[c]$Green dummy+main -> other rating";
 echo "$White\n[d]$Green other -> dummy rating";
 echo "$White\n[e]$Green other -> other rating";
@@ -245,16 +249,16 @@ function max2max($mydummy,$myaccounts)
     echo "$Yellow\n";
     
    $raters = $mydummy;
-   foreach($myaccounts as $acct)
-   {
-     array_push($raters,$acct);
-   }
+//   foreach($myaccounts as $acct)
+//   {
+//     array_push($raters,$acct);
+//   }
 
    $acct2rate=$myaccounts;
-  foreach($mydummy as $acct)
-  {
-   array_push($acct2rate,$acct);      
-  }
+//  foreach($mydummy as $acct)
+//  {
+//   array_push($acct2rate,$acct);      
+//  }
 
     ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
     return;
@@ -273,17 +277,17 @@ function max2u($mydummy,$myaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-    $ScriptName ="max2u (c) 2021 maximum001";
+    $ScriptName ="main to rate dummy (c) 2021 maximum001";
     $Web="https://github.com/maximum001/max";
 
     echo "$White";
     echo "$ScriptName\n";
     echo "$Web\n\n";
-    echo "let max do the rating of your posts\n";
+    echo "main account to rate dummy posts\n";
     
     //should use one password per raters account
     echo "$Yellow\n";
-    echo "Input max password\n$Green\n";
+    echo "Input Main Acct password\n$Green\n";
     $mainpassword=readline('Password : ');
     if ($mainpassword == '')
     {
@@ -291,8 +295,10 @@ function max2u($mydummy,$myaccounts)
         mainmenu();    }
     
 #//get acct names to rate
-    $acct2rate=[];
-    $acct=0;
+
+    $acct2rate=$mydummy;
+
+/*    $acct=0;
     echo "$Yellow\n";
     echo "Input username to RATE\n";
     echo "press enter when done\n$Green\n";
@@ -309,12 +315,12 @@ function max2u($mydummy,$myaccounts)
          echo "$Green";
          echo " > pls. enter atleast one (1) username\n\n";
         mainmenu();     }    
-
-   $raters = $mydummy;
-   foreach($myaccounts as $acct)
-   {
-     array_push($raters,$acct);
-   }
+*/
+   $raters = $myaccounts;
+//   foreach($myaccounts as $acct)
+//   {
+//     array_push($raters,$acct);
+//   }
 
      ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
      return;
@@ -351,13 +357,13 @@ if ($mainpassword == '')
 {
     echo "$Yellow\n**empty password**\n\n";
         mainmenu();}
-
+////////
     $raters=$mydummy;
-
+///////
     foreach($myaccounts as $acct){
     array_push($raters,"$acct");
     }
-
+//////
 $raters=$maxaccounts;
 
 #get acct names to rate
