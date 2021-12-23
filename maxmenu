@@ -645,7 +645,7 @@ foreach ($raters as $currentRater) :  #//raters
         
             echo " >>> [$BeingRated]\n";
             sleep(1);  
-            $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=16&id=$verifiedaccountID&category=ALL";
+            $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=10&id=$verifiedaccountID&category=ALL";
             $curld = curl_init($urld);
             curl_setopt($curld, CURLOPT_URL, $urld);
             curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
@@ -658,11 +658,17 @@ foreach ($raters as $currentRater) :  #//raters
             $arr = json_decode($respd, true);
     
                 $x=0;
-                do {
+       /*        do {
                     $p[$x] = $arr["data"]["$x"]["id"];
                     $x++;
                  
                 } while ($x !=10);
+       */
+           foreach($arr as $key => $value) {
+              $p[$x]=$arr["data"]["$x"]["id"];
+               $x++;
+           }
+       
     
     #actual rating of posts
     #loop 10 times
@@ -721,7 +727,7 @@ foreach ($raters as $currentRater) :  #//raters
                         } elseif (strstr($postmessage,"Post rating")) {
                            echo " > earnings saved\n";    
                         } else {
-                           echo " >$postmessage\n";     
+                           echo " > $postmessage\n";     
                         }
 
                         $PostNum++;
@@ -729,7 +735,8 @@ foreach ($raters as $currentRater) :  #//raters
 
                         sleep(2);
     
-                    } while ($PostNum !=10);
+                    } while ($PostNum != $x); 
+                    //($PostNum !=10);
 
                     echo "$White\n[$BeingRated] >>> ratings done\n";
                     echo "-------------\n";   
