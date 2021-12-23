@@ -661,11 +661,11 @@ foreach ($raters as $currentRater) :  #//raters
       
             $arr = json_decode($respd, true);
     
-                $px=0;
+                $x=0;
                do {
-                    $postid[$px] = $arr["data"]["$px"]["id"];
-                    $px++;
-                } while ($px !=10);
+                    $p[$x] = $arr["data"]["$x"]["id"];
+                    $x++;
+                } while ($x !=10);
         
     #actual rating of posts
     #loop 10 times
@@ -697,7 +697,7 @@ foreach ($raters as $currentRater) :  #//raters
                         "notificationToken": "eEBjxYrDSJyFw7N-DpEGNB:APA91bEZnWo-TRdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VDiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-pg",
                         "osVersion"        : "11"
                         },
-                        "postId": $postid[$PostNum],
+                        "postId": $p[$PostNum],
                         "rate": 5,
                         "userid": $verifiedaccountID
                     }
@@ -709,6 +709,8 @@ foreach ($raters as $currentRater) :  #//raters
                         echo "$Cyan";
                         $postmessage=$json->message;
                         
+                        if ($postmessage != '')
+                        {    
                         
                         if (strstr($postmessage,'Congratulations')) {
                             echo " > rated 10 posts \n";
@@ -726,7 +728,8 @@ foreach ($raters as $currentRater) :  #//raters
                         } else {
                            echo " > $postmessage\n";     
                         }
-
+                        } else { echo " > undefined error\n";  }
+                            
                         $PostNum++;
                         $xcount++;
 
