@@ -674,6 +674,8 @@ foreach ($raters as $currentRater) :  #//raters
            }
        
        if($x >10) {$x=10;}
+        echo "extracted post $x";
+        exit;
         
     #actual rating of posts
     #loop 10 times
