@@ -661,20 +661,22 @@ foreach ($raters as $currentRater) :  #//raters
       
             $arr = json_decode($respd, true);
     
-                $x=0;
+                $px=0;
        /*        do {
-                    $p[$x] = $arr["data"]["$x"]["id"];
-                    $x++;
+                    $p[$px] = $arr["data"]["$px"]["id"];
+                    $px++;
                  
-                } while ($x !=10);
+                } while ($px !=10);
        */
            foreach($arr as $key => $value) {
-              $p[$x]=$arr["data"]["$x"]["id"];
-               $x++;
+              $p[$px]=$arr["data"]["$px"]["id"];
+               
+               echo "$px -- $p[$px] \n";
+               $px++;
            }
        
-       if($x >10) {$x=10;}
-        echo "extracted post $x \n";
+       if($px >10) {$px=10;}
+        echo "extracted post $px \n";
         exit;
         
     #actual rating of posts
