@@ -521,8 +521,6 @@ return;
 } //end of other2other
 
 
-
-
    #///////////////////////////////////////////
    #// ratemypost
    #//
@@ -651,7 +649,7 @@ foreach ($raters as $currentRater) :  #//raters
         
             echo " >>> [$BeingRated]\n";
             sleep(1);  
-            $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=10&id=$verifiedaccountID&category=ALL";
+            $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=50&id=$verifiedaccountID&category=ALL";
             $curld = curl_init($urld);
             curl_setopt($curld, CURLOPT_URL, $urld);
             curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
@@ -675,7 +673,8 @@ foreach ($raters as $currentRater) :  #//raters
                $x++;
            }
        
-    
+       if($x >10) {$x=10;}
+        
     #actual rating of posts
     #loop 10 times
                     $PostNum=0;
