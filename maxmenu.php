@@ -649,7 +649,7 @@ foreach ($raters as $currentRater) :  #//raters
         
             echo " >>> [$BeingRated]\n";
             sleep(1);  
-            $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=50&id=$verifiedaccountID&category='post'";
+            $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=50&id=$verifiedaccountID&category=ALL";
             $curld = curl_init($urld);
             curl_setopt($curld, CURLOPT_URL, $urld);
             curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
@@ -660,12 +660,15 @@ foreach ($raters as $currentRater) :  #//raters
     #       $jsond = json_decode($respd, true);
       
             $arr = json_decode($respd, true);
-    
-                $x=0;
-               do {
-                    $p[$x] = $arr["data"]["$x"]["id"];
-                    $x++;
-                } while ($x !=10);
+       
+            var_dump($arr);
+            exit;
+                   $x=0;
+                   do {
+                       $p[$x] = $arr["data"]["$x"]["id"];
+                       $x++;
+                   } while ($x !=10);
+        
         
     #actual rating of posts
     #loop 10 times
