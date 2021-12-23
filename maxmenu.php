@@ -668,7 +668,7 @@ foreach ($raters as $currentRater) :  #//raters
                  
                 } while ($px !=10);
        */
-           echo "$arr \n";
+           var_dump($arr);
            exit;
            foreach($arr as $key => $value) {
               $p[$px]=$arr["data"]["$px"]["id"];
