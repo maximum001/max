@@ -1589,7 +1589,7 @@ function post2others($posttype)
    echo "$White";
    echo "$ScriptName\n";
    echo "$Web\n\n";
-   echo "add $posttype to other account\n";
+   echo "add $posttype to dummy+main account\n";
    
    $acct2post = []; 
 
@@ -1708,8 +1708,9 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
         $devicenamemodel=$PhoneModel[rand(0,80)];
     
     echo "$White\n";
-    echo "Account Details ($posted of $noofaccounts)\n\n";
-    echo "Username    | $currentUser\n";
+    echo "Account Details ($posted of $noofaccounts)\n";
+    printf("%-15s | %s\n","Username",$currentRater);
+//        echo "Username    | $currentUser\n";
     echo "$Cyan";
     
     //Login to account
