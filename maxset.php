@@ -1709,7 +1709,7 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
     
     echo "$White\n";
     echo "Account Details ($posted of $noofaccounts)\n";
-    printf("%-15s | %s\n","Username",$currentRater);
+    printf("%-15s | %s\n","Username",$currentUser);
 //        echo "Username    | $currentUser\n";
     echo "$Cyan";
     
