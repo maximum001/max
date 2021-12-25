@@ -83,8 +83,8 @@ $set2=[];
 array_push($set2,"maximum001");
 array_push($set2,"maximum002");
 array_push($set2,"maximum003");
-//array_push($set2,"maximum004");
-//array_push($set2,"maximum005");
+array_push($set2,"maximum004");
+array_push($set2,"maximum005");
 
 
 $set3=[];
@@ -92,7 +92,7 @@ array_push($set3,"maximum010");
 array_push($set3,"maximum011");
 array_push($set3,"maximum012");
 array_push($set3,"maximum013");
-//array_push($set3,"max1mum14");
+array_push($set3,"max1mum14");
 
 $set4=[];
 
@@ -100,19 +100,19 @@ array_push($set4,"maximum030");
 array_push($set4,"maximum031");
 array_push($set4,"maximum032");
 array_push($set4,"maximum033");
-//array_push($set4,"max1mum34");
+array_push($set4,"max1mum34");
 
 $set5=[];
 
-array_push($set5,"lykapro001");
-array_push($set5,"lykapro002");
-array_push($set5,"lykapro003");
+//array_push($set5,"lykapro001");
+//array_push($set5,"lykapro002");
+//array_push($set5,"lykapro003");
 
-//array_push($set5,"im100pretty");
-//array_push($set5,"im200pretty");
-//array_push($set5,"im300pretty");
-//array_push($set5,"pretty01lyca");
-//array_push($set5,"pretty02lyca");
+array_push($set5,"im100pretty");
+array_push($set5,"im200pretty");
+array_push($set5,"im300pretty");
+array_push($set5,"pretty01lyca");
+array_push($set5,"pretty02lyca");
 
 $myaccounts=$set1;
 
@@ -221,7 +221,7 @@ echo "$ScriptName\n";
 echo "$Web\n";
 echo "\nAdd $posttype menu ----\n";
 echo "$White\n[1]$Green main account (set1)";
-echo "$White\n[2]$Green account (set 2 - 5)";
+echo "$White\n[2]$Green accounts (set 2 - 5)";
 echo "$White\n[3]$Green other account";
 echo "$White\n[4]$Green Back\n\n";
 
@@ -405,7 +405,7 @@ if ($mainpassword == '')
     array_push($raters,"$acct");
     }
 //////
-$raters=$maxaccounts;
+//$raters=$myaccounts;
 
 #get acct names to rate
 $acct2rate=[];
@@ -424,7 +424,7 @@ do {
  if ($acct == 0)
  {
      echo "$Yellow";
-     echo " >pls. enter atleast one (1) username\n\n";
+     echo "> pls. enter atleast one (1) username\n\n";
         mainmenu(); }
 
  ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
@@ -618,7 +618,9 @@ foreach ($raters as $currentRater) :  #//raters
     $DevName=$PhoneModel[rand(0,50)];
     
     echo "\n$White";
-    echo "Raters      |$Green $currentRater\n$White";
+//    echo "Raters      |$Green $currentRater\n$White";
+    printf("%-15s | %s\n","Raters",$currentRater);
+
     
     $urll = "https://identity.mylykaapps.com/useraccounts/login";
     $curll = curl_init($urll);
@@ -808,6 +810,11 @@ foreach ($raters as $currentRater) :  #//raters
     
     endforeach;
     
+     echo "\n$White\n";
+     echo "Summary - displaying earned GEMS\n";
+     checkgems($raters,$mainpassword,$PhoneID, $PhoneModel);
+
+
     echo "$White\n\n";
  //   echo "$ScriptName\n";
  //   echo "$Web\n\n\n";
@@ -875,6 +882,9 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
 
     $total=0;
     
+    //echo "$White----------------------------------\n";
+    printf("$White%'-30s\n","");
+
     foreach ($maxaccounts as $activeAcct) {
 
     $devID=$PhoneID[rand(0,9)];
@@ -938,16 +948,17 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
         $TotalGEMS = $jsonbal2->data->totalGem;
     
         echo "$White";  
-        echo "$activeAcct $Yellow GEMS > $Green $TotalGEMS\n";
-    
+//        echo "$activeAcct $Yellow GEMS > $Green $TotalGEMS\n";
+        printf("%-15s GEMS >$Green %.2f\n",$activeAcct,$TotalGEMS);
         $total=$total + $TotalGEMS;
     
-      } //end of status==1  
+      } //end of user logged in
     
     } //end of loop for each account
     
-      echo "$White----------------------------\n";
-      echo "      Total GEMS > $Yellow $total\n";
+      //echo "$White----------------------------\n";
+      printf("$White%'-30s\n","");
+      printf("%-15s GEMS >$Yellow %.2f\n","Total",$total);
       echo "$White\n";
       
       mainmenu();
@@ -975,10 +986,13 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
         echo "$ScriptName\n";
         echo "$Web\n\n";
         echo "Let's harvest max GEMS\n";
-       
+
+        echo "$White\n";
+        echo "GEMS will be sent to$Green [reneaparri]\n";
+
         $maxaccounts=$mydummy;
 
-        array_push($maxaccounts,"shib_aparri");
+        //array_push($maxaccounts,"shib_aparri");
 
         //should use one password per raters account
         echo "$Yellow\n";
@@ -990,11 +1004,10 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
             mainmenu();    
         }
 
-        echo "$White\n";
-
+    
         //get the account where the harvested gems will be sent
 
-        echo "\nInput GEMS recipient username\n";
+    /*    echo "\nGEMS will be sent to [reneaparri]\n";
         echo "(blank) cancel harvest\n$Green\n";
         $GEMReceiver=readline('Username : ');
 
@@ -1003,6 +1016,7 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
             echo "$Yellow\nno recipient entered\n\n";
             mainmenu();
         }
+    */
 
         @system("clear");
         echo "$White\n";
@@ -1014,7 +1028,8 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
         
         $harvestedgems=0;
 
-        echo "Recipient >$Yellow $GEMReceiver\n$White";
+        echo "Recipient >$Yellow [reneaparri]\n$White\n";
+        printf("$White%'-30s\n","");
 
         foreach ($maxaccounts as $activeAcct) {
 
@@ -1074,7 +1089,7 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
             $jsonbal2 = json_decode($respbal2);
             $TotalGEMS = $jsonbal2->data->totalGem;
 
-            $urlx = "https://users.mylykaapps.com/api/v3/users/searchsuggestedpeople?searchText=$GEMReceiver&os=android&pageIndex=1&pageSize=16";
+/*            $urlx = "https://users.mylykaapps.com/api/v3/users/searchsuggestedpeople?searchText=$GEMReceiver&os=android&pageIndex=1&pageSize=16";
             $curlx = curl_init($urlx);
             curl_setopt($curlx, CURLOPT_URL, $urlx);
             curl_setopt($curlx, CURLOPT_RETURNTRANSFER, true);
@@ -1087,12 +1102,22 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
             $uidx = $jsonx["data"]["0"]["id"];
             $usernamex = $jsonx["data"]["0"]["userName"];
         
-            if ($GEMReceiver == $usernamex)
-            {
+            var_dump($jsonx);
+            exit;
+            
+            //reneaparri UserID =700018572395
+*/
+ //           if ($GEMReceiver == $usernamex)
+//            {
+
+                $recID="700018572395";
 
                 $SendGEMURL = "https://wallets.mylykaapps.com/api/v3/wallets/SendGem";
                 $curlGEMS = curl_init($SendGEMURL);
-                $headerGEMS = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28))", "deviceos: android", "Content-Type: application/json",);
+                $headerGEMS = 
+                array("authorization:Bearer $bearer", 
+                "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28))", 
+                "deviceos: android", "Content-Type: application/json",);
                 curl_setopt($curlGEMS, CURLOPT_URL, $SendGEMURL);
                 curl_setopt($curlGEMS, CURLOPT_POST, true);
                 curl_setopt($curlGEMS, CURLOPT_RETURNTRANSFER, true);
@@ -1109,7 +1134,7 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
                     "notificationToken":"eFEXEC5pTAeXLu7JjIlpNX:APA91bF8I2ZGs8wUNDjpw5lSnzrz8fB652HYMxWBdTGtFRSUaBEd0pHZQvWXAd00ESKVUO_VtYieRQxtfEU7f3RUIHEs5zXGZSVqk5PfbzjZTJQcue0vHYRiEobXHk8JUlTa0nmPCdgR",
                     "osVersion":"11"
                 },
-                "recipientId":' . $uidx . '}';
+                "recipientId":' . $recID . '}';
 
                 curl_setopt($curlGEMS, CURLOPT_POSTFIELDS, $databals);
                 $respbals = curl_exec($curlGEMS);
@@ -1119,12 +1144,15 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
                 //echo $jsonbals->message;
 
                 echo "$Green\n";
-                echo "$activeAcct  GEMS | $TotalGEMS >$Cyan sent";
+//                echo "$activeAcct  GEMS | $TotalGEMS >$Cyan sent";
+
+                printf("%-15s GEMS >$Green %.2f >$Cyan sent",$activeAcct,$TotalGEMS);
+
                 $harvestedgems =$harvestedgems+$TotalGEMS;
-            } else {
-                echo "$Purple\nerror confirming recipient";
-                echo "no GEMS was transferred\n$White\n";
-                    }
+//            } else {
+//                echo "$Yellow\nerror confirming recipient\n";
+//                echo "no GEMS was transferred\n$White\n";
+//                    }
 
                 
             sleep(1);
@@ -1139,8 +1167,8 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
 
         } //end of loop for each acct
 
-        echo "$White\n----------------------------\n";
-        echo "Total harvested GEMS :$Yellow$harvestedgems\n";
+        printf("$White%'-30s\n","");
+        printf ("%-21s >$Green %.2f\n","Total harvested GEMS",$harvestedgems);
         echo "$White\n\n";
 
         mainmenu();
@@ -1165,8 +1193,8 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
   
     $jsonbal = json_decode($respbal);
     $gemsavailable = $jsonbal->data->totalGem;
-    echo "GEMS        | $gemsavailable\n";
-
+    //echo "GEMS        | $gemsavailable\n";
+    printf("%-15s | %.2f\n","GEMS",$gemsavailable);
     sleep(1);
 } //end of displaygems
 
@@ -1670,13 +1698,17 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
     "lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
     "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas");
  
+    $noofaccounts=count($acct2post);
+    $posted=0;
+
     foreach ($acct2post as $currentUser) {
    
+        $posted++;
         $deviceid=$PhoneID[rand(0,9)];
         $devicenamemodel=$PhoneModel[rand(0,80)];
     
     echo "$White\n";
-    echo "Account Details\n\n";
+    echo "Account Details ($posted of $noofaccounts)\n\n";
     echo "Username    | $currentUser\n";
     echo "$Cyan";
     
