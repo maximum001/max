@@ -152,7 +152,7 @@ echo "$White\n[ e ]$Green add moments";
 echo "$White\n[ f ]$Green check gems";
 echo "$White\n[ g ]$Green harvest gems";
 echo "$White\n[ h ]$Green exit menu";
-echo "$White\n--------------------------\n$Yellow";
+echo "$White\n-----------------------------\n$Yellow";
 
    $inputtask = readline("Your selection : ");
 
