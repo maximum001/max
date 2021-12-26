@@ -1307,7 +1307,7 @@ function postit($mydummy, $myaccounts, $posttype)
    }
 
    echo "$Green\n";
-   echo "*Pls. use same password for your accounts*\n";
+   echo "*Pls. use same password*\n";
    echo "\n";
    
    echo "$White";
@@ -1315,7 +1315,7 @@ function postit($mydummy, $myaccounts, $posttype)
    if ($mainpassword == '')
    {
        echo "$Yellow";
-       echo "\n > sorry but no password was entered\n\n";
+       echo "\n > no password was entered\n\n";
        mainmenu();  
    }
    
@@ -1332,7 +1332,7 @@ function postit($mydummy, $myaccounts, $posttype)
    echo "$ScriptName\n";
    echo "$Web\n$Yellow\n";
    echo "time to add $posttype to your account\n";
-   echo "fasten your seatbelt\n";
+   echo "starting ....\n";
    sleep(2);
    
    loop2accounts($acct2post,$mainpassword,$posttype,$postcount);
@@ -1388,7 +1388,7 @@ function post2others($posttype)
                 }
         
         echo "$Green\n";
-        echo "*Pls. use same password for your accounts*\n";
+        echo "*Use same password for your accounts*\n";
         echo "\n";
         
         echo "$White";
@@ -1396,7 +1396,7 @@ function post2others($posttype)
         if ($mainpassword == '')
         {
             echo "$Yellow";
-            echo "\n > sorry but no password was entered\n\n";
+            echo "\n > no password was entered\n\n";
             mainmenu();  
         }
    
@@ -1412,8 +1412,8 @@ function post2others($posttype)
         echo "$White\n";
         echo "$ScriptName\n";
         echo "$Web\n$Yellow\n";
-        echo "time to add $posttype to your account\n";
-        echo "fasten your seatbelt\n";
+        echo "ready to add $posttype to account\n";
+        echo "initializing ...\n";
         sleep(2);
  
         loop2accounts($acct2post,$mainpassword,$posttype,$postcount);
