@@ -79,12 +79,12 @@ $set2=[];
 array_push($set2,"iamaaparri");
 array_push($set2,"shib_aparri");
 array_push($set2,"imaparri");
+
 array_push($set2,"maximum001");
 array_push($set2,"maximum002");
 array_push($set2,"maximum003");
 array_push($set2,"maximum004");
 array_push($set2,"maximum005");
-
 
 $set3=[];
 array_push($set3,"maximum010");
@@ -119,27 +119,27 @@ array_push($set6,"xianmig2022");
 
 $myaccounts=$set1;
 
-$mydummy=[];
+$myraters=[];
 
 foreach ($set2 as $acct) {
-array_push($mydummy,"$acct");
+array_push($myraters,"$acct");
 }
 
 foreach ($set3 as $acct) {
-    array_push($mydummy,"$acct");
+    array_push($myraters,"$acct");
     }
 
     foreach ($set4 as $acct) {
-        array_push($mydummy,"$acct");
+        array_push($myraters,"$acct");
         }
         foreach ($set5 as $acct) {
-            array_push($mydummy,"$acct");
+            array_push($myraters,"$acct");
             }
             foreach ($set6 as $acct) {
-                array_push($mydummy,"$acct");
+                array_push($myraters,"$acct");
                 }
     
-echo "$White\n------- PHP MAX Menu --------";
+echo "$White\n--------- Main Menu ---------";
 echo "$White\na)$Green rate posts";
 echo "$White\nb)$Green add posts";
 echo "$White\nc)$Green add moments";
@@ -151,7 +151,7 @@ echo "$White\n-----------------------------\n$Yellow";
    $inputtask = readline("Your selection : ");
 
    switch($inputtask) {
-    case "a" : //dummy to main
+    case "a" : //raters to main
             @system("clear");
             ratepostmenu($myaccounts,$myaccounts);
             echo "\n\n";
@@ -159,29 +159,28 @@ echo "$White\n-----------------------------\n$Yellow";
        
     case "b" : //add posts
         @system("clear");
-        addpostmoments("post",$mydummy,$myaccounts);
+        addpostmomentMenu("post",$myraters,$myaccounts);
         echo "\n\n";
         mainmenu();
                
     case "c" : //add moments
         @system("clear");
-        addpostmoments("moment",$mydummy,$myaccounts);
+        addpostmomentMenu("moment",$myraters,$myaccounts);
         echo "\n\n";
         mainmenu();
     case "d" :     
         @system("clear");
-        checkgemsmenu($mydummy,$myaccounts, $PhoneID, $PhoneModel);
+        checkgemsmenu($myraters,$myaccounts, $PhoneID, $PhoneModel);
         echo "\n\n";
         mainmenu();
     case "e" :
         @system("clear");
-        harvestgemsmenu($mydummy, $PhoneID, $PhoneModel);
+        harvestgemsmenu($myraters, $PhoneID, $PhoneModel);
         echo "\n\n";
         mainmenu();
     case "f" :
         echo "\nthank you";
-        echo "\nscript exits\n\n";
-        echo "$White";
+        echo "\nscript exits\n$White\n";
         exit;  
     default :
 
@@ -199,7 +198,7 @@ echo "$White\n-----------------------------\n$Yellow";
   # //////////////////////////////////////////
 
 // THIS IS THE MENU FOR CHECKGEMS  
-function checkgemsmenu($mydummy,$myaccounts, $PhoneID, $PhoneModel)
+function checkgemsmenu($myraters,$myaccounts, $PhoneID, $PhoneModel)
 {
 
     $Cyan     = "\033[0;36m" ;        # Cyan
@@ -216,7 +215,7 @@ echo "$Web\n\n";
 echo "\nCHECK GEMS Menu\n";
 echo "-----------------------------";
 echo "$White\n1)$Green main accounts";
-echo "$White\n2)$Green dummy accounts";
+echo "$White\n2)$Green raters accounts";
 echo "$White\n3)$Green other account";
 echo "$White\n4)$Green back to main";
 echo "$White\n-----------------------------\n$Yellow";
@@ -229,14 +228,14 @@ echo "$White\n-----------------------------\n$Yellow";
         checkmaxgems($myaccounts, "main", $PhoneID, $PhoneModel); 
         echo "\n\n";
         mainmenu();      
-      case "2" : //post to dummy
+      case "2" : //post to raters
         @system("clear");
-        checkmaxgems($mydummy, "dummy", $PhoneID, $PhoneModel); 
+        checkmaxgems($myraters, "raters", $PhoneID, $PhoneModel); 
         echo "\n\n";
         mainmenu();      
-    case "3" : //post to dummy
+    case "3" : //post to raters
         @system("clear");
-        checkmaxgems($mydummy, "other", $PhoneID, $PhoneModel); 
+        checkmaxgems($myraters, "other", $PhoneID, $PhoneModel); 
         echo "\n\n";
         mainmenu();      
           
@@ -267,7 +266,7 @@ return;
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
    
-   $ScriptName ="checkgems [$accounttype] accounts (c) 2021 maximum001";
+   $ScriptName ="checkgems (c) 2021 maximum001";
    $Web="https://github.com/maximum001/max";
 
    echo "$White";
@@ -412,7 +411,7 @@ function harvestgemsmenu($accounts, $PhoneID, $PhoneModel)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="HARVEST GEMS Menu (c) 2021 maximum001";
+$ScriptName ="HARVEST GEMS (c) 2021 maximum001";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -420,7 +419,7 @@ echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nHARVEST GEMS Menu\n";
 echo "-----------------------------";
-echo "$White\n1)$Green from dummy accounts";
+echo "$White\n1)$Green from raters accounts";
 echo "$White\n2)$Green from other accounts";
 echo "$White\n3)$Green back to main";
 echo "$White\n-----------------------------\n";
@@ -430,10 +429,10 @@ echo "$White\n-----------------------------\n";
    switch($inputtask) {
       case "1" : //post to main
         @system("clear");
-        harvestmaxgems($accounts, "dummy", $PhoneID, $PhoneModel); 
+        harvestmaxgems($accounts, "raters", $PhoneID, $PhoneModel); 
         echo "\n\n";
         mainmenu();      
-      case "2" : //post to dummy
+      case "2" : //post to raters
         @system("clear");
         harvestmaxgems("", "other", $PhoneID, $PhoneModel); 
         echo "\n\n";
@@ -668,7 +667,7 @@ return;
 
 
 // THIS IS THE MENU FOR RATEPOST  
-function ratepostmenu($mydummy, $myaccounts)
+function ratepostmenu($myraters, $myaccounts)
 {
 
     $Cyan     = "\033[0;36m" ;        # Cyan
@@ -685,8 +684,8 @@ echo "$Web\n\n";
 echo "\nRATE POSTS Menu\n";
 echo "-----------------------------";
 echo "$White\n1)$Cyan main  <> main accounts";
-echo "$White\n2)$Cyan dummy <> main accounts";
-echo "$White\n3)$Cyan dummy <> other account";
+echo "$White\n2)$Cyan raters <> main accounts";
+echo "$White\n3)$Cyan raters <> other account";
 echo "$White\n4)$Cyan other <> other account";
 echo "$White\n5)$Cyan back to main";
 echo "$White\n-----------------------------\n";
@@ -700,15 +699,15 @@ echo "$White\n-----------------------------\n";
         echo "\n\n";
         mainmenu();
 
-    case "2" : //dummy to main
+    case "2" : //raters to main
         @system("clear");
-        max2max($mydummy,$myaccounts);
+        max2max($myraters,$myaccounts);
         echo "\n\n";
         mainmenu();        
 
-    case "3" : //dummy to other
+    case "3" : //raters to other
         @system("clear");
-        max2u($mydummy);     
+        max2u($myraters);     
         echo "\n\n";
         mainmenu();        
 
@@ -745,7 +744,7 @@ function max2max($raters,$acct2rate)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
     
-    $ScriptName ="main <> main | dummy <> main";
+    $ScriptName ="main <> main | raters <> main";
     $Web="https://github.com/maximum001/max";
 
     echo "$White";
@@ -787,6 +786,28 @@ function max2u($raters)
     echo "$Web\n\n";
     echo "Needed: your usernames to RATE\n";
     
+ 
+        #get acct names to rate
+        $acct2rate=[];
+        $acct=0;
+        
+        echo "$Yellow\n";
+        echo "Input Usernames [max of 4] to RATE\n";
+        echo "press enter when done\n$Green\n";
+        do {
+            $inputusername = readline("Username : ");
+            if ($inputusername !='') {
+                array_push($acct2rate, "$inputusername",);
+                $acct++;
+            } else { break;}
+        } while ($acct != 4);
+         
+         if ($acct == 0)  {
+             echo "$Yellow";
+             echo "> no username to RATE entered\n\n";
+                mainmenu(); 
+                }
+
     //should use one password per raters account
     echo "$Yellow\n";
     echo "Input RATERS password\n$Green\n";
@@ -795,29 +816,9 @@ function max2u($raters)
     {
         echo "$Yellow\n**empty password**\n\n";
         mainmenu();    }
-    
-        #get acct names to rate
-        $acct2rate=[];
-        $acct=0;
-        echo "$Yellow\n";
-        echo "Input username to RATE\n";
-        echo "press enter when done\n$Green\n";
-        do {
-            $inputusername = readline("Username : ");
-        if ($inputusername !='') {
-            array_push($acct2rate, "$inputusername",);
-            $acct=1;
-            }
-        } while ($inputusername !='');
-        
-        if ($acct == 0)
-        {
-            echo "$Yellow";
-            echo "> pls. enter atleast one (1) username\n\n";
-                mainmenu(); }
 
-     ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
-     return;
+    ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
+    return;
           
 
 } //end of max2u
@@ -827,7 +828,7 @@ function max2u($raters)
  #  //
  #  //////////////////////////////////////////
 
-function allmax2u($mydummy,$myaccounts)
+function allmax2u($myraters,$myaccounts)
 {
 
     $Cyan     = "\033[0;36m" ;        # Cyan
@@ -852,7 +853,7 @@ if ($mainpassword == '')
     echo "$Yellow\n**empty password**\n\n";
         mainmenu();}
 ////////
-    $raters=$mydummy;
+    $raters=$myraters;
 ///////
     foreach($myaccounts as $acct){
     array_push($raters,"$acct");
@@ -863,22 +864,23 @@ if ($mainpassword == '')
 #get acct names to rate
 $acct2rate=[];
 $acct=0;
+
 echo "$Yellow\n";
-echo "Input username to RATE\n";
+echo "Input Usernames [max of 4] to RATE\n";
 echo "press enter when done\n$Green\n";
 do {
     $inputusername = readline("Username : ");
-   if ($inputusername !='') {
-    array_push($acct2rate, "$inputusername",);
-    $acct=1;
-    }
- } while ($inputusername !='');
+    if ($inputusername !='') {
+        array_push($acct2rate, "$inputusername",);
+        $acct++;
+    } else { break;}
+} while ($acct != 4);
  
- if ($acct == 0)
- {
+ if ($acct == 0)  {
      echo "$Yellow";
-     echo "> pls. enter atleast one (1) username\n\n";
-        mainmenu(); }
+     echo "> no username to RATE entered\n\n";
+        mainmenu(); 
+        }
 
  ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
  return;
@@ -920,7 +922,7 @@ if ($usr != 1)
     echo "$Yellow\n";
     echo "no RATERS username was entered\n";
     echo "pls. enter atleast one (1) username\n\n";
-        mainmenu();}
+    mainmenu();}
 
 #should use one password for all accounts
 echo "$Yellow\n";
@@ -937,22 +939,21 @@ $acct2rate=[];
 $acct=0;
 
 echo "$Yellow\n";
-echo "Input username to RATE\n";
+echo "Input Usernames [max of 4] to RATE\n";
 echo "press enter when done\n$Green\n";
 do {
     $inputusername = readline("Username : ");
-   if ($inputusername !='') {
-    array_push($acct2rate, "$inputusername",);
-    $acct=1;
-    }
- } while ($inputusername !='');
+    if ($inputusername !='') {
+        array_push($acct2rate, "$inputusername",);
+        $acct++;
+    } else { break;}
+} while ($acct != 4);
  
  if ($acct == 0)  {
      echo "$Yellow";
-     echo " > pls. enter atleast one (1) username\n\n";
+     echo "> no username to RATE entered\n\n";
         mainmenu(); 
         }
-
 
 ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
 return;
@@ -1234,7 +1235,7 @@ foreach ($raters as $currentRater) :  #//raters
 #    //
 #    //////////////////////////////////////////
 
-function addpostmoments($posttype,$mydummy,$myaccounts)
+function addpostmomentMenu($posttype,$myraters,$myaccounts)
 {
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
@@ -1249,7 +1250,7 @@ echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nAdd $posttype menu ----\n";
 echo "$White\n1)$Green main accounts";
-echo "$White\n2)$Green dummy accounts";
+echo "$White\n2)$Green raters accounts";
 echo "$White\n3)$Green other account";
 echo "$White\n4)$Green back to main";
 echo "$White\n-----------------------------\n";
@@ -1259,15 +1260,15 @@ echo "$White\n-----------------------------\n";
    switch($inputtask) {
       case "1" : //post to main
         @system("clear");
-        $mydummy=[];
-        postit($mydummy,$myaccounts,"$posttype"); 
+        $myraters=[];
+        postit($myraters,$myaccounts,"$posttype"); 
         echo "\n\n";
         exit;
       
-      case "2" : //post to dummy
+      case "2" : //post to raters
         @system("clear");
         $myaccounts=[];        
-        postit($mydummy,$myaccounts,"$posttype");
+        postit($myraters,$myaccounts,"$posttype");
         echo "\n\n";
         exit;
       
@@ -1290,7 +1291,7 @@ echo "$White\n-----------------------------\n";
 return;
 }
 
-function postit($mydummy, $myaccounts, $posttype)
+function postit($myraters, $myaccounts, $posttype)
 {
    @system("clear");
 
@@ -1314,7 +1315,7 @@ function postit($mydummy, $myaccounts, $posttype)
    echo "$White";
    echo "$ScriptName\n";
    echo "$Web\n\n";
-   echo "add $posttype to dummy+main account\n";
+   echo "add $posttype to raters+main account\n";
    
    $acct2post = []; 
 
@@ -1323,7 +1324,7 @@ function postit($mydummy, $myaccounts, $posttype)
       array_push($acct2post,$acct);
     }
 
-   foreach($mydummy as $acct)
+   foreach($myraters as $acct)
    {
     array_push($acct2post,$acct);      
    }
