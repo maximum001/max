@@ -71,14 +71,14 @@ $PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
 "Vivo X6","Vivo Y51","Vivo Y27L","Vivo Y15S","Vivo V1Max","Vivo V1","Vivo X5Pro","Vivo X5Max+",
 "Vivo X5S L","Vivo X Shot","Vivo X3S","Vivo Y15","Vivo Y22","Vivo X5Max","Nokia 3210");
 
-$set1=[]; //main account
+$set1=[];
 array_push($set1,"reneaparri");
 array_push($set1,"rene_wolverine");
 
 $set2=[];
-array_push($set1,"iamaaparri");
-array_push($set1,"shib_aparri");
-array_push($set1,"imaparri");
+array_push($set2,"iamaaparri");
+array_push($set2,"shib_aparri");
+array_push($set2,"imaparri");
 array_push($set2,"maximum001");
 array_push($set2,"maximum002");
 array_push($set2,"maximum003");
@@ -647,7 +647,7 @@ return;
 //                echo "no GEMS was transferred\n$White\n";
 //                    }
                
-           sleep(1);
+           usleep(100000);
        
        } else {
            echo "$Yellow\n";
@@ -1929,8 +1929,7 @@ function getgembalance($bearer)
     $gemsavailable = $jsonbal->data->totalGem;
 
     return $gemsavailable; 
-    //echo "GEMS        | $gemsavailable\n";
-//    sleep(1);
+
 } //end of getgembalance
 
    ?>
