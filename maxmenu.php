@@ -992,15 +992,20 @@ sleep(2);
 
 #/////////////////// start rating ////////////////////
 
+$noofraters=count($raters);
+$rated=0;
+
 foreach ($raters as $currentRater) :  #//raters
 
+ 
     #login to raters
     $devID= uniqid('bae');//$PhoneID[rand(0,9)];
     $DevName=$PhoneModel[rand(0,50)];
+    $rated++;
     
     echo "\n$White";
-//    echo "Raters      |$Green $currentRater\n$White";
-    printf("%-15s | %s\n","Raters",$currentRater);
+    printf("%-15s | %s/%s\n","Rater No.",$rated,$noofraters);
+    printf("%-15s | %s\n","Username",$currentRater);
 
     
     $urll = "https://identity.mylykaapps.com/useraccounts/login";
