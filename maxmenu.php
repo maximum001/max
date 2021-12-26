@@ -1062,9 +1062,6 @@ foreach ($raters as $currentRater) :  #//raters
         $donerating++;
         if ($currentRater != $BeingRated) : #avoid rating own post
               
-        echo "$White\n";
-        printf("%3s / %3s [%15s] >>>",$donerating,$toratecount,$currentRater);
-    
         $urlm = "https://users.mylykaapps.com/api/v3/users/searchsuggestedpeople?searchText=$BeingRated&os=android&pageIndex=1&pageSize=16";
         $curlm = curl_init($urlm);
         curl_setopt($curlm, CURLOPT_URL, $urlm);
@@ -1079,8 +1076,10 @@ foreach ($raters as $currentRater) :  #//raters
         $verifiedaccount = $jsonm["data"]["0"]["userName"];
     
         if ($BeingRated == $verifiedaccount) :
-        
-            echo " [$BeingRated]\n";
+            echo "$White\n";
+            printf("%-7s | [%-15s] %s/%s\n","Rater",$rated,$noofraters,$currentRater);
+            printf("%-7s | [%-15s] %s/%s\n","Rated",$donerating,$toratecount,$BeingRated);
+  
             sleep(1);  
             $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=50&id=$verifiedaccountID&category=ALL";
             $curld = curl_init($urld);
