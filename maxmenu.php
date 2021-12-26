@@ -1007,7 +1007,6 @@ foreach ($raters as $currentRater) :  #//raters
     printf("%-15s | %s/%s\n","Rater No.",$rated,$noofraters);
     printf("%-15s | %s\n","Username",$currentRater);
 
-    
     $urll = "https://identity.mylykaapps.com/useraccounts/login";
     $curll = curl_init($urll);
     curl_setopt($curll, CURLOPT_URL, $urll);
@@ -1048,8 +1047,8 @@ foreach ($raters as $currentRater) :  #//raters
     $json = json_decode($respp);  
     
     #display raters gems
-    echo "$White";
-    printf("%-15s | %.2f\n","GEMS",getgembalance($bearer));
+    //echo "$White";
+    //printf("%-15s | %.2f\n","GEMS",getgembalance($bearer));
     //getgembalance($bearer);
     echo "$Cyan";
     echo "$msgn\n";
