@@ -1095,7 +1095,7 @@ foreach ($raters as $currentRater) :  #//raters
             printf("%-5s (%2s/%2s) | %-15s\n","Rater",$rated,$noofraters,$currentRater);
             printf("%-5s (%2s/%2s) | %-15s\n","Rated",$donerating,$toratecount,$BeingRated);
   
-            sleep(1);  
+            usleep(300000);  
             $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=50&id=$verifiedaccountID&category=ALL";
             $curld = curl_init($urld);
             curl_setopt($curld, CURLOPT_URL, $urld);
@@ -1183,7 +1183,7 @@ foreach ($raters as $currentRater) :  #//raters
                         $PostNum++;
                         $xcount++;
 
-                        sleep(2);
+                        usleep(500000);
     
                     } while ($PostNum !=10);
 
@@ -1590,7 +1590,7 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
 //    printf("%-15s | %.2f\n","GEMS",getgembalance($bearer));
 //    getgembalance($bearer);
     echo "--------------------------------\n";
-    sleep(2);
+    sleep(1);
     
     } //end of loop for x username
     echo "\n$White\n";
@@ -1841,7 +1841,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
         curl_setopt($getCurl, CURLOPT_HTTPGET, true);
         curl_setopt($getCurl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($getCurl, CURLOPT_HTTPHEADER, $getHeader);
-        sleep(1);
+        usleep(500000);
         $getResp = curl_exec($getCurl);
         curl_close($getCurl);
         $getjson = json_decode($getResp);
@@ -1867,7 +1867,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
         curl_setopt($postCurl, CURLOPT_POSTFIELDS, $payloader);
         curl_setopt($postCurl, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($postCurl, CURLOPT_SSL_VERIFYPEER, false);
-        sleep(1);
+        usleep(500000);
         $postResp = curl_exec($postCurl);
         curl_close($postCurl);
         $postjson = json_decode($postResp);
