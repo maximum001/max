@@ -1076,8 +1076,8 @@ foreach ($raters as $currentRater) :  #//raters
     
         if ($BeingRated == $verifiedaccount) :
             echo "$White\n";
-            printf("%-7s | [%-15s] %s/%s\n","Rater",$rated,$noofraters,$currentRater);
-            printf("%-7s | [%-15s] %s/%s\n","Rated",$donerating,$toratecount,$BeingRated);
+            printf("%-5s | [%-15s] %s/%s\n","Rater",$currentRater,$rated,$noofraters);
+            printf("%-5s | [%-15s] %s/%s\n","Rated",$BeingRated,$donerating,$toratecount);
   
             sleep(1);  
             $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=50&id=$verifiedaccountID&category=ALL";
