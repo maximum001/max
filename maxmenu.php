@@ -47,14 +47,14 @@ $hash_tags =array("lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
 "lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
 "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas");
 
-$PhoneID=['df0439087259ad38','a5ead687bdb3729c','87a87fe99d0039a5'];
-array_push($PhoneID,'7d7e6f904741daea');
-array_push($PhoneID,'9f78dab798ab0324');
-array_push($PhoneID,'83d23b76250d2a97');
-array_push($PhoneID,'7ae21b1182e2a323');
-array_push($PhoneID,'29b3e709883d7321');
-array_push($PhoneID,'c51e10db899a4cc4');
-array_push($PhoneID,'47db99101c533bc5');
+$PhoneID=['328fd81b7c77d67e','b45deff156018bb0','2868c5abc0f6d247'];
+array_push($PhoneID,'564d9aef9b9a0bb7');
+array_push($PhoneID,'73f2753cefee52ad');
+array_push($PhoneID,'b4b16cb484de8fe9');
+array_push($PhoneID,'618ad7dfb1accff8');
+array_push($PhoneID,'4c036e33dc8deebf');
+array_push($PhoneID,'f7df149b96c277f9');
+array_push($PhoneID,'9cb5043f81f4c475');
 
 $PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
 "iPhone 6","iPhone 6 Plus","iPhone 6s","iPhone 6s Plus",
@@ -340,7 +340,7 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
 
    foreach ($maxaccounts as $activeAcct) {
 
-   $devID=$PhoneID[rand(0,9)];
+   $devID=uniqid('dfc'); //$PhoneID[rand(0,9)];
    $DevName=$PhoneModel[rand(0,50)];
 
        #Login to each account
@@ -533,7 +533,7 @@ return;
 
        foreach ($maxaccounts as $activeAcct) {
 
-       $devID=$PhoneID[rand(0,9)];
+       $devID=uniqid('fed'); //$PhoneID[rand(0,9)];
        $DevName=$PhoneModel[rand(0,50)];
 
            //Login to each account
@@ -995,7 +995,7 @@ sleep(2);
 foreach ($raters as $currentRater) :  #//raters
 
     #login to raters
-    $devID=$PhoneID[rand(0,9)];
+    $devID= uniqid('bae');//$PhoneID[rand(0,9)];
     $DevName=$PhoneModel[rand(0,50)];
     
     echo "\n$White";
@@ -1100,7 +1100,7 @@ foreach ($raters as $currentRater) :  #//raters
                     $PostNum=0;
                     $xcount=1;
                     do {
-                        $PhoneID[rand(0,9)];
+                        $devID=uniqid('eab');//$PhoneID[rand(0,9)];
                         $DevName=$PhoneModel[rand(0,50)];
                     
                         echo "$White"; 
@@ -1473,7 +1473,7 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
     foreach ($acct2post as $currentUser) {
    
         $posted++;
-        $deviceid=$PhoneID[rand(0,9)];
+        $deviceid=uniqid('cef'); //$PhoneID[rand(0,9)];
         $devicenamemodel=$PhoneModel[rand(0,80)];
     
     echo "$White\n";
@@ -1531,7 +1531,7 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
        echo "$White";
        echo "..$posttype #$postloop > "; 
        
-       $deviceid = $PhoneID[rand(0,9)];
+       $deviceid = uniqid('daf');//$PhoneID[rand(0,9)];
     
        echo "$Cyan";
        
@@ -1567,6 +1567,7 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
     } //end of loop for x username
     echo "\n$White\n";
     echo "Summary - add a $posttype\n";
+    $PhoneID=uniqid('afd');
     checkgems($acct2post,$mainpassword,$PhoneID, $PhoneModel);
     mainmenu();
 
@@ -1756,7 +1757,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
                     "isHighlight":false,
                     "isSharedLink":false,
                     "mediaTags":"[[]]",
-                    title:"#ActiveLYKA'.date("l").'",
+                    title:"#Happy'.date("l").'",
                     hashtags:"'.$xhash.'",
                     content: "'.$contents.'"'),
                     $bearer);
@@ -1847,12 +1848,30 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
  }
  
  function payload($devIDx, $xtraPay, $rTokenx = ""){
+
+    $PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
+    "iPhone 6","iPhone 6 Plus","iPhone 6s","iPhone 6s Plus",
+    "iPhone SE (1st generation)","iPhone 7","iPhone 7 Plus","iPhone 8",
+    "iPhone 8 Plus","iPhone X","iPhone XR","iPhone XS","iPhone XS Max",
+    "iPhone 11","iPhone 11 Pro","iPhone 11 Pro Max","iPhone SE","iPhone 12 mini","iPhone 12","iPhone 12 Pro",
+    "Tecno Spark 7","Tecno Spark 7 Pro","Vivo V11i","Vivo V11","Vivo V11 Pro",
+    "Oppo A94","Oppo A12","Vivo Z10","Samsung Galaxy S20","Vivo Y81","Vivo Nex S","Vivo Nex A","Vivo Y75s","Vivo Y83",
+    "Vivo X21i","Vivo Z1","Vivo Y53i","Nokia 5","Nokia 6","Vivo Y71","Vivo X21 UD","Vivo X21","Vivo V9",
+    "Vivo X20 Plus UD","Vivo Y75","Vivo V7","Samsung Galaxy S9","Vivo X20 Plus","Vivo X20","Vivo V7+",
+    "Vivo Y69","Vivo V5s","LG G+","Vivo Y66","Sony Xperia 10","Nokia 3315","Vivo Y55s","Tecno Spark 6 Air","Tecno Spark 6 Go","Vivo Xplay6",
+    "HTC U20 5G","Vivo X9","Google Pixel 5","OnePlus 9","OnePlus 10","Infinix Hot S10","Vivo X7","Vivo X6S Plus",
+    "Vivo X6S","Vivo Y31L","Oppo A2","Oppo A11","Vivo Xplay5 Elite","Vivo Y51L","Vivo X6 Plus",
+    "Vivo X6","Vivo Y51","Vivo Y27L","Vivo Y15S","Vivo V1Max","Vivo V1","Vivo X5Pro","Vivo X5Max+",
+    "Vivo X5S L","Vivo X Shot","Vivo X3S","Vivo Y15","Vivo Y22","Vivo X5Max","Nokia 3210"); 
+
+    $DevName=$PhoneModel[rand(0,50)];
+
      $valdata = <<<DATA
              {"device": {
                  "deviceId": "$devIDx",
                  "deviceImei": "$devIDx",
-                 "deviceModel": "Tecno Spark 7 Pro",
-                 "deviceName": "Tecno Spark 7 Pro",
+                 "deviceModel": "$DevName",
+                 "deviceName": "$DevName",
                  "deviceOs": "Android",
                  "isEmulator": false,
                  "osVersion": "11",
