@@ -153,7 +153,7 @@ echo "$White\n-----------------------------\n$Yellow";
    switch($inputtask) {
     case "a" : //raters to main
             @system("clear");
-            ratepostmenu($myaccounts,$myaccounts);
+            ratepostmenu($myraters,$myaccounts);
             echo "\n\n";
             mainmenu();
        
