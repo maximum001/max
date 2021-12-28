@@ -1,7 +1,7 @@
 <?PHP
 
 @system("clear");
-
+/*
 $White    = "\033[0;37m" ;       # White
 
 $ScriptName ="PHP MAXMenu (c) 2021 maximum001";
@@ -14,6 +14,7 @@ echo "\n\n";
 echo "$White";
 echo "$ScriptName\n";
 echo "$Web\n";
+*/
 
 {
 
@@ -71,75 +72,70 @@ $PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
 "Vivo X6","Vivo Y51","Vivo Y27L","Vivo Y15S","Vivo V1Max","Vivo V1","Vivo X5Pro","Vivo X5Max+",
 "Vivo X5S L","Vivo X Shot","Vivo X3S","Vivo Y15","Vivo Y22","Vivo X5Max","Nokia 3210");
 
-$set1=[];
-array_push($set1,"reneaparri");
-array_push($set1,"rene_wolverine");
 
-$set2=[];
-array_push($set2,"iamaaparri");
-array_push($set2,"shib_aparri");
-array_push($set2,"imaparri");
+$mainaccounts=[];
+$ratersaccount=[];
 
-array_push($set2,"maximum001");
-array_push($set2,"maximum002");
-array_push($set2,"maximum003");
-array_push($set2,"maximum004");
-array_push($set2,"maximum005");
+#my accounts
+array_push($mainaccounts,"reneaparri");
+array_push($mainaccounts,"rene_wolverine");
 
-$set3=[];
-array_push($set3,"maximum010");
-array_push($set3,"maximum011");
-array_push($set3,"maximum012");
-array_push($set3,"maximum013");
-array_push($set3,"max1mum14");
+#raters
+array_push($ratersaccount,"zero9691255118");
+array_push($ratersaccount,"ninesixnine1690606");
+array_push($ratersaccount,"max1318569");
+array_push($ratersaccount,"max1603820");
+array_push($ratersaccount,"max1603295");
+array_push($ratersaccount,"max7456929");
+array_push($ratersaccount,"max1318552");
 
-$set4=[];
+array_push($ratersaccount,"iamaaparri");
+array_push($ratersaccount,"shib_aparri");
+array_push($ratersaccount,"imaparri");
 
-array_push($set4,"maximum030");
-array_push($set4,"maximum031");
-array_push($set4,"maximum032");
-array_push($set4,"maximum033");
-array_push($set4,"max1mum34");
+array_push($ratersaccount,"maximum001");
+array_push($ratersaccount,"maximum002");
+array_push($ratersaccount,"maximum003");
+array_push($ratersaccount,"maximum004");
+array_push($ratersaccount,"maximum005");
 
-$set5=[];
+array_push($ratersaccount,"maximum010");
+array_push($ratersaccount,"maximum011");
+array_push($ratersaccount,"maximum012");
+array_push($ratersaccount,"maximum013");
+array_push($ratersaccount,"max1mum14");
 
-array_push($set5,"im100pretty");
-array_push($set5,"im200pretty");
-array_push($set5,"im300pretty");
-array_push($set5,"pretty01lyca");
-array_push($set5,"pretty02lyca");
+array_push($ratersaccount,"maximum030");
+array_push($ratersaccount,"maximum031");
+array_push($ratersaccount,"maximum032");
+array_push($ratersaccount,"maximum033");
+array_push($ratersaccount,"max1mum34");
 
-$set6=[];
-array_push($set6,"lykapro001");
-array_push($set6,"lykapro002");
-array_push($set6,"lykapro003");
-array_push($set6,"icarus2022");
-array_push($set6,"xianmig2022");
+array_push($ratersaccount,"im100pretty");
+array_push($ratersaccount,"im200pretty");
+array_push($ratersaccount,"im300pretty");
+array_push($ratersaccount,"pretty01lyca");
+array_push($ratersaccount,"pretty02lyca");
 
+array_push($ratersaccount,"lykapro001");
+array_push($ratersaccount,"lykapro002");
+array_push($ratersaccount,"lykapro003");
+array_push($ratersaccount,"icarus2022");
+array_push($ratersaccount,"xianmig2022");
 
-$myaccounts=$set1;
+$ScriptName ="PHP MAXMenu (c) 2021 maximum001";
+$Web="https://github.com/maximum001/max";
 
-$myraters=[];
+//echo "$White\n#ActiveLYKA";
+//echo date("l");
+//echo "\n\n";
 
-foreach ($set2 as $acct) {
-array_push($myraters,"$acct");
-}
-
-foreach ($set3 as $acct) {
-    array_push($myraters,"$acct");
-    }
-
-    foreach ($set4 as $acct) {
-        array_push($myraters,"$acct");
-        }
-        foreach ($set5 as $acct) {
-            array_push($myraters,"$acct");
-            }
-            foreach ($set6 as $acct) {
-                array_push($myraters,"$acct");
-                }
+echo "$White";
+echo "$ScriptName\n";
+echo "$Web\n\n";
     
-echo "$White\n--------- Main Menu ---------";
+echo "$White\nMAIN MENU";
+echo "$White\n-----------------------------";
 echo "$White\na)$Green rate posts";
 echo "$White\nb)$Green add posts";
 echo "$White\nc)$Green add moments";
@@ -153,29 +149,29 @@ echo "$White\n-----------------------------\n$Yellow";
    switch($inputtask) {
     case "a" : //raters to main
             @system("clear");
-            ratepostmenu($myraters,$myaccounts);
+            ratepostmenu($ratersaccount,$mainaccounts);
             echo "\n\n";
             mainmenu();
        
     case "b" : //add posts
         @system("clear");
-        addpostmomentMenu("post",$myraters,$myaccounts);
+        addpostmomentMenu("post",$ratersaccount,$mainaccounts);
         echo "\n\n";
         mainmenu();
                
     case "c" : //add moments
         @system("clear");
-        addpostmomentMenu("moment",$myraters,$myaccounts);
+        addpostmomentMenu("moment",$ratersaccount,$mainaccounts);
         echo "\n\n";
         mainmenu();
     case "d" :     
         @system("clear");
-        checkgemsmenu($myraters,$myaccounts, $PhoneID, $PhoneModel);
+        checkgemsmenu($ratersaccount,$mainaccounts, $PhoneID, $PhoneModel);
         echo "\n\n";
         mainmenu();
     case "e" :
         @system("clear");
-        harvestgemsmenu($myraters, $PhoneID, $PhoneModel);
+        harvestgemsmenu($ratersaccount, $PhoneID, $PhoneModel);
         echo "\n\n";
         mainmenu();
     case "f" :
@@ -185,7 +181,6 @@ echo "$White\n-----------------------------\n$Yellow";
     default :
 
         @system("clear");
-        echo "$White\n*** Invalid selection ***\n";   
         mainmenu();
 
    } //end of switch..case
@@ -198,7 +193,7 @@ echo "$White\n-----------------------------\n$Yellow";
   # //////////////////////////////////////////
 
 // THIS IS THE MENU FOR CHECKGEMS  
-function checkgemsmenu($myraters,$myaccounts, $PhoneID, $PhoneModel)
+function checkgemsmenu($ratersaccount,$mainaccounts, $PhoneID, $PhoneModel)
 {
 
     $Cyan     = "\033[0;36m" ;        # Cyan
@@ -223,30 +218,28 @@ echo "$White\n-----------------------------\n$Yellow";
    $inputtask = readline("Your selection : ");
 
    switch($inputtask) {
-      case "1" : //post to main
+      case "1" : //main
         @system("clear");
-        checkmaxgems($myaccounts, "main", $PhoneID, $PhoneModel); 
+        checkmaxgems($mainaccounts, "main", $PhoneID, $PhoneModel); 
         echo "\n\n";
         mainmenu();      
-      case "2" : //post to raters
+      case "2" : //raters
         @system("clear");
-        checkmaxgems($myraters, "raters", $PhoneID, $PhoneModel); 
+        checkmaxgems($ratersaccount, "raters", $PhoneID, $PhoneModel); 
         echo "\n\n";
         mainmenu();      
-    case "3" : //post to raters
+    case "3" : //other accounts
         @system("clear");
-        checkmaxgems($myraters, "other", $PhoneID, $PhoneModel); 
+        checkmaxgems($ratersaccount, "other", $PhoneID, $PhoneModel); 
         echo "\n\n";
         mainmenu();      
           
     case "4" :
        @system("clear");
-       echo "\n\n";
        mainmenu();   
 
     default :
        @system("clear");
-       echo "\n\n";
        mainmenu();   
    }     
 return;
@@ -386,14 +379,19 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
        printf("%2s) %-15s GEMS >$Green %.2f\n",$xcount,$activeAcct,$TotalGEMS);
        $total=$total + $TotalGEMS;
    
-     } //end of user logged in
+       } else { 
+        echo "$White";  
+        printf("%2s) %-15s >$Green failed to login\n",$xcount,$activeAcct);
+        } 
+     
+     //end of user logged in
    
    } //end of loop for each account
    
      printf("\n$White%'-30s\n","");
-     printf("%-15s GEMS >$Yellow %.2f\n","Total",$total);
+     printf("%19s GEMS >$Yellow %.2f\n","Total",$total);
      echo "$White\n";
-      
+     sleep(2); 
    } //end checkgems
 
 
@@ -440,12 +438,10 @@ echo "$White\n-----------------------------\n";
       
       case "3" :
        @system("clear");
-       echo "\n\n";
        mainmenu();   
 
       default :
        @system("clear");
-       echo "\n\n";
        mainmenu();   
    }     
 return;
@@ -667,7 +663,7 @@ return;
 
 
 // THIS IS THE MENU FOR RATEPOST  
-function ratepostmenu($myraters, $myaccounts)
+function ratepostmenu($ratersaccount, $mainaccounts)
 {
 
     $Cyan     = "\033[0;36m" ;        # Cyan
@@ -695,19 +691,19 @@ echo "$White\n-----------------------------\n";
    switch($inputtask) {
     case "1" : //main to main
         @system("clear");
-        max2max($myaccounts,$myaccounts);
+        max2max($mainaccounts,$mainaccounts);
         echo "\n\n";
         mainmenu();
 
     case "2" : //raters to main
         @system("clear");
-        max2max($myraters,$myaccounts);
+        max2max($ratersaccount,$mainaccounts);
         echo "\n\n";
         mainmenu();        
 
     case "3" : //raters to other
         @system("clear");
-        max2u($myraters);     
+        max2u($ratersaccount);     
         echo "\n\n";
         mainmenu();        
 
@@ -717,14 +713,12 @@ echo "$White\n-----------------------------\n";
         echo "\n\n";
         mainmenu();        
     
-    case "4" : //other
+    case "5" : //other
         @system("clear");
-        echo "\n\n";
         mainmenu();        
             
     default :
        @system("clear");
-       echo "\n\n";
        mainmenu();   
    }     
 return;
@@ -828,7 +822,7 @@ function max2u($raters)
  #  //
  #  //////////////////////////////////////////
 
-function allmax2u($myraters,$myaccounts)
+function allmax2u($ratersaccount,$mainaccounts)
 {
 
     $Cyan     = "\033[0;36m" ;        # Cyan
@@ -853,13 +847,13 @@ if ($mainpassword == '')
     echo "$Yellow\n**empty password**\n\n";
         mainmenu();}
 ////////
-    $raters=$myraters;
+    $raters=$ratersaccount;
 ///////
-    foreach($myaccounts as $acct){
+    foreach($mainaccounts as $acct){
     array_push($raters,"$acct");
     }
 //////
-//$raters=$myaccounts;
+//$raters=$mainaccounts;
 
 #get acct names to rate
 $acct2rate=[];
@@ -1164,16 +1158,21 @@ foreach ($raters as $currentRater) :  #//raters
                         {    
                         
                         if (strstr($postmessage,'Congratulations')) {
-                            echo " > rated 10 posts \n";
+                            echo " > rated more than 10 posts \n";
                         } elseif ($postmessage=="You already have rated this post.")
                         {
                          echo " > already rated\n";    
                         } elseif (strstr($postmessage,'Too many')) {
-                            echo " > slow or no internet\n";
-                            sleep(2);
+                            echo " > too many requests\n";
+                            $PostNum--;
+                            $xcount--;
+
+                            sleep(10);
                         } elseif (strstr($postmessage,'Forbidden')) {
                             echo " > forbidden\n";
-                            sleep(2);
+                            $PostNum--;
+                            $xcount--;
+                            sleep(10);
                         } elseif (strstr($postmessage,"Post rating")) {
                            echo " > earnings saved\n";    
                         } else {
@@ -1205,10 +1204,10 @@ foreach ($raters as $currentRater) :  #//raters
   #  ///////////// end of loop to each account to rate /////////////
   
     } else {
-        echo "$Yellow";
-        echo "$msgn\n";
-        echo "$White";
-        break;
+        echo "$Yellow\n";
+        echo "$msgn";
+        echo "\n$White";
+       // break;
     }  #// endif
     
     sleep(2);
@@ -1235,7 +1234,7 @@ foreach ($raters as $currentRater) :  #//raters
 #    //
 #    //////////////////////////////////////////
 
-function addpostmomentMenu($posttype,$myraters,$myaccounts)
+function addpostmomentMenu($posttype,$ratersaccount,$mainaccounts)
 {
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
@@ -1248,10 +1247,11 @@ $Web="https://github.com/maximum001/max";
 echo "$White";
 echo "$ScriptName\n";
 echo "$Web\n\n";
-echo "\nAdd $posttype menu ----\n";
-echo "$White\n1)$Green main accounts";
-echo "$White\n2)$Green raters accounts";
-echo "$White\n3)$Green other account";
+echo "\nADD $posttype Menu\n";
+echo "-----------------------------";
+echo "$White\n1)$Green add to main accounts";
+echo "$White\n2)$Green add to raters accounts";
+echo "$White\n3)$Green add to other account";
 echo "$White\n4)$Green back to main";
 echo "$White\n-----------------------------\n";
 
@@ -1260,15 +1260,15 @@ echo "$White\n-----------------------------\n";
    switch($inputtask) {
       case "1" : //post to main
         @system("clear");
-        $myraters=[];
-        postit($myraters,$myaccounts,"$posttype"); 
+        $ratersaccount=[];
+        postit($ratersaccount,$mainaccounts,"$posttype"); 
         echo "\n\n";
         exit;
       
       case "2" : //post to raters
         @system("clear");
-        $myaccounts=[];        
-        postit($myraters,$myaccounts,"$posttype");
+        $mainaccounts=[];        
+        postit($ratersaccount,$mainaccounts,"$posttype");
         echo "\n\n";
         exit;
       
@@ -1280,18 +1280,16 @@ echo "$White\n-----------------------------\n";
 
       case "4" :
        @system("clear");
-       echo "\n\n";
        mainmenu();   
 
       default :
        @system("clear");
-       echo "\n\n";
        mainmenu();   
    }     
 return;
 }
 
-function postit($myraters, $myaccounts, $posttype)
+function postit($ratersaccount, $mainaccounts, $posttype)
 {
    @system("clear");
 
@@ -1319,12 +1317,12 @@ function postit($myraters, $myaccounts, $posttype)
    
    $acct2post = []; 
 
-   foreach($myaccounts as $acct)
+   foreach($mainaccounts as $acct)
     {
       array_push($acct2post,$acct);
     }
 
-   foreach($myraters as $acct)
+   foreach($ratersaccount as $acct)
    {
     array_push($acct2post,$acct);      
    }
@@ -1558,8 +1556,9 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
      do {  
         
        echo "$White";
-       echo "..$posttype #$postloop > "; 
-       
+//       echo "..$posttype #$postloop > "; 
+       printf("..%-7s #%2s > ",$posttype,$postloop);
+
        $deviceid = uniqid('daf');//$PhoneID[rand(0,9)];
     
        echo "$Cyan";
