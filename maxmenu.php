@@ -123,7 +123,7 @@ array_push($ratersaccount,"lykapro003");
 array_push($ratersaccount,"icarus2022");
 array_push($ratersaccount,"xianmig2022");
 
-$ScriptName ="PHP MAXMenu (c) 2021 maximum001";
+$ScriptName ="PHP MAXMenu build [12.29.21] (c) 2021 maximum001";
 $Web="https://github.com/maximum001/max";
 
 //echo "$White\n#ActiveLYKA";
