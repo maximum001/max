@@ -645,9 +645,10 @@ return;
            usleep(100000);
        
        } else {
-           echo "$Yellow\n";
-           echo "$msgn\n\n";
-           break;
+           echo "$Yellow";
+//           echo "$msgn\n";
+           printf("%2s) %-19s >$Green %s\n",$xcount,$activeAcct,$msgn);
+           //break;
        }  //end of User logged in  
        } //end of loop for each acct
 
