@@ -123,7 +123,7 @@ array_push($ratersaccount,"lykapro003");
 array_push($ratersaccount,"icarus2022");
 array_push($ratersaccount,"xianmig2022");
 
-$ScriptName ="PHP MAXMenu build [12.29.21] (c) 2021 maximum001";
+$ScriptName ="PHP MAXMenu build [12.30.21] (c) 2021 maximum001";
 $Web="https://github.com/maximum001/max";
 
 //echo "$White\n#ActiveLYKA";
@@ -391,7 +391,8 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
      printf("\n$White%'-30s\n","");
      printf("%19s GEMS >$Yellow %.2f\n","Total",$total);
      echo "$White\n";
-     sleep(2); 
+     $blank=readline("press enter to continue"); 
+     @system("clear");
    } //end checkgems
 
 
@@ -654,8 +655,11 @@ return;
 
        printf("\n$White%'-40s\n","");
        printf ("%-15s GEMS >$Green %.2f\n","Total harvested",$harvestedgems);
-       echo "$White\n\n";
+       echo "$White\n";
 
+       $blank=readline("press enter to continue"); 
+       @system("clear");
+       
        mainmenu();
 
   } //end harverstmaxgems
@@ -779,7 +783,7 @@ function max2u($raters)
     echo "$White";
     echo "$ScriptName\n";
     echo "$Web\n\n";
-    echo "Needed: your usernames to RATE\n";
+    echo "Needed: usernames to RATE\n";
     
  
         #get acct names to rate
@@ -1068,6 +1072,7 @@ foreach ($raters as $currentRater) :  #//raters
     # loop to each account to rate
     $toratecount=count($acct2rate);
     $donerating=0;
+    
     foreach ($acct2rate as $BeingRated) : 
     
         $donerating++;
@@ -1116,13 +1121,14 @@ foreach ($raters as $currentRater) :  #//raters
     #loop 10 times
                     $PostNum=0;
                     $xcount=1;
+                    $timetosleep=1;
                     do {
                         $devID=uniqid('eab');//$PhoneID[rand(0,9)];
                         $DevName=$PhoneModel[rand(0,50)];
                     
                         echo "$White"; 
                        // echo "..rating$Green #$xcount ";
-                        printf("%-8s $Green %2s ","..rating","$xcount");
+                        printf("%-8s$Green %2s > ","..rating","$xcount");
 
                         $url = "https://posts.mylykaapps.com/api/v3/posts/ratepost";
                         $headers = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28))", "deviceos: android", "Content-Type: application/json",);
@@ -1157,34 +1163,40 @@ foreach ($raters as $currentRater) :  #//raters
                         
                         if ($postmessage != '')
                         {    
-                        
+                            $timetosleep=1;
                         if (strstr($postmessage,'Congratulations')) {
-                            echo " > rated more than 10 posts \n";
+                            echo "rated more than 10 posts \n";
+                            
                         } elseif ($postmessage=="You already have rated this post.")
                         {
-                         echo " > already rated\n";    
+                         echo "already rated\n";
+                            
                         } elseif (strstr($postmessage,'Too many')) {
-                            echo " > too many requests\n";
+                            echo "too many requests\n";
                             $PostNum--;
                             $xcount--;
-
-                            sleep(10);
+                            $timetosleep=10;
                         } elseif (strstr($postmessage,'Forbidden')) {
-                            echo " > forbidden\n";
+                            echo "forbidden\n";
                             $PostNum--;
                             $xcount--;
-                            sleep(10);
+                            $timetosleep=10;
                         } elseif (strstr($postmessage,"Post rating")) {
-                           echo " > earnings saved\n";    
+                           echo "earnings saved\n";
+                               
                         } else {
-                           echo " > $postmessage\n";     
+                           echo "$postmessage\n";
+                                
                         }
-                        } else { echo " > undefined error\n";  }
+                        } else { 
+                            echo "undefined error\n";  
+                            $timetosleep=5;
+                        }
                             
                         $PostNum++;
                         $xcount++;
 
-                        usleep(500000);
+                        sleep($timetosleep);
     
                     } while ($PostNum !=10);
 
@@ -1554,11 +1566,12 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
           echo "$msgn\n\n";
     
      $postloop=1;
+     $postretry=1;
      do {  
         
        echo "$White";
 //       echo "..$posttype #$postloop > "; 
-       printf("..%-7s #%2s > ",$posttype,$postloop);
+       printf("..%-6s #%-2s > ",$posttype,$postloop);
 
        $deviceid = uniqid('daf');//$PhoneID[rand(0,9)];
     
@@ -1567,29 +1580,43 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
          $title_content=$hash_tags[rand(0,57)];
          $xhash=$hash_tags[rand(0,57)];
     
-       postmoments($vuser, $bearer, $deviceid, $title_content, $xhash, $posttype);
+         $poststatus = postmoments($vuser, $bearer, $deviceid, $title_content, $xhash, $posttype);
        
-       echo "\n";
-       $postloop++;
+         if ($poststatus !='')
+         {
+         if (strstr($poststatus,"Too many")) {
+             echo "failed, retrying ($postretry)";
+             sleep(5);
+             $postloop--;
+             $postretry++; 
+          } else {
+           echo "$poststatus";
+         }
+        }  else { echo "error"; }
+         
+         echo "\n";
+         if ($postretry==6){
+             echo "$Yellow";
+             echo "..maximum tries reached..\n";
+             $postretry=1;
+             $postloop++;
+         }
+        
+         $postloop++;
     
     } while ($postloop !=$postcount+1);
     
     echo "$Yellow";
-    echo "\n$posttype has been added to [$currentUser]\n\n";
+    echo "\nadd $posttype to [$currentUser] done\n\n";
     
     } else {
         echo "$Yellow";
         echo "$msgn\n";
         echo "$White";
         break;
-    } //end of status==1   
+    } //end of "User logged in"   
     
     echo "\n$Green";
-//    echo "Summary of add $posttype\n";
-//    printf("%-15s | %s\n","Username",$currentUser);
-    //echo "Username    | $currentUser\n";
-//    printf("%-15s | %.2f\n","GEMS",getgembalance($bearer));
-//    getgembalance($bearer);
     echo "--------------------------------\n";
     sleep(1);
     
@@ -1803,10 +1830,10 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
                         $bearer);
                 endif;
 
-                $response_message = $postresponse->message;
+                return $postresponse->message;
 
-                if (strstr($response_message, 'Post saved')) { echo "+1 post";}
-                if( $response_message == "Moment retrieved."){ echo "+1 moments"; }
+//                if (strstr($response_message, 'Post saved')) { echo "+1 post";}
+//                if( $response_message == "Moment retrieved."){ echo "+1 moments"; }
 
 
             } //end post-json
