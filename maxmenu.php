@@ -326,7 +326,7 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
 
    $total=0;
    
-   printf("$White%'-30s\n","");
+   printf("$White%'-40s\n","");
 
    $xcount=0;
    foreach ($maxaccounts as $activeAcct) {
@@ -364,6 +364,9 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
        $respp = curl_exec($curll);
        curl_close($curll);
        $jsonn = json_decode($respp);
+
+       if ($jsonn != NULL) {
+
        $msgn = $jsonn->message;
 
        if ($msgn=="User logged in")
@@ -376,7 +379,7 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
        $TotalGEMS = getgembalance($bearer);
        
        echo "$White";  
-       printf("%2s) %-15s GEMS >$Green %.2f\n",$xcount,$activeAcct,$TotalGEMS);
+       printf("%2s) %-19s GEMS >$Green %.2f\n",$xcount,$activeAcct,$TotalGEMS);
        $total=$total + $TotalGEMS;
    
        } else { 
@@ -386,11 +389,14 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
      
      //end of user logged in
    
-   } //end of loop for each account
+    } else { echo "\nLYKA server down\n";}
+
+    } //end of loop for each account
    
-     printf("\n$White%'-30s\n","");
-     printf("%19s GEMS >$Yellow %.2f\n","Total",$total);
-     echo "$White\n";
+     printf("$White%'-40s\n","");
+     printf("%23s GEMS >$Yellow %.2f\n","Total",$total);
+
+     print("$White\n");
      $blank=readline("press enter to continue"); 
      @system("clear");
    } //end checkgems
