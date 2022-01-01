@@ -86,7 +86,7 @@ array_push($ratersaccount,"maximum032");
 array_push($ratersaccount,"maximum033");
 array_push($ratersaccount,"max1mum34");
 
-$ScriptName ="MAXMenu build [1.1.22]\n(c) 2021 maximum001";
+$ScriptName ="MAXMenu build [1.1.22]\n(c) (c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 
@@ -161,7 +161,7 @@ function checkgemsmenu($ratersaccount, $mainaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="CHECK LYKA GEMS\n(c) 2021 maximum001";
+$ScriptName ="CHECK LYKA GEMS\n(c) (c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -220,7 +220,7 @@ return;
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
    
-   $ScriptName ="CHECK LYKA GEMS\n(c) 2021 maximum001";
+   $ScriptName ="CHECK LYKA GEMS\n(c) (c) reneaparri 2022";
    $Web="https://github.com/maximum001/max";
 
    echo "$White";
@@ -350,7 +350,7 @@ function harvestgemsmenu($accounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="HARVEST LYKA GEMS\n(c) 2021 maximum001";
+$ScriptName ="HARVEST LYKA GEMS\n(c) (c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -397,7 +397,7 @@ return;
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
 
-       $ScriptName ="HARVEST LYKA GEMS\n(c) 2021 maximum001";
+       $ScriptName ="HARVEST LYKA GEMS\n(c) (c) reneaparri 2022";
        $Web="https://github.com/maximum001/max";
 
        echo "$White";
@@ -618,7 +618,7 @@ function ratepostmenu($ratersaccount, $mainaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="RATE POSTS\n(c) 2021 maximum001";
+$ScriptName ="RATE POSTS\n(c) (c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -729,13 +729,12 @@ function max2u($raters)
     echo "$Web\n\n";
     echo "Needed: usernames to RATE\n";
     
- 
-        #get acct names to rate
+         #get acct names to rate
         $acct2rate=[];
         $acct=0;
         
         echo "$Yellow\n";
-        echo "Input Usernames [max of 4] to RATE\n";
+        echo "Account to RATE [max of 4]\n";
         echo "press enter when done\n$Green\n";
         do {
             $inputusername = readline("Username : ");
@@ -753,7 +752,7 @@ function max2u($raters)
 
     //should use one password per raters account
     echo "$Yellow\n";
-    echo "Input RATERS password\n$Green\n";
+    echo "Raters/Dummy account password\n$Green\n";
     $mainpassword=readline('Password : ');
     if ($mainpassword == '')
     {
@@ -776,7 +775,7 @@ function other2other()
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
     
-    $ScriptName ="Other 2 Other Account \n(c) 2021 maximum001";
+    $ScriptName ="Other 2 Other Account \n(c) (c) reneaparri 2022";
     $Web="https://github.com/maximum001/max"; 
 
 echo "$White";
@@ -784,42 +783,11 @@ echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "let's rate each others posts\n";
 
-$raters = [];
-$usr=0;
-echo "$Yellow\n";
-echo "Input RATERS username\n";
-echo "press enter when done\n$Green\n";
-do {
-   $username = readline('Username : ');
-  if ($username !='') {
-   array_push($raters, "$username",);
-   $usr=1;
-   }
-} while ($username !='');
-
-if ($usr != 1)
-{
-    echo "$Yellow\n";
-    echo "no RATERS username was entered\n";
-    echo "pls. enter atleast one (1) username\n\n";
-    mainmenu();}
-
-#should use one password for all accounts
-echo "$Yellow\n";
-echo "Input the password of your accounts\n$Green\n";
-$mainpassword=readline('Password : ');
-if ($mainpassword == '')
-{
-    echo "$Yellow";
-    echo "\n**empty password**\n\n";
-        mainmenu();
-}
-
 $acct2rate=[];
 $acct=0;
 
-echo "$Yellow\n";
-echo "Input Usernames [max of 4] to RATE\n";
+echo "$Green\n";
+echo "Account to RATE [max of 4]\n";
 echo "press enter when done\n$Green\n";
 do {
     $inputusername = readline("Username : ");
@@ -831,9 +799,41 @@ do {
  
  if ($acct == 0)  {
      echo "$Yellow";
-     echo "> no username to RATE entered\n\n";
+     echo "> no account to RATE entered\n\n";
         mainmenu(); 
         }
+
+$raters = [];
+$usr=0;
+echo "$Cyan\n";
+echo "Raters/Dummy account username\n";
+echo "enter blank when done\n$Green\n";
+do {
+   $username = readline('Username : ');
+  if ($username !='') {
+   array_push($raters, "$username",);
+   $usr=1;
+   }
+} while ($username !='');
+
+if ($usr != 1)
+{
+    echo "$Yellow\n";
+    echo "no RATERS acount entered\n";
+    echo "pls. enter atleast one (1) account\n\n";
+    mainmenu();}
+
+#should use one password for all accounts
+echo "$Yellow\n";
+echo "Raters/Dummy account password\n$Green\n";
+$mainpassword=readline('Password : ');
+if ($mainpassword == '')
+{
+    echo "$Yellow";
+    echo "\n**empty password**\n\n";
+        mainmenu();
+}
+
 
 ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
 return;
@@ -874,6 +874,9 @@ $rated++;
 
     #login to raters
     $jsonn = logintoaccount($currentRater,$mainpassword);
+
+    if ($jsonn != NULL) :
+
     $msgn = $jsonn->message;
 
     if ($msgn == "User logged in") {
@@ -914,7 +917,7 @@ $rated++;
             printf("%-5s (%2s/%2s) | %-15s\n","Rater",$rated,$noofraters,$currentRater);
             printf("%-5s (%2s/%2s) | %-15s\n","Rated",$donerating,$toratecount,$BeingRated);
   
-            usleep(300000);  
+            usleep(200000);  
             $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=50&id=$verifiedaccountID&category=ALL";
             $curld = curl_init($urld);
             curl_setopt($curld, CURLOPT_URL, $urld);
@@ -941,7 +944,8 @@ $rated++;
                     $xcount=1;
                     $timetosleep=1;
                     do {
-                        $devID=uniqid('eab');//$PhoneID[rand(0,9)];
+                        $devID=uniqid('eab');
+                        $devnamemodel=uniqid('bed');
                     
                         echo "$White"; 
                         printf("%-8s$Green %2s > ","..rating","$xcount");
@@ -958,8 +962,8 @@ $rated++;
                         "device": {
                         "deviceId"         : "$devID",
                         "deviceImei"       : "$devID",
-                        "deviceModel"      : "$devID",
-                        "deviceName"       : "$devID",
+                        "deviceModel"      : "$devnamemodel",
+                        "deviceName"       : "$devnamemodel",
                         "deviceOs"         : "Android",
                         "isEmulator"       : false,
                         "notificationToken": "eEBjxYrDSJyFw7N-DpEGNB:APA91bEZnWo-TRdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VDiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-pg",
@@ -983,16 +987,18 @@ $rated++;
                             $timetosleep=1;
                         if (strstr($postmessage,'Congratulations')) {
                             echo "already rated 10++ posts \n";
-                            
+                           // var_dump($json);
                         } elseif ($postmessage=="You already have rated this post.")
                         {
                          echo "post already rated\n";
-                            
+                         //var_dump($json);   
                         } elseif (strstr($postmessage,'Too many')) {
-                            echo "too many requests\n";
+                            echo "too many requests, retrying\n";
                             $PostNum--;
                             $xcount--;
                             $timetosleep=10;
+                           // var_dump($json);
+
                         } elseif (strstr($postmessage,'Forbidden')) {
                             echo "forbidden\n";
                             $PostNum--;
@@ -1000,7 +1006,7 @@ $rated++;
                             $timetosleep=10;
                         } elseif (strstr($postmessage,"Post rating")) {
                            echo "earnings saved\n";
-                               
+                           //var_dump($json);    
                         } else {
                            echo "$postmessage\n";
                                 
@@ -1014,7 +1020,7 @@ $rated++;
                         $xcount++;
 
                         if ($timetosleep != 10)
-                        { usleep(500000);}
+                        { usleep(200000);}
                         else { sleep($timetosleep); }
     
                     } while ($PostNum !=10);
@@ -1035,13 +1041,21 @@ $rated++;
            endforeach;
   #  ///////////// end of loop to each account to rate /////////////
   
-    } else {
+    } else {         //user logged in
         echo "$Yellow\n";
         echo "$msgn";
         echo "\n$White";
        // break;
     }  #// endif
     
+    else : //jsonn !=null
+        echo "$Yellow\n\n";
+        echo "LYKA server error";
+        echo "\n$White";
+
+    endif;    
+
+
     sleep(2);
     
     endforeach;
@@ -1052,8 +1066,6 @@ $rated++;
 
 
     echo "$White\n";
- //   echo "$ScriptName\n";
- //   echo "$Web\n\n\n";
     
     return;
  #   ///////////////// end of foreach loop to raters account //////////////////
@@ -1061,12 +1073,7 @@ $rated++;
    } // end of ratemypost
 
 
-#    ///////////////////////////////////////////
-#    // getgembalance
-#    //
-#    //////////////////////////////////////////
-
-function addpostmomentMenu($posttype,$ratersaccount,$mainaccounts)
+function addpostmomentMenu($posttype, $ratersaccount, $mainaccounts)
 {
     @system("clear");
 
@@ -1075,7 +1082,7 @@ function addpostmomentMenu($posttype,$ratersaccount,$mainaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="Add a $posttype to account\n(c) 2021 maximum001";
+$ScriptName ="ADD POST/MOMENTS ROUTINE\n(c) (c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -1095,20 +1102,20 @@ echo "$White\n-----------------------------\n";
       case "1" : //post to main
        
         $ratersaccount=[];
-        postit($ratersaccount,$mainaccounts,"$posttype"); 
+        addpost2account($ratersaccount,$mainaccounts,"$posttype","main"); 
         echo "\n\n";
         exit;
       
       case "2" : //post to raters
      
         $mainaccounts=[];        
-        postit($ratersaccount,$mainaccounts,"$posttype");
+        addpost2account($ratersaccount,$mainaccounts,"$posttype","raters");
         echo "\n\n";
         exit;
       
       case "3" : //post to other 
     
-       post2others("$posttype");
+       addpost2account($ratersaccount,$mainaccounts,"$posttype","other");
        echo "\n\n";
        exit;
 
@@ -1123,7 +1130,7 @@ echo "$White\n-----------------------------\n";
 return;
 }
 
-function postit($ratersaccount, $mainaccounts, $posttype)
+function addpost2account($ratersaccount, $mainaccounts, $posttype, $accounttype)
 {
    @system("clear");
 
@@ -1139,7 +1146,7 @@ function postit($ratersaccount, $mainaccounts, $posttype)
    $Cyan     = "\033[0;36m" ;        # Cyan
    $White    = "\033[0;37m" ;       # White
    
-   $ScriptName ="Add a $posttype to account\n(c) reneaparri";
+   $ScriptName ="ADD POST/MOMENT ROUTINE\n(c) reneaparri 2022";
    $Web="https://github.com/maximum001/max";
    
    $acct=0;
@@ -1147,22 +1154,48 @@ function postit($ratersaccount, $mainaccounts, $posttype)
    echo "$White";
    echo "$ScriptName\n";
    echo "$Web\n\n";
-   echo "add $posttype to raters+main account\n";
+   echo "add $posttype(s) to $accounttype account\n";
    
    $acct2post = []; 
 
-   foreach($mainaccounts as $acct)
-    {
-      array_push($acct2post,$acct);
+   if ($accounttype == 'other')
+   {
+   $acct=0;
+
+   echo "$Yellow\n";
+   echo "Input username to add $posttype(s)\n";
+   echo "press enter when done\n$Green\n";
+
+   do {
+       $inputusername = readline("Username : ");
+   if ($inputusername !='') {
+       array_push($acct2post, "$inputusername",);
+       $acct=1;
+       }
+   } while ($inputusername !='');
+   
+   if ($acct == 0)  {
+       echo "$Yellow";
+       echo " > pls. enter atleast one (1) username\n\n";
+           mainmenu(); 
+           }
+
+   } else {
+
+            foreach($mainaccounts as $acct)
+            {
+              array_push($acct2post,$acct);
+            }
+        
+           foreach($ratersaccount as $acct)
+           {
+            array_push($acct2post,$acct);      
+           }
     }
 
-   foreach($ratersaccount as $acct)
-   {
-    array_push($acct2post,$acct);      
-   }
 
    echo "$Green\n";
-   echo "*Pls. use same password*\n";
+   echo "Enter account password*\n";
    echo "\n";
    
    echo "$White";
@@ -1170,12 +1203,12 @@ function postit($ratersaccount, $mainaccounts, $posttype)
    if ($mainpassword == '')
    {
        echo "$Yellow";
-       echo "\n > no password was entered\n\n";
+       echo "\n> no password was entered\n\n";
        mainmenu();  
    }
    
    echo "$White";
-   echo "\nNumber of $posttype to add (default 10)?\n";
+   echo "\nNumber of $posttype to add [default=10]\n";
    $postcount=readline("Count : ");
    
    if ($postcount =='') {
@@ -1186,97 +1219,14 @@ function postit($ratersaccount, $mainaccounts, $posttype)
    echo "$White\n";
    echo "$ScriptName\n";
    echo "$Web\n$Yellow\n";
-   echo "time to add $posttype to your account\n";
+   echo "let's now add $posttype to $accounttype account\n";
    echo "pls. wait ...\n";
-   sleep(2);
+   usleep(200000);
    
    loop2accounts($acct2post,$mainpassword,$posttype,$postcount);
 
 } //end of postit
 //////////////////////////////////////////////////////////////////////////////////
-
-function post2others($posttype)
-{
-   @system("clear");
-
-   //Set font color
-   
-   // Regular Colors
-   $Black    = "\033[0;30m" ;     //  # Black
-   $CRed     = "\033[0;31m" ;     //  # Red
-   $Green    = "\033[0;32m" ;       # Green
-   $Yellow   = "\033[0;33m" ;      # Yellow
-   $Blue     = "\033[0;34m" ;        # Blue
-   $Yellow   = "\033[0;35m" ;      # Yellow
-   $Cyan     = "\033[0;36m" ;        # Cyan
-   $White    = "\033[0;37m" ;       # White
-   
-   $ScriptName ="Add a $posttype to other account\n(c) reneaparri";
-   $Web="https://github.com/maximum001/max";
-   
-   $acct=0;
-   
-   echo "$White";
-   echo "$ScriptName\n";
-   echo "$Web\n\n";
-   echo "add $posttype to other account\n";
-   
-   $acct2post = []; 
-
-        $acct=0;
-
-        echo "$Yellow\n";
-        echo "Input username to add $posttype\n";
-        echo "press enter when done\n$Green\n";
-        do {
-            $inputusername = readline("Username : ");
-        if ($inputusername !='') {
-            array_push($acct2post, "$inputusername",);
-            $acct=1;
-            }
-        } while ($inputusername !='');
-        
-        if ($acct == 0)  {
-            echo "$Yellow";
-            echo " > pls. enter atleast one (1) username\n\n";
-                mainmenu(); 
-                }
-        
-        echo "$Green\n";
-        echo "*Pls. use same password*\n";
-        echo "\n";
-        
-        echo "$White";
-        $mainpassword=readline("Password : ");
-        if ($mainpassword == '')
-        {
-            echo "$Yellow";
-            echo "\n > no password was entered\n\n";
-            mainmenu();  
-        }
-   
-        echo "$White";
-        echo "\nNumber of $posttype to add (default 10)?\n";
-        $postcount=readline("Count : ");
-        
-        if ($postcount =='') {
-            $postcount=10;
-        }
-        
-        @system("clear");
-        echo "$White\n";
-        echo "$ScriptName\n";
-        echo "$Web\n$Yellow\n";
-        echo "time to add $posttype to your account\n";
-        echo "add $posttype is initializing ...\n";
-        sleep(2);
- 
-        loop2accounts($acct2post,$mainpassword,$posttype,$postcount);
-   
-   echo "$White\n";
-   mainmenu();  
-
-} //end of post2other
 
 
 function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
@@ -1312,12 +1262,15 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
         $posted++;
     
     echo "$White\n";
-    printf("%-15s | (%3s/%-3s)\n\n","Account Details",$posted,$noofaccounts);
+    printf("%-15s | (%3s/%-3s)\n\n","Account Details", $posted, $noofaccounts);
     printf("%-15s | %s\n","Username",$currentUser);
     echo "$Cyan";
     
     //Login to account
     $jsonn = logintoaccount($currentUser,$mainpassword);
+    
+if ($jsonn != NULL) :
+    
     $msgn = $jsonn->message;
     
     if ($msgn == "User logged in") {
@@ -1379,11 +1332,16 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
         echo "$msgn\n";
         echo "$White";
         break;
-    } //end of "User logged in"   
+    } //end of "User logged in"
+
     
+else :
+    echo "LYKA server error";    
+endif;
+
     echo "\n$Green";
     echo "--------------------------------\n";
-    sleep(1);
+    usleep(100000);
     
     } //end of loop for x username
     echo "$White\n";
@@ -1562,7 +1520,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
                      $uploadurl = "https://momenting.mylykaapps.com/api/v3/moments/AddImageMoment";
                 endif;
 
-                sleep(1);
+                usleep(100000);
 
                 if ($posttype == "post") :
                 
@@ -1596,7 +1554,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
 
                 return $postresponse->message;
 
-           if( $response_message == "Moment retrieved."){ echo "+1 moments"; }
+        //   if( $response_message == "Moment retrieved."){ echo "+1 moments"; }
 
 
             } //end post-json
@@ -1632,7 +1590,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
         curl_setopt($getCurl, CURLOPT_HTTPGET, true);
         curl_setopt($getCurl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($getCurl, CURLOPT_HTTPHEADER, $getHeader);
-        usleep(500000);
+        usleep(300000);
         $getResp = curl_exec($getCurl);
         curl_close($getCurl);
         $getjson = json_decode($getResp);
@@ -1658,7 +1616,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
         curl_setopt($postCurl, CURLOPT_POSTFIELDS, $payloader);
         curl_setopt($postCurl, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($postCurl, CURLOPT_SSL_VERIFYPEER, false);
-        usleep(500000);
+        usleep(300000);
         $postResp = curl_exec($postCurl);
         curl_close($postCurl);
         $postjson = json_decode($postResp);
@@ -1723,4 +1681,4 @@ function getgembalance($bearer)
 
 } //end of getgembalance
 
-   ?>
+?>
