@@ -1,20 +1,6 @@
 <?PHP
 
 @system("clear");
-/*
-$White    = "\033[0;37m" ;       # White
-
-$ScriptName ="PHP MAXMenu (c) 2021 maximum001";
-$Web="https://github.com/maximum001/max";
-
-echo "$White\n#ActiveLYKA";
-echo date("l");
-echo "\n\n";
-
-echo "$White";
-echo "$ScriptName\n";
-echo "$Web\n";
-*/
 
 {
 
@@ -23,9 +9,10 @@ mainmenu();
 }
 
 function mainmenu(){
-//Set font color
 
-// Regular Colors
+    @system("clear");
+
+    // Regular Colors
 $Black    = "\033[0;30m" ;     //  # Black
 $CRed     = "\033[0;31m" ;     //  # Red
 $Blue     = "\033[0;34m" ;        # Blue
@@ -48,30 +35,6 @@ $hash_tags =array("lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
 "lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
 "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas");
 
-$PhoneID=['328fd81b7c77d67e','b45deff156018bb0','2868c5abc0f6d247'];
-array_push($PhoneID,'564d9aef9b9a0bb7');
-array_push($PhoneID,'73f2753cefee52ad');
-array_push($PhoneID,'b4b16cb484de8fe9');
-array_push($PhoneID,'618ad7dfb1accff8');
-array_push($PhoneID,'4c036e33dc8deebf');
-array_push($PhoneID,'f7df149b96c277f9');
-array_push($PhoneID,'9cb5043f81f4c475');
-
-$PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
-"iPhone 6","iPhone 6 Plus","iPhone 6s","iPhone 6s Plus",
-"iPhone SE (1st generation)","iPhone 7","iPhone 7 Plus","iPhone 8",
-"iPhone 8 Plus","iPhone X","iPhone XR","iPhone XS","iPhone XS Max",
-"iPhone 11","iPhone 11 Pro","iPhone 11 Pro Max","iPhone SE","iPhone 12 mini","iPhone 12","iPhone 12 Pro",
-"Tecno Spark 7","Tecno Spark 7 Pro","Vivo V11i","Vivo V11","Vivo V11 Pro",
-"Oppo A94","Oppo A12","Vivo Z10","Samsung Galaxy S20","Vivo Y81","Vivo Nex S","Vivo Nex A","Vivo Y75s","Vivo Y83",
-"Vivo X21i","Vivo Z1","Vivo Y53i","Nokia 5","Nokia 6","Vivo Y71","Vivo X21 UD","Vivo X21","Vivo V9",
-"Vivo X20 Plus UD","Vivo Y75","Vivo V7","Samsung Galaxy S9","Vivo X20 Plus","Vivo X20","Vivo V7+",
-"Vivo Y69","Vivo V5s","LG G+","Vivo Y66","Sony Xperia 10","Nokia 3315","Vivo Y55s","Tecno Spark 6 Air","Tecno Spark 6 Go","Vivo Xplay6",
-"HTC U20 5G","Vivo X9","Google Pixel 5","OnePlus 9","OnePlus 10","Infinix Hot S10","Vivo X7","Vivo X6S Plus",
-"Vivo X6S","Vivo Y31L","Oppo A2","Oppo A11","Vivo Xplay5 Elite","Vivo Y51L","Vivo X6 Plus",
-"Vivo X6","Vivo Y51","Vivo Y27L","Vivo Y15S","Vivo V1Max","Vivo V1","Vivo X5Pro","Vivo X5Max+",
-"Vivo X5S L","Vivo X Shot","Vivo X3S","Vivo Y15","Vivo Y22","Vivo X5Max","Nokia 3210");
-
 
 $mainaccounts=[];
 $ratersaccount=[];
@@ -81,8 +44,18 @@ array_push($mainaccounts,"reneaparri");
 array_push($mainaccounts,"rene_wolverine");
 
 #raters
-array_push($ratersaccount,"zero9691255118");
-array_push($ratersaccount,"ninesixnine1690606");
+array_push($ratersaccount,"lykapro001");
+array_push($ratersaccount,"lykapro002");
+array_push($ratersaccount,"lykapro003");
+array_push($ratersaccount,"icarus2022");
+array_push($ratersaccount,"xianmig2022");
+
+array_push($ratersaccount,"im100pretty");
+array_push($ratersaccount,"im200pretty");
+array_push($ratersaccount,"im300pretty");
+array_push($ratersaccount,"pretty01lyca");
+array_push($ratersaccount,"pretty02lyca");
+
 array_push($ratersaccount,"max1318569");
 array_push($ratersaccount,"max1603820");
 array_push($ratersaccount,"max1603295");
@@ -92,6 +65,8 @@ array_push($ratersaccount,"max1318552");
 array_push($ratersaccount,"iamaaparri");
 array_push($ratersaccount,"shib_aparri");
 array_push($ratersaccount,"imaparri");
+array_push($ratersaccount,"zero9691255118");
+array_push($ratersaccount,"ninesixnine1690606");
 
 array_push($ratersaccount,"maximum001");
 array_push($ratersaccount,"maximum002");
@@ -111,24 +86,9 @@ array_push($ratersaccount,"maximum032");
 array_push($ratersaccount,"maximum033");
 array_push($ratersaccount,"max1mum34");
 
-array_push($ratersaccount,"im100pretty");
-array_push($ratersaccount,"im200pretty");
-array_push($ratersaccount,"im300pretty");
-array_push($ratersaccount,"pretty01lyca");
-array_push($ratersaccount,"pretty02lyca");
-
-array_push($ratersaccount,"lykapro001");
-array_push($ratersaccount,"lykapro002");
-array_push($ratersaccount,"lykapro003");
-array_push($ratersaccount,"icarus2022");
-array_push($ratersaccount,"xianmig2022");
-
-$ScriptName ="PHP MAXMenu build [12.30.21] (c) 2021 maximum001";
+$ScriptName ="MAXMenu build [1.1.22]\n(c) 2021 maximum001";
 $Web="https://github.com/maximum001/max";
 
-//echo "$White\n#ActiveLYKA";
-//echo date("l");
-//echo "\n\n";
 
 echo "$White";
 echo "$ScriptName\n";
@@ -148,30 +108,29 @@ echo "$White\n-----------------------------\n$Yellow";
 
    switch($inputtask) {
     case "a" : //raters to main
-            @system("clear");
+        
             ratepostmenu($ratersaccount,$mainaccounts);
             echo "\n\n";
             mainmenu();
        
     case "b" : //add posts
-        @system("clear");
+       
         addpostmomentMenu("post",$ratersaccount,$mainaccounts);
         echo "\n\n";
         mainmenu();
                
     case "c" : //add moments
-        @system("clear");
+        
         addpostmomentMenu("moment",$ratersaccount,$mainaccounts);
         echo "\n\n";
         mainmenu();
     case "d" :     
-        @system("clear");
-        checkgemsmenu($ratersaccount,$mainaccounts, $PhoneID, $PhoneModel);
+        checkgemsmenu($ratersaccount, $mainaccounts);
         echo "\n\n";
         mainmenu();
     case "e" :
-        @system("clear");
-        harvestgemsmenu($ratersaccount, $PhoneID, $PhoneModel);
+        
+        harvestgemsmenu($ratersaccount);
         echo "\n\n";
         mainmenu();
     case "f" :
@@ -193,15 +152,16 @@ echo "$White\n-----------------------------\n$Yellow";
   # //////////////////////////////////////////
 
 // THIS IS THE MENU FOR CHECKGEMS  
-function checkgemsmenu($ratersaccount,$mainaccounts, $PhoneID, $PhoneModel)
+function checkgemsmenu($ratersaccount, $mainaccounts)
 {
+    @system("clear");
 
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="CHECK GEMS (c) 2021 maximum001";
+$ScriptName ="CHECK LYKA GEMS\n(c) 2021 maximum001";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -219,18 +179,18 @@ echo "$White\n-----------------------------\n$Yellow";
 
    switch($inputtask) {
       case "1" : //main
-        @system("clear");
-        checkmaxgems($mainaccounts, "main", $PhoneID, $PhoneModel); 
+        
+        checkmaxgems($mainaccounts, "main"); 
         echo "\n\n";
         mainmenu();      
       case "2" : //raters
-        @system("clear");
-        checkmaxgems($ratersaccount, "raters", $PhoneID, $PhoneModel); 
+       
+        checkmaxgems($ratersaccount, "raters"); 
         echo "\n\n";
         mainmenu();      
     case "3" : //other accounts
-        @system("clear");
-        checkmaxgems($ratersaccount, "other", $PhoneID, $PhoneModel); 
+       
+        checkmaxgems($ratersaccount, "other"); 
         echo "\n\n";
         mainmenu();      
           
@@ -252,14 +212,15 @@ return;
   # //////////////////////////////////////////
 
   //SUB ROUTINE
-  function checkmaxgems($accounts,$accounttype,$PhoneID, $PhoneModel)
+  function checkmaxgems($accounts, $accounttype)
   {
-   $Cyan     = "\033[0;36m" ;        # Cyan
+    @system("clear");
+    $Cyan     = "\033[0;36m" ;        # Cyan
    $White    = "\033[0;37m" ;       # White
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
    
-   $ScriptName ="checkgems (c) 2021 maximum001";
+   $ScriptName ="CHECK LYKA GEMS\n(c) 2021 maximum001";
    $Web="https://github.com/maximum001/max";
 
    echo "$White";
@@ -313,11 +274,11 @@ return;
    echo "let's check your GEMS...\n\n";
    sleep(2);
 
-   checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel);
+   checkgems($maxaccounts, $mainpassword);
    return;
 }
 // AN OOP we can use anywhere
-function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
+function checkgems($maxaccounts,$mainpassword)
 {
    $Cyan     = "\033[0;36m" ;        # Cyan
    $White    = "\033[0;37m" ;       # White
@@ -331,39 +292,10 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
    $xcount=0;
    foreach ($maxaccounts as $activeAcct) {
    $xcount++; 
-   $devID=uniqid('dfc'); //$PhoneID[rand(0,9)];
-   $DevName=$PhoneModel[rand(0,50)];
-
-       #Login to each account
    
-       $urll = "https://identity.mylykaapps.com/useraccounts/login";
-       $curll = curl_init($urll);
-       curl_setopt($curll, CURLOPT_URL, $urll);
-       curl_setopt($curll, CURLOPT_POST, true);
-       curl_setopt($curll, CURLOPT_RETURNTRANSFER, true);
-       $headerss = array("Content-Type: application/json", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28)");
-       curl_setopt($curll, CURLOPT_HTTPHEADER, $headerss);
-       $DeviceInfo = <<<DATA
-       {
-       "countryCode": "US",
-       "device": {
-       "deviceId": "$devID",
-       "deviceImei": "$devID",
-       "deviceModel": "$DevName",
-       "deviceName": "$DevName",
-       "deviceOs": "Android",
-       "isEmulator": false,
-       "notificationToken": "eEBjxYrDSJyFw7N-DpEGNG:APA91bEZnWo-TDdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VODiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-gz",
-       "osVersion": "11"
-     },
-     "password": "$mainpassword",
-     "username": "$activeAcct"
-   }
-   DATA;
-       curl_setopt($curll, CURLOPT_POSTFIELDS, $DeviceInfo);
-       $respp = curl_exec($curll);
-       curl_close($curll);
-       $jsonn = json_decode($respp);
+       #Login to each account
+
+        $jsonn=logintoaccount($activeAcct,$mainpassword);       
 
        if ($jsonn != NULL) {
 
@@ -374,7 +306,7 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
        $status = $jsonn->status;
        $vuser = $jsonn->data->username;
        $bearer = $jsonn->data->token->accessToken;
-       $json = json_decode($respp);  
+       //$json = json_decode($respp);  
 
        $TotalGEMS = getgembalance($bearer);
        
@@ -396,9 +328,10 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
      printf("$White%'-40s\n","");
      printf("%23s GEMS >$Yellow %.2f\n","Total",$total);
 
-     print("$White\n");
+     print("$White\n\n");
      $blank=readline("press enter to continue"); 
-     @system("clear");
+    
+     mainmenu();
    } //end checkgems
 
 
@@ -408,15 +341,16 @@ function checkgems($maxaccounts,$mainpassword,$PhoneID, $PhoneModel)
 #   //////////////////////////////////////////
 
 //////////////////////////////////////////////
-function harvestgemsmenu($accounts, $PhoneID, $PhoneModel)
+function harvestgemsmenu($accounts)
 {
+    @system("clear");
 
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="HARVEST GEMS (c) 2021 maximum001";
+$ScriptName ="HARVEST LYKA GEMS\n(c) 2021 maximum001";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -432,14 +366,13 @@ echo "$White\n-----------------------------\n";
    $inputtask = readline("Your selection : ");
 
    switch($inputtask) {
-      case "1" : //post to main
-        @system("clear");
-        harvestmaxgems($accounts, "raters", $PhoneID, $PhoneModel); 
+      case "1" : //raters
+        
+        harvestmaxgems($accounts, "raters"); 
         echo "\n\n";
         mainmenu();      
-      case "2" : //post to raters
-        @system("clear");
-        harvestmaxgems("", "other", $PhoneID, $PhoneModel); 
+      case "2" : //other
+                harvestmaxgems("", "other"); 
         echo "\n\n";
         mainmenu();      
       
@@ -456,14 +389,15 @@ return;
 
 }
 
-  function harvestmaxgems($accounts, $acctType, $PhoneID, $PhoneModel)
+  function harvestmaxgems($accounts, $acctType)
   {
-   $Cyan     = "\033[0;36m" ;        # Cyan
+    @system("clear");
+    $Cyan     = "\033[0;36m" ;        # Cyan
    $White    = "\033[0;37m" ;       # White
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
 
-       $ScriptName ="harvestmax (c) 2021 maximum001";
+       $ScriptName ="HARVEST LYKA GEMS\n(c) 2021 maximum001";
        $Web="https://github.com/maximum001/max";
 
        echo "$White";
@@ -542,39 +476,10 @@ return;
        foreach ($maxaccounts as $activeAcct) {
 
        $xcount++; 
-       $devID=uniqid('fed'); //$PhoneID[rand(0,9)];
-       $DevName=$PhoneModel[rand(0,50)];
 
            //Login to each account
 
-           $urll = "https://identity.mylykaapps.com/useraccounts/login";
-           $curll = curl_init($urll);
-           curl_setopt($curll, CURLOPT_URL, $urll);
-           curl_setopt($curll, CURLOPT_POST, true);
-           curl_setopt($curll, CURLOPT_RETURNTRANSFER, true);
-           $headerss = array("Content-Type: application/json", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28)");
-           curl_setopt($curll, CURLOPT_HTTPHEADER, $headerss);
-           $DeviceInfo = <<<DATA
-           {
-           "countryCode": "US",
-           "device": {
-           "deviceId": "$devID",
-           "deviceImei": "$devID",
-           "deviceModel": "$DevName",
-           "deviceName": "$DevName",
-           "deviceOs": "Android",
-           "isEmulator": false,
-           "notificationToken": "eEBjxYrDSJyFw7N-DpEGNG:APA91bEZnWo-TDdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VODiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-gz",
-           "osVersion": "11"
-           },
-           "password": "$mainpassword",
-           "username": "$activeAcct"
-           }
-           DATA;
-           curl_setopt($curll, CURLOPT_POSTFIELDS, $DeviceInfo);
-           $respp = curl_exec($curll);
-           curl_close($curll);
-           $jsonn = json_decode($respp);
+           $jsonn =logintoaccount($activeAcct,$mainpassword);
            $msgn = $jsonn->message;
 
        if ($msgn=="User logged in")
@@ -582,7 +487,6 @@ return;
            $status = $jsonn->status;
            $verifiedAcct = $jsonn->data->username;
            $bearer = $jsonn->data->token->accessToken;
-           $json = json_decode($respp);  
 
            $TotalGEMS=getgembalance($bearer);
            
@@ -638,16 +542,9 @@ return;
                curl_close($curlGEMS);
 
                $jsonbals = json_decode($respbals);
-               //echo $jsonbals->message;
-
                echo "$White";
-               printf("%2s) %-15s GEMS >$Green %.2f >$Cyan sent\n",$xcount,$activeAcct,$TotalGEMS);
-
+               printf("%2s) %-19s GEMS >$Green %.2f >$Cyan sent\n",$xcount,$activeAcct,$TotalGEMS);
                $harvestedgems =$harvestedgems+$TotalGEMS;
-//            } else {
-//                echo "$Yellow\nerror confirming recipient\n";
-//                echo "no GEMS was transferred\n$White\n";
-//                    }
                
            usleep(100000);
        
@@ -660,11 +557,11 @@ return;
        } //end of loop for each acct
 
        printf("\n$White%'-40s\n","");
-       printf ("%-15s GEMS >$Green %.2f\n","Total harvested",$harvestedgems);
-       echo "$White\n";
+       printf ("%23s GEMS >$Green %.2f\n","Total harvested",$harvestedgems);
+       echo "$White\n\n";
 
        $blank=readline("press enter to continue"); 
-       @system("clear");
+       
        
        mainmenu();
 
@@ -673,16 +570,55 @@ return;
 ///////////////////////////////////////////////////////
 
 
+function logintoaccount($acctname, $password) 
+{
+    $devID=uniqid('eee');
+
+    $urll = "https://identity.mylykaapps.com/useraccounts/login";
+    $curll = curl_init($urll);
+    curl_setopt($curll, CURLOPT_URL, $urll);
+    curl_setopt($curll, CURLOPT_POST, true);
+    curl_setopt($curll, CURLOPT_RETURNTRANSFER, true);
+    $headerss = array("Content-Type: application/json", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28)");
+    curl_setopt($curll, CURLOPT_HTTPHEADER, $headerss);
+    $DeviceInfo = <<<DATA
+    {
+    "countryCode": "US",
+    "device": {
+    "deviceId": "$devID",
+    "deviceImei": "$devID",
+    "deviceModel": "$devID",
+    "deviceName": "$devID",
+    "deviceOs": "Android",
+    "isEmulator": false,
+    "notificationToken": "eEBjxYrDSJyFw7N-DpEGNG:APA91bEZnWo-TDdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VODiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-gz",
+    "osVersion": "11"
+    },
+    "username": "$acctname",
+    "password": "$password"
+    }
+    DATA;
+    curl_setopt($curll, CURLOPT_POSTFIELDS, $DeviceInfo);
+    $respp = curl_exec($curll);
+    curl_close($curll);
+    $loginstatus = json_decode($respp);
+
+    return $loginstatus; 
+} //end login to account
+
+# 
+
 // THIS IS THE MENU FOR RATEPOST  
 function ratepostmenu($ratersaccount, $mainaccounts)
 {
+    @system("clear");
 
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="RATE POSTS (c) 2021 maximum001";
+$ScriptName ="RATE POSTS\n(c) 2021 maximum001";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -690,7 +626,7 @@ echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nRATE POSTS Menu\n";
 echo "-----------------------------";
-echo "$White\n1)$Cyan main  <> main accounts";
+echo "$White\n1)$Cyan main <> main accounts";
 echo "$White\n2)$Cyan raters <> main accounts";
 echo "$White\n3)$Cyan raters <> other account";
 echo "$White\n4)$Cyan other <> other account";
@@ -701,25 +637,21 @@ echo "$White\n-----------------------------\n";
 
    switch($inputtask) {
     case "1" : //main to main
-        @system("clear");
         max2max($mainaccounts,$mainaccounts);
         echo "\n\n";
         mainmenu();
 
     case "2" : //raters to main
-        @system("clear");
         max2max($ratersaccount,$mainaccounts);
         echo "\n\n";
         mainmenu();        
 
     case "3" : //raters to other
-        @system("clear");
         max2u($ratersaccount);     
         echo "\n\n";
         mainmenu();        
 
     case "4" : //other to other
-        @system("clear");
         other2other();     
         echo "\n\n";
         mainmenu();        
@@ -744,6 +676,9 @@ return;
 
 function max2max($raters,$acct2rate)
 {
+    
+    @system("clear");
+
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
     $Green    = "\033[0;32m" ;       # Green
@@ -778,6 +713,9 @@ function max2max($raters,$acct2rate)
 
 function max2u($raters)
 {
+    
+    @system("clear");
+
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
     $Green    = "\033[0;32m" ;       # Green
@@ -828,80 +766,17 @@ function max2u($raters)
 
 } //end of max2u
 
- #  ///////////////////////////////////////////
- #  // allmax2u
- #  //
- #  //////////////////////////////////////////
-
-function allmax2u($ratersaccount,$mainaccounts)
-{
-
-    $Cyan     = "\033[0;36m" ;        # Cyan
-    $White    = "\033[0;37m" ;       # White
-    $Green    = "\033[0;32m" ;       # Green
-    $Yellow   = "\033[0;33m" ;      # Yellow
-    
-    $ScriptName ="allmax2u max(c) 2021 maximum001";
-    $Web="https://github.com/maximum001/max";    
-
-echo "$White";
-echo "$ScriptName\n";
-echo "$Web\n\n";
-echo "let max[all] do the rating of your posts\n";
-
-#should use one password per raters account
-echo "$Yellow\n";
-echo "Input max password\n$Green\n";
-$mainpassword=readline('Password : ');
-if ($mainpassword == '')
-{
-    echo "$Yellow\n**empty password**\n\n";
-        mainmenu();}
-////////
-    $raters=$ratersaccount;
-///////
-    foreach($mainaccounts as $acct){
-    array_push($raters,"$acct");
-    }
-//////
-//$raters=$mainaccounts;
-
-#get acct names to rate
-$acct2rate=[];
-$acct=0;
-
-echo "$Yellow\n";
-echo "Input Usernames [max of 4] to RATE\n";
-echo "press enter when done\n$Green\n";
-do {
-    $inputusername = readline("Username : ");
-    if ($inputusername !='') {
-        array_push($acct2rate, "$inputusername",);
-        $acct++;
-    } else { break;}
-} while ($acct != 4);
- 
- if ($acct == 0)  {
-     echo "$Yellow";
-     echo "> no username to RATE entered\n\n";
-        mainmenu(); 
-        }
-
- ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
- return;
-
-} //end of allmax2u
-
 
 function other2other()
 {
+    @system("clear");
 
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
     
-    $ScriptName ="other 2 other (c) 2021 maximum001";
+    $ScriptName ="Other 2 Other Account \n(c) 2021 maximum001";
     $Web="https://github.com/maximum001/max"; 
 
 echo "$White";
@@ -980,30 +855,6 @@ $White    = "\033[0;37m" ;       # White
 $Green    = "\033[0;32m" ;       # Green
 $Yellow   = "\033[0;33m" ;      # Yellow
 
-$PhoneID=['df0439087259ad38','a5ead687bdb3729c','87a87fe99d0039a5'];
-array_push($PhoneID,'7d7e6f904741daea');
-array_push($PhoneID,'9f78dab798ab0324');
-array_push($PhoneID,'83d23b76250d2a97');
-ARRAY_push($PhoneID,'7ae21b1182e2a323');
-array_push($PhoneID,'29b3e709883d7321');
-array_push($PhoneID,'c51e10db899a4cc4');
-array_push($PhoneID,'47db99101c533bc5');
-
-$PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
-"iPhone 6","iPhone 6 Plus","iPhone 6s","iPhone 6s Plus",
-"iPhone SE (1st generation)","iPhone 7","iPhone 7 Plus","iPhone 8",
-"iPhone 8 Plus","iPhone X","iPhone XR","iPhone XS","iPhone XS Max",
-"iPhone 11","iPhone 11 Pro","iPhone 11 Pro Max","iPhone SE","iPhone 12 mini","iPhone 12","iPhone 12 Pro",
-"Tecno Spark 7","Tecno Spark 7 Pro","Vivo V11i","Vivo V11","Vivo V11 Pro",
-"Oppo A94","Oppo A12","Vivo Z10","Samsung Galaxy S20","Vivo Y81","Vivo Nex S","Vivo Nex A","Vivo Y75s","Vivo Y83",
-"Vivo X21i","Vivo Z1","Vivo Y53i","Nokia 5","Nokia 6","Vivo Y71","Vivo X21 UD","Vivo X21","Vivo V9",
-"Vivo X20 Plus UD","Vivo Y75","Vivo V7","Samsung Galaxy S9","Vivo X20 Plus","Vivo X20","Vivo V7+",
-"Vivo Y69","Vivo V5s","LG G+","Vivo Y66","Sony Xperia 10","Nokia 3315","Vivo Y55s","Tecno Spark 6 Air","Tecno Spark 6 Go","Vivo Xplay6",
-"HTC U20 5G","Vivo X9","Google Pixel 5","OnePlus 9","OnePlus 10","Infinix Hot S10","Vivo X7","Vivo X6S Plus",
-"Vivo X6S","Vivo Y31L","Oppo A2","Oppo A11","Vivo Xplay5 Elite","Vivo Y51L","Vivo X6 Plus",
-"Vivo X6","Vivo Y51","Vivo Y27L","Vivo Y15S","Vivo V1Max","Vivo V1","Vivo X5Pro","Vivo X5Max+",
-"Vivo X5S L","Vivo X Shot","Vivo X3S","Vivo Y15","Vivo Y22","Vivo X5Max","Nokia 3210");
-
 
 @system("clear");
 echo "$White\n";
@@ -1019,46 +870,10 @@ $noofraters=count($raters);
 $rated=0;
 
 foreach ($raters as $currentRater) :  #//raters
+$rated++;
 
     #login to raters
-    $devID= uniqid('bae');//$PhoneID[rand(0,9)];
-    $DevName=$PhoneModel[rand(0,50)];
-    $rated++;
-    
-//    echo "\n$White";
-//    printf("%-15s | %s/%s\n","Rater No.",$rated,$noofraters);
-//    printf("%-15s | %s\n","Username",$currentRater);
-
-    $urll = "https://identity.mylykaapps.com/useraccounts/login";
-    $curll = curl_init($urll);
-    curl_setopt($curll, CURLOPT_URL, $urll);
-    curl_setopt($curll, CURLOPT_POST, true);
-    curl_setopt($curll, CURLOPT_RETURNTRANSFER, true);
-    $headerss = array("Content-Type: application/json", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 30)");
-    curl_setopt($curll, CURLOPT_HTTPHEADER, $headerss);
-    $DeviceInfo = <<<DATA
-    {
-    "countryCode": "US",
-    "device": {
-    "deviceId"          : "$devID", 
-    "deviceImei"        : "$devID",
-    "deviceModel"       : "$DevName",
-    "deviceName"        : "$DevName",
-    "deviceOs"          : "Android",
-    "isEmulator"        : false,
-    "notificationToken" : "eEBjxYrDSJyFw7N-DpEGNG:APA91bEZnWo-TDdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VODiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-gz",
-    "osVersion"         : "11"
-    },
-    "password"          : "$mainpassword",
-    "username"          : "$currentRater"
-    }
-    DATA;
-    
-    curl_setopt($curll, CURLOPT_POSTFIELDS, $DeviceInfo);
-    $respp = curl_exec($curll);
-    curl_close($curll);
-    sleep(1);
-    $jsonn = json_decode($respp);
+    $jsonn = logintoaccount($currentRater,$mainpassword);
     $msgn = $jsonn->message;
 
     if ($msgn == "User logged in") {
@@ -1066,14 +881,11 @@ foreach ($raters as $currentRater) :  #//raters
     $status = $jsonn->status;
     $vuser = $jsonn->data->username;
     $bearer = $jsonn->data->token->accessToken;
-    $json = json_decode($respp);  
+//    $json = json_decode($respp);  
     
     #display raters gems
-    //echo "$White";
-    //printf("%-15s | %.2f\n","GEMS",getgembalance($bearer));
-    //getgembalance($bearer);
     echo "$Cyan\n";
-    echo "$msgn\n";
+    echo "Login status | $msgn\n";
     
     # loop to each account to rate
     $toratecount=count($acct2rate);
@@ -1130,10 +942,8 @@ foreach ($raters as $currentRater) :  #//raters
                     $timetosleep=1;
                     do {
                         $devID=uniqid('eab');//$PhoneID[rand(0,9)];
-                        $DevName=$PhoneModel[rand(0,50)];
                     
                         echo "$White"; 
-                       // echo "..rating$Green #$xcount ";
                         printf("%-8s$Green %2s > ","..rating","$xcount");
 
                         $url = "https://posts.mylykaapps.com/api/v3/posts/ratepost";
@@ -1148,8 +958,8 @@ foreach ($raters as $currentRater) :  #//raters
                         "device": {
                         "deviceId"         : "$devID",
                         "deviceImei"       : "$devID",
-                        "deviceModel"      : "$DevName",
-                        "deviceName"       : "$DevName",
+                        "deviceModel"      : "$devID",
+                        "deviceName"       : "$devID",
                         "deviceOs"         : "Android",
                         "isEmulator"       : false,
                         "notificationToken": "eEBjxYrDSJyFw7N-DpEGNB:APA91bEZnWo-TRdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VDiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-pg",
@@ -1164,18 +974,19 @@ foreach ($raters as $currentRater) :  #//raters
                         $resp = curl_exec($curl);
                         curl_close($curl);
                         $json = json_decode($resp);
+        
+                        if ($json != NULL)
+                        {    
                         echo "$Cyan";
                         $postmessage=$json->message;
                         
-                        if ($postmessage != '')
-                        {    
                             $timetosleep=1;
                         if (strstr($postmessage,'Congratulations')) {
-                            echo "rated more than 10 posts \n";
+                            echo "already rated 10++ posts \n";
                             
                         } elseif ($postmessage=="You already have rated this post.")
                         {
-                         echo "already rated\n";
+                         echo "post already rated\n";
                             
                         } elseif (strstr($postmessage,'Too many')) {
                             echo "too many requests\n";
@@ -1195,14 +1006,16 @@ foreach ($raters as $currentRater) :  #//raters
                                 
                         }
                         } else { 
-                            echo "undefined error\n";  
-                            $timetosleep=5;
+                            echo "LYKA server error\n";  
+                            $timetosleep=10;
                         }
                             
                         $PostNum++;
                         $xcount++;
 
-                        sleep($timetosleep);
+                        if ($timetosleep != 10)
+                        { usleep(500000);}
+                        else { sleep($timetosleep); }
     
                     } while ($PostNum !=10);
 
@@ -1233,12 +1046,12 @@ foreach ($raters as $currentRater) :  #//raters
     
     endforeach;
     
-     echo "\n$White\n";
-     echo "Summary - displaying earned GEMS\n";
-     checkgems($raters,$mainpassword,$PhoneID, $PhoneModel);
+     echo "$White\n";
+     echo "Summary of Rate Posts\n";
+     checkgems($raters, $mainpassword);
 
 
-    echo "$White\n\n";
+    echo "$White\n";
  //   echo "$ScriptName\n";
  //   echo "$Web\n\n\n";
     
@@ -1255,12 +1068,14 @@ foreach ($raters as $currentRater) :  #//raters
 
 function addpostmomentMenu($posttype,$ratersaccount,$mainaccounts)
 {
+    @system("clear");
+
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="add a $posttype (c) 2021 maximum001";
+$ScriptName ="Add a $posttype to account\n(c) 2021 maximum001";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -1278,21 +1093,21 @@ echo "$White\n-----------------------------\n";
 
    switch($inputtask) {
       case "1" : //post to main
-        @system("clear");
+       
         $ratersaccount=[];
         postit($ratersaccount,$mainaccounts,"$posttype"); 
         echo "\n\n";
         exit;
       
       case "2" : //post to raters
-        @system("clear");
+     
         $mainaccounts=[];        
         postit($ratersaccount,$mainaccounts,"$posttype");
         echo "\n\n";
         exit;
       
       case "3" : //post to other 
-       @system("clear");
+    
        post2others("$posttype");
        echo "\n\n";
        exit;
@@ -1324,7 +1139,7 @@ function postit($ratersaccount, $mainaccounts, $posttype)
    $Cyan     = "\033[0;36m" ;        # Cyan
    $White    = "\033[0;37m" ;       # White
    
-   $ScriptName ="add $posttype (c) reneaparri";
+   $ScriptName ="Add a $posttype to account\n(c) reneaparri";
    $Web="https://github.com/maximum001/max";
    
    $acct=0;
@@ -1396,7 +1211,7 @@ function post2others($posttype)
    $Cyan     = "\033[0;36m" ;        # Cyan
    $White    = "\033[0;37m" ;       # White
    
-   $ScriptName ="add $posttype (c) reneaparri";
+   $ScriptName ="Add a $posttype to other account\n(c) reneaparri";
    $Web="https://github.com/maximum001/max";
    
    $acct=0;
@@ -1476,30 +1291,6 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
     
-    $PhoneID=['df0439087259ad38','a5ead687bdb3729c','87a87fe99d0039a5'];
-    array_push($PhoneID,'7d7e6f904741daea');
-    array_push($PhoneID,'9f78dab798ab0324');
-    array_push($PhoneID,'83d23b76250d2a97');
-    array_push($PhoneID,'7ae21b1182e2a323');
-    array_push($PhoneID,'29b3e709883d7321');
-    array_push($PhoneID,'c51e10db899a4cc4');
-    array_push($PhoneID,'47db99101c533bc5');
-
-    $PhoneModel=array("iPhone 4","iPhone 4S","iPhone 5","iPhone 5c","iPhone 5s",
-    "iPhone 6","iPhone 6 Plus","iPhone 6s","iPhone 6s Plus",
-    "iPhone SE (1st generation)","iPhone 7","iPhone 7 Plus","iPhone 8",
-    "iPhone 8 Plus","iPhone X","iPhone XR","iPhone XS","iPhone XS Max",
-    "iPhone 11","iPhone 11 Pro","iPhone 11 Pro Max","iPhone SE","iPhone 12 mini","iPhone 12","iPhone 12 Pro",
-    "Tecno Spark 7","Tecno Spark 7 Pro","Vivo V11i","Vivo V11","Vivo V11 Pro",
-    "Oppo A94","Oppo A12","Vivo Z10","Samsung Galaxy S20","Vivo Y81","Vivo Nex S","Vivo Nex A","Vivo Y75s","Vivo Y83",
-    "Vivo X21i","Vivo Z1","Vivo Y53i","Nokia 5","Nokia 6","Vivo Y71","Vivo X21 UD","Vivo X21","Vivo V9",
-    "Vivo X20 Plus UD","Vivo Y75","Vivo V7","Samsung Galaxy S9","Vivo X20 Plus","Vivo X20","Vivo V7+",
-    "Vivo Y69","Vivo V5s","LG G+","Vivo Y66","Sony Xperia 10","Nokia 3315","Vivo Y55s","Tecno Spark 6 Air","Tecno Spark 6 Go","Vivo Xplay6",
-    "HTC U20 5G","Vivo X9","Google Pixel 5","OnePlus 9","OnePlus 10","Infinix Hot S10","Vivo X7","Vivo X6S Plus",
-    "Vivo X6S","Vivo Y31L","Oppo A2","Oppo A11","Vivo Xplay5 Elite","Vivo Y51L","Vivo X6 Plus",
-    "Vivo X6","Vivo Y51","Vivo Y27L","Vivo Y15S","Vivo V1Max","Vivo V1","Vivo X5Pro","Vivo X5Max+",
-    "Vivo X5S L","Vivo X Shot","Vivo X3S","Vivo Y15","Vivo Y22","Vivo X5Max","Nokia 3210");
-
     $hash_tags =array("lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
     "StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
     "WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas",    
@@ -1519,44 +1310,14 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
     foreach ($acct2post as $currentUser) {
    
         $posted++;
-        $deviceid=uniqid('cef'); //$PhoneID[rand(0,9)];
-        $devicenamemodel=$PhoneModel[rand(0,80)];
     
     echo "$White\n";
-    echo "Account Details ($posted of $noofaccounts)\n\n";
+    printf("%-15s | (%3s/%-3s)\n\n","Account Details",$posted,$noofaccounts);
     printf("%-15s | %s\n","Username",$currentUser);
     echo "$Cyan";
     
     //Login to account
-    $urll = "https://identity.mylykaapps.com/useraccounts/login";
-    $curll = curl_init($urll);
-    curl_setopt($curll, CURLOPT_URL, $urll);
-    curl_setopt($curll, CURLOPT_POST, true);
-    curl_setopt($curll, CURLOPT_RETURNTRANSFER, true);
-    $headerss = array("Content-Type: application/json", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android R 30)");
-    curl_setopt($curll, CURLOPT_HTTPHEADER, $headerss);
-    $DeviceInfo = <<<DATA
-    {
-    "countryCode": "US",
-    "device": {
-    "deviceId": "$deviceid",
-    "deviceImei": "$deviceid",
-    "deviceModel": "$devicenamemodel",
-    "deviceName": "$devicenamemodel",
-    "deviceOs": "Android",
-    "isEmulator": false,
-    "notificationToken": "eEBjxYrDSJyFw7N-DpEGNG:APA91bEZnWo-TDdSgVCzQcJq3gHioJtFThNyxw6PsgOCI1JHDzd55yqG-QZwAZRj4pwICrXo5VODiUYom7Fsf4Ql66-CWHFumNA2ynrKEP21bstPBMgwsN-3G_Ek0ZLcoKtVMg5oN6-gz",
-    "osVersion": "11"
-    },
-    "password": "$mainpassword",
-    "username": "$currentUser"
-    }
-    DATA;
-    
-    curl_setopt($curll, CURLOPT_POSTFIELDS, $DeviceInfo);
-    $respp = curl_exec($curll);
-    curl_close($curll);
-    $jsonn = json_decode($respp);
+    $jsonn = logintoaccount($currentUser,$mainpassword);
     $msgn = $jsonn->message;
     
     if ($msgn == "User logged in") {
@@ -1567,9 +1328,7 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
     
           echo "$White";
           printf("%-15s | %.2f\n","GEMS",getgembalance($bearer));
-          //getgembalance($bearer);
-          echo "$Cyan";
-          echo "$msgn\n\n";
+          printf("%-15s |$Cyan %s\n\n","Status",$msgn);
     
      $postloop=1;
      $postretry=1;
@@ -1627,10 +1386,9 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
     sleep(1);
     
     } //end of loop for x username
-    echo "\n$White\n";
+    echo "$White\n";
     echo "Summary - add a $posttype\n";
-    $PhoneID=uniqid('afd');
-    checkgems($acct2post,$mainpassword,$PhoneID, $PhoneModel);
+    checkgems($acct2post,$mainpassword);
     mainmenu();
 
 } // loop2accts
@@ -1838,8 +1596,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
 
                 return $postresponse->message;
 
-//                if (strstr($response_message, 'Post saved')) { echo "+1 post";}
-//                if( $response_message == "Moment retrieved."){ echo "+1 moments"; }
+           if( $response_message == "Moment retrieved."){ echo "+1 moments"; }
 
 
             } //end post-json
