@@ -86,7 +86,7 @@ array_push($ratersaccount,"maximum032");
 array_push($ratersaccount,"maximum033");
 array_push($ratersaccount,"max1mum34");
 
-$ScriptName ="MAXMenu build [1.1.22]\n(c) (c) reneaparri 2022";
+$ScriptName ="MAXMenu build [1.1.22]\n(c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 
@@ -161,7 +161,7 @@ function checkgemsmenu($ratersaccount, $mainaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="CHECK LYKA GEMS\n(c) (c) reneaparri 2022";
+$ScriptName ="CHECK LYKA GEMS\n(c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -220,7 +220,7 @@ return;
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
    
-   $ScriptName ="CHECK LYKA GEMS\n(c) (c) reneaparri 2022";
+   $ScriptName ="CHECK LYKA GEMS\n(c) reneaparri 2022";
    $Web="https://github.com/maximum001/max";
 
    echo "$White";
@@ -233,7 +233,7 @@ return;
     $maxaccounts=[];
     $acct=0;
     echo "$Yellow\n";
-    echo "Input username to check GEMS\n";
+    echo "Account username to check GEMS\n";
     echo "press enter when done\n$Green\n";
     do {
         $inputusername = readline("Username : ");
@@ -350,7 +350,7 @@ function harvestgemsmenu($accounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="HARVEST LYKA GEMS\n(c) (c) reneaparri 2022";
+$ScriptName ="HARVEST LYKA GEMS\n(c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -397,7 +397,7 @@ return;
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
 
-       $ScriptName ="HARVEST LYKA GEMS\n(c) (c) reneaparri 2022";
+       $ScriptName ="HARVEST LYKA GEMS\n(c) reneaparri 2022";
        $Web="https://github.com/maximum001/max";
 
        echo "$White";
@@ -618,7 +618,7 @@ function ratepostmenu($ratersaccount, $mainaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="RATE POSTS\n(c) (c) reneaparri 2022";
+$ScriptName ="RATE POSTS\n(c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -775,7 +775,7 @@ function other2other()
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
     
-    $ScriptName ="Other 2 Other Account \n(c) (c) reneaparri 2022";
+    $ScriptName ="Other 2 Other Account \n(c) reneaparri 2022";
     $Web="https://github.com/maximum001/max"; 
 
 echo "$White";
@@ -886,7 +886,6 @@ $rated++;
     $bearer = $jsonn->data->token->accessToken;
 //    $json = json_decode($respp);  
     
-    #display raters gems
     echo "$Cyan\n";
     echo "Login status | $msgn\n";
     
@@ -926,12 +925,9 @@ $rated++;
             curl_setopt($curld, CURLOPT_HTTPHEADER, $headersd);
             $respd = curl_exec($curld);
             curl_close($curld);
-    #       $jsond = json_decode($respd, true);
-      
+
             $arr = json_decode($respd, true);
        
-          //  var_dump($arr["data"]);
-          //  exit;
                    $x=0;
                    do {
                        $pid[$x] = $arr["data"]["$x"]["id"];
@@ -986,7 +982,7 @@ $rated++;
                         
                             $timetosleep=1;
                         if (strstr($postmessage,'Congratulations')) {
-                            echo "already rated 10++ posts \n";
+                            echo "rated 10+ posts \n";
                            // var_dump($json);
                         } elseif ($postmessage=="You already have rated this post.")
                         {
@@ -1082,7 +1078,7 @@ function addpostmomentMenu($posttype, $ratersaccount, $mainaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="ADD POST/MOMENTS ROUTINE\n(c) (c) reneaparri 2022";
+$ScriptName ="ADD POST/MOMENTS ROUTINE\n(c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -1345,7 +1341,7 @@ endif;
     
     } //end of loop for x username
     echo "$White\n";
-    echo "Summary - add a $posttype\n";
+    echo "Summary - add $posttype(s)\n";
     checkgems($acct2post,$mainpassword);
     mainmenu();
 
@@ -1535,7 +1531,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
                     "isHighlight":false,
                     "isSharedLink":false,
                     "mediaTags":"[[]]",
-                    title:"#Happy'.date("l").'",
+                    title:"#'.date("l").'",
                     hashtags:"'.$xhash.'",
                     content: "'.$contents.'"'),
                     $bearer);
@@ -1578,7 +1574,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
  
  function getX($urlx, $gdevID, $cooks = ""){
     $getURL = $urlx;
-    $uAgent = 'Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28)';
+    $uAgent = 'Lyka/3.6.65 (com.thingsilikeapp; build:865 Android R 11)';
     $getHeader = array(
         "Content-Type: application/json; charset=UTF-8",
         "user-agent: $uAgent",
@@ -1600,7 +1596,7 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
  
  function postX($urlx, $payloader, $cooks = ""){
     $postURL = $urlx;
-    $uAgent = 'Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28)';
+    $uAgent = 'Lyka/3.6.65 (com.thingsilikeapp; build:865 Android R 11)';
     $postHeader = !$cooks 
         ? array(
         "Content-Type: application/json; charset=UTF-8",
