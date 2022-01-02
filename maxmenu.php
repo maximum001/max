@@ -86,7 +86,7 @@ array_push($ratersaccount,"maximum032");
 array_push($ratersaccount,"maximum033");
 array_push($ratersaccount,"max1mum34");
 
-$ScriptName ="MAXMenu build [1.1.22]\n(c) reneaparri 2022";
+$ScriptName ="MAXMenu build [1222]\n(c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
 
