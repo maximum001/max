@@ -22,20 +22,6 @@ $White    = "\033[0;37m" ;       # White
 $Green    = "\033[0;32m" ;       # Green
 $Yellow   = "\033[0;33m" ;      # Yellow
 
-$hash_tags =array("lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
-"StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
-"WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas",    
-"LykaGlobal","LykaShare","LykaWorld","MaxRate","LykaRetail",
-"StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
-"WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas",    
-"LykaGlobal","travelthainow2019","LykaUltraRater","LykaMerchants","travelthainow2019",
-"lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
-"StayBlessed","Goodluck","LYKAGlobal","LYKAEmpoweringLykans","TravelThainow2019",
-"LykaGlobal","LykaMall","LykaUltraRater","LykaMerchants","travelthainow2019",
-"lykaglobal","lykaglobalph","lykagems","Travel", "SpreadLove",
-"WeRiseByLiftingOthers","LykaMall","LykaGems","LykaPH","Vivalasvegas");
-
-
 $mainaccounts=[];
 $ratersaccount=[];
 
@@ -96,34 +82,40 @@ echo "$Web\n\n";
     
 echo "$White\nMAIN MENU";
 echo "$White\n-----------------------------";
-echo "$White\na)$Green rate posts";
-echo "$White\nb)$Green add posts";
-echo "$White\nc)$Green add moments";
+
+echo "$White\na)$Green add posts";
+echo "$White\nb)$Green add moments";
+echo "$White\nc)$Green rate posts";
 echo "$White\nd)$Green check gems";
 echo "$White\ne)$Green harvest gems";
 echo "$White\nf)$Green exit menu";
 echo "$White\n-----------------------------\n$Yellow";
 
-   $inputtask = readline("Your selection : ");
-
+  // $inputtask = readline("Your selection : ");
+   echo "Your selection > ";
+   fscanf(STDIN, "%c",$inputtask);
+   
    switch($inputtask) {
-    case "a" : //raters to main
-        
-            ratepostmenu($ratersaccount,$mainaccounts);
-            echo "\n\n";
-            mainmenu();
+
        
-    case "b" : //add posts
+    case "a" : //add posts
        
         addpostmomentMenu("post",$ratersaccount,$mainaccounts);
         echo "\n\n";
         mainmenu();
                
-    case "c" : //add moments
+    case "b" : //add moments
         
         addpostmomentMenu("moment",$ratersaccount,$mainaccounts);
         echo "\n\n";
         mainmenu();
+
+    case "c" : //raters to main
+        
+        ratepostmenu($ratersaccount,$mainaccounts);
+        echo "\n\n";
+        mainmenu();
+
     case "d" :     
         checkgemsmenu($ratersaccount, $mainaccounts);
         echo "\n\n";
@@ -626,37 +618,46 @@ echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nRATE POSTS Menu\n";
 echo "-----------------------------";
-echo "$White\n1)$Cyan main <> main accounts";
-echo "$White\n2)$Cyan raters <> main accounts";
-echo "$White\n3)$Cyan raters <> other account";
-echo "$White\n4)$Cyan other <> other account";
-echo "$White\n5)$Cyan back to main";
+
+echo "$White\na)$Cyan raters <> main accounts";
+echo "$White\nb)$Cyan raters <> other account";
+echo "$White\nc)$Cyan main <> main accounts";
+echo "$White\nd)$Cyan main <> other accounts";
+echo "$White\ne)$Cyan other <> other account";
+echo "$White\nf)$Cyan back to main";
 echo "$White\n-----------------------------\n";
 
    $inputtask = readline("Your selection : ");
 
    switch($inputtask) {
-    case "1" : //main to main
-        max2max($mainaccounts,$mainaccounts);
-        echo "\n\n";
-        mainmenu();
 
-    case "2" : //raters to main
+
+    case "a" : //raters to main
         max2max($ratersaccount,$mainaccounts);
         echo "\n\n";
         mainmenu();        
 
-    case "3" : //raters to other
-        max2u($ratersaccount);     
+    case "b" : //raters to other
+        max2u($ratersaccount,"Raters");     
         echo "\n\n";
-        mainmenu();        
+        mainmenu();    
+        
+    case "c" : //main to main
+        max2max($mainaccounts,$mainaccounts);
+        echo "\n\n";
+        mainmenu();     
+    
+    case "d" : //main to main
+        max2u($mainaccounts,"Main");
+        echo "\n\n";
+        mainmenu();     
 
-    case "4" : //other to other
+    case "e" : //other to other
         other2other();     
         echo "\n\n";
         mainmenu();        
     
-    case "5" : //other
+    case "f" : //other
         @system("clear");
         mainmenu();        
             
@@ -693,6 +694,21 @@ function max2max($raters,$acct2rate)
     echo "rating of posts\n";
     
     //should use one password per raters account
+    printf("$Green\nYou have %s raters account\n$Yellow",count($raters));
+    $start = readline("Start with account no.  : ");
+    if ($start == '') { $start=0;} else {$start--;}
+    $end =   readline("End with account no.    : ");
+    if ($end == '') { $end=count($raters)-1;} else {$end--;}
+    print "$Cyan\nstart [$raters[$start]]";
+    print "$Cyan\nend   [$raters[$end]]\n";
+
+    $newraters=[];
+      $x=$start;
+    do {
+        array_push($newraters,$raters[$x]);
+            $x++;
+    } while ($x != $end+1);
+
     echo "$Yellow\n";
     echo "Input RATERS password\n$Green\n";
     $mainpassword=readline('Password : ');
@@ -701,7 +717,7 @@ function max2max($raters,$acct2rate)
         echo "$Yellow\n**empty password**\n\n";
         mainmenu();    }
     
-    ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
+    ratemypost($ScriptName,$Web,$newraters,$mainpassword,$acct2rate);
     return;
 
 }   //end of max2max
@@ -711,7 +727,7 @@ function max2max($raters,$acct2rate)
 #   //
 #   //////////////////////////////////////////
 
-function max2u($raters)
+function max2u($raters,$raterstype)
 {
     
     @system("clear");
@@ -721,7 +737,7 @@ function max2u($raters)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-    $ScriptName ="RATERS to max-rate your account";
+    $ScriptName ="$raterstype account to max-rate other account\n(c) reneaparri 2022";
     $Web="https://github.com/maximum001/max";
 
     echo "$White";
@@ -751,15 +767,30 @@ function max2u($raters)
                 }
 
     //should use one password per raters account
-    echo "$Yellow\n";
-    echo "Raters/Dummy account password\n$Green\n";
+    printf("$Green\nYou have %s $raterstype account\n$Yellow",count($raters));
+    $start = readline("Start with account no.  : ");
+    if ($start == '') { $start=0;} else {$start--;}
+    $end =   readline("End with account no.    : ");
+    if ($end == '') { $end=count($raters)-1;} else {$end--;}
+    print "$Cyan\nstart [$raters[$start]]";
+    print "$Cyan\nend   [$raters[$end]]\n";
+
+    $newraters=[];
+      $x=$start;
+    do {
+        array_push($newraters,$raters[$x]);
+            $x++;
+    } while ($x != $end+1);
+
+    echo "$Green\n";
+    echo "$raterstype account password\n$Green";
     $mainpassword=readline('Password : ');
     if ($mainpassword == '')
     {
         echo "$Yellow\n**empty password**\n\n";
         mainmenu();    }
 
-    ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
+    ratemypost($ScriptName,$Web,$newraters,$mainpassword,$acct2rate);
     return;
           
 
@@ -1097,21 +1128,19 @@ echo "$White\n-----------------------------\n";
    switch($inputtask) {
       case "1" : //post to main
        
-        $ratersaccount=[];
-        addpost2account($ratersaccount,$mainaccounts,"$posttype","main"); 
+        addpost2account($mainaccounts,"$posttype","main"); 
         echo "\n\n";
         exit;
       
       case "2" : //post to raters
      
-        $mainaccounts=[];        
-        addpost2account($ratersaccount,$mainaccounts,"$posttype","raters");
+        addpost2account($ratersaccount,"$posttype","raters");
         echo "\n\n";
         exit;
       
       case "3" : //post to other 
     
-       addpost2account($ratersaccount,$mainaccounts,"$posttype","other");
+       addpost2account($ratersaccount,"$posttype","other");
        echo "\n\n";
        exit;
 
@@ -1126,7 +1155,7 @@ echo "$White\n-----------------------------\n";
 return;
 }
 
-function addpost2account($ratersaccount, $mainaccounts, $posttype, $accounttype)
+function addpost2account($newaccounts, $posttype, $accounttype)
 {
    @system("clear");
 
@@ -1178,7 +1207,7 @@ function addpost2account($ratersaccount, $mainaccounts, $posttype, $accounttype)
 
    } else {
 
-            foreach($mainaccounts as $acct)
+    /*        foreach($mainaccounts as $acct)
             {
               array_push($acct2post,$acct);
             }
@@ -1187,8 +1216,22 @@ function addpost2account($ratersaccount, $mainaccounts, $posttype, $accounttype)
            {
             array_push($acct2post,$acct);      
            }
-    }
+    */
 
+    printf("$Green\nYou have %s $accounttype accounts\n$Yellow",count($newaccounts));
+    $start = readline("Start with account no.  : ");
+    if ($start == '') { $start=0;} else {$start--;}
+    $end =   readline("End with account no.    : ");
+    if ($end == '') { $end=count($newaccounts)-1;} else {$end--;}
+    print "$Cyan\nstart [$newaccounts[$start]]";
+    print "$Cyan\nend   [$newaccounts[$end]]\n";
+
+      $x=$start;
+    do {
+        array_push($acct2post,$newaccounts[$x]);
+            $x++;
+    } while ($x != $end+1);
+        }
 
    echo "$Green\n";
    echo "Enter account password*\n";
@@ -1217,7 +1260,7 @@ function addpost2account($ratersaccount, $mainaccounts, $posttype, $accounttype)
    echo "$Web\n$Yellow\n";
    echo "let's now add $posttype to $accounttype account\n";
    echo "pls. wait ...\n";
-   usleep(200000);
+   usleep(50000);
    
    loop2accounts($acct2post,$mainpassword,$posttype,$postcount);
 
@@ -1258,8 +1301,8 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
         $posted++;
     
     echo "$White\n";
-    printf("%-15s | (%3s/%-3s)\n\n","Account Details", $posted, $noofaccounts);
-    printf("%-15s | %s\n","Username",$currentUser);
+    printf("%-5s (%2s/%-2s) | %-15s\n","User",$posted, $noofaccounts,$currentUser);
+
     echo "$Cyan";
     
     //Login to account
@@ -1276,8 +1319,8 @@ if ($jsonn != NULL) :
     $bearer = $jsonn->data->token->accessToken;
     
           echo "$White";
-          printf("%-15s | %.2f\n","GEMS",getgembalance($bearer));
-          printf("%-15s |$Cyan %s\n\n","Status",$msgn);
+          printf("%-13s | %.2f\n","Lyka Gems",getgembalance($bearer));
+          printf("%-13s |$Cyan %s\n\n","Status",$msgn);
     
      $postloop=1;
      $postretry=1;
@@ -1302,26 +1345,26 @@ if ($jsonn != NULL) :
              echo "failed, retrying ($postretry)";
              sleep(5);
              $postloop--;
-             $postretry++; 
+         //    $postretry++; 
           } else {
            echo "$poststatus";
          }
         }  else { echo "error"; }
          
-         echo "\n";
-         if ($postretry==6){
-             echo "$Yellow";
-             echo "..maximum tries reached..\n";
-             $postretry=1;
-             $postloop++;
-         }
+       //  echo "\n";
+       //  if ($postretry==6){
+       //      echo "$Yellow";
+       //      echo "..maximum tries reached..\n";
+       //      $postretry=1;
+       //      $postloop++;
+       //  }
         
          $postloop++;
     
     } while ($postloop !=$postcount+1);
     
     echo "$Yellow";
-    echo "\nadd $posttype to [$currentUser] done\n\n";
+    echo "\nadd $posttype to [$currentUser] done";
     
     } else {
         echo "$Yellow";
