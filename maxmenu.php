@@ -262,6 +262,28 @@ return;
             mainmenu(); 
     }
 
+   } else
+   {
+       
+       printf("$Cyan\nYou have %s $acctType account$White\n",count($accounts));
+                
+       $start = readline("Start with account no.  : ");
+              if ($start == '') { $start=0;} else {$start--;}
+       
+       $end =   readline("End with account no.    : ");
+              if ($end == '') { $end=count($accounts)-1;} else {$end--;}
+       
+       print "$Cyan\nstart [$accounts[$start]]";
+       print "$Cyan\nend   [$accounts[$end]]\n";
+
+       $maxaccounts=[];
+       $x=$start;
+       
+       do {
+           array_push($maxaccounts,$accounts[$x]);
+           $x++;
+       } while ($x != $end+1);
+
    }
 
    echo "$Yellow\n";
@@ -273,10 +295,10 @@ return;
        mainmenu();    
    }
    
-   if ($accounttype != "other")
-   {
-   $maxaccounts = $accounts; 
-   }
+//   if ($accounttype != "other")
+//   {
+//   $maxaccounts = $accounts; 
+//   }
 
    @system("clear");
    echo "$White\n";
@@ -284,7 +306,7 @@ return;
    echo "$Web\n$Yellow\n";
    echo "details have been collected\n";
    echo "let's check your GEMS...\n\n";
-   sleep(2);
+   usleep(100000);
 
    checkgems($maxaccounts, $mainpassword);
    return;
@@ -442,6 +464,23 @@ return;
                 mainmenu(); 
         }
     
+       } else {
+           
+                printf("$Cyan\nYou have %s $acctType account$White\n",count($accounts));
+                $start = readline("Start with account no.  : ");
+                if ($start == '') { $start=0;} else {$start--;}
+                $end =   readline("End with account no.    : ");
+                if ($end == '') { $end=count($accounts)-1;} else {$end--;}
+                print "$Cyan\nstart [$accounts[$start]]";
+                print "$Cyan\nend   [$accounts[$end]]\n";
+
+                $maxaccounts=[];
+                  $x=$start;
+                do {
+                    array_push($maxaccounts,$accounts[$x]);
+                        $x++;
+                } while ($x != $end+1);
+           
        }
    
        echo "$Yellow\n";
@@ -453,10 +492,10 @@ return;
            mainmenu();    
        }
        
-       if ($acctType != "other")
-       {
-       $maxaccounts = $accounts; 
-       }
+//       if ($acctType != "other")
+//       {
+//       $maxaccounts = $accounts; 
+//       }
    
        //get the account where the harvested gems will be sent
 
@@ -714,7 +753,7 @@ function max2max($raters,$acct2rate)
     echo "rating of posts\n";
     
     //should use one password per raters account
-    printf("$Green\nYou have %s raters account\n$Yellow",count($raters));
+    printf("$Cyan\nYou have %s raters account$White\n",count($raters));
     $start = readline("Start with account no.  : ");
     if ($start == '') { $start=0;} else {$start--;}
     $end =   readline("End with account no.    : ");
@@ -786,8 +825,7 @@ function max2u($raters,$raterstype)
                 mainmenu(); 
                 }
 
-    //should use one password per raters account
-    printf("$Green\nYou have %s $raterstype account\n$Yellow",count($raters));
+    printf("$Cyan\nYou have %s $raterstype account$White\n",count($raters));
     $start = readline("Start with account no.  : ");
     if ($start == '') { $start=0;} else {$start--;}
     $end =   readline("End with account no.    : ");
@@ -802,6 +840,7 @@ function max2u($raters,$raterstype)
             $x++;
     } while ($x != $end+1);
 
+    //should use one password per raters account
     echo "$Green\n";
     echo "$raterstype account password\n$Green";
     $mainpassword=readline('Password : ');
@@ -857,7 +896,7 @@ do {
 $raters = [];
 $usr=0;
 echo "$Cyan\n";
-echo "Raters/Dummy account username\n";
+echo "Raters account username\n";
 echo "enter blank when done\n$Green\n";
 do {
    $username = readline('Username : ');
@@ -876,7 +915,7 @@ if ($usr != 1)
 
 #should use one password for all accounts
 echo "$Yellow\n";
-echo "Raters/Dummy account password\n$Green\n";
+echo "Raters account password\n$Green\n";
 $mainpassword=readline('Password : ');
 if ($mainpassword == '')
 {
