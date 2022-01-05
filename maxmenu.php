@@ -69,9 +69,30 @@ array_push($ratersaccount,"max1mum14");
 array_push($ratersaccount,"maximum030");
 array_push($ratersaccount,"maximum031");
 array_push($ratersaccount,"maximum032");
-array_push($ratersaccount,"maximum033");
+array_push($ratersaccount,"maximum033");array_push($ratersaccount,"max1mum34");
+
 array_push($ratersaccount,"max1mum34");
 
+//new
+array_push($ratersaccount,"bea3161");
+array_push($ratersaccount,"bea8589");
+array_push($ratersaccount,"bea5058");
+array_push($ratersaccount,"bea8570");
+array_push($ratersaccount,"bea5349");
+array_push($ratersaccount,"bea3171");
+
+array_push($ratersaccount,"rod3183");
+array_push($ratersaccount,"rod3158");
+array_push($ratersaccount,"rod6791");
+array_push($ratersaccount,"rod8970");
+array_push($ratersaccount,"rod3164");
+array_push($ratersaccount,"rod8559");
+
+array_push($ratersaccount,"den8698");
+array_push($ratersaccount,"den5332");
+
+    
+    
 $ScriptName ="MAXMenu build [1222]\n(c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
 
