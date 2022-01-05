@@ -69,8 +69,7 @@ array_push($ratersaccount,"max1mum14");
 array_push($ratersaccount,"maximum030");
 array_push($ratersaccount,"maximum031");
 array_push($ratersaccount,"maximum032");
-array_push($ratersaccount,"maximum033");array_push($ratersaccount,"max1mum34");
-
+array_push($ratersaccount,"maximum033");
 array_push($ratersaccount,"max1mum34");
 
 //new
