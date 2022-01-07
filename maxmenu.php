@@ -297,9 +297,8 @@ return;
    echo "$White\n";
    echo "$ScriptName\n";
    echo "$Web\n$Yellow\n";
-   echo "details have been collected\n";
    echo "let's check your GEMS...\n\n";
-   sleep(2);
+   sleep(1);
 
    checkgems($maxaccounts, $mainpassword);
    return;
@@ -315,6 +314,7 @@ function checkgems($maxaccounts,$mainpassword)
 
    $total=0;
    
+   printf("%-2s. %-19s GEMS $Green %-4s\n","No","Account Name","GEMS");
    printf("$White%'-40s\n","");
 
    $xcount=0;
@@ -339,7 +339,7 @@ function checkgems($maxaccounts,$mainpassword)
        $TotalGEMS = getgembalance($bearer);
        
        echo "$White";  
-       printf("%2s) %-19s GEMS >$Green %.2f\n",$xcount,$activeAcct,$TotalGEMS);
+       printf("%2s) %-19s >$Green %.2f\n",$xcount,$activeAcct,$TotalGEMS);
        $total=$total + $TotalGEMS;
    
        } else { 
