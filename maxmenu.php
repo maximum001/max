@@ -89,7 +89,7 @@ array_push($ratersaccount,"rod3164");
 array_push($ratersaccount,"rod8559");
 
     
-$ScriptName ="MAXMenu build [1222]\n(c) reneaparri 2022";
+$ScriptName ="MAXMenu build [1222]\n© 2022 Rene Aparri";
 $Web="https://github.com/maximum001/max";
 
 
@@ -170,7 +170,7 @@ function checkgemsmenu($ratersaccount, $mainaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="CHECK LYKA GEMS\n(c) reneaparri 2022";
+$ScriptName ="CHECK LYKA GEMS\n© 2022 Rene Aparri";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -229,7 +229,7 @@ return;
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
    
-   $ScriptName ="CHECK LYKA GEMS\n(c) reneaparri 2022";
+   $ScriptName ="CHECK LYKA GEMS\n© 2022 Rene Aparri";
    $Web="https://github.com/maximum001/max";
 
    echo "$White";
@@ -378,7 +378,7 @@ function harvestgemsmenu($accounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="HARVEST LYKA GEMS\n(c) reneaparri 2022";
+$ScriptName ="HARVEST LYKA GEMS\n© 2022 Rene Aparri";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -424,7 +424,7 @@ return;
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
 
-       $ScriptName ="HARVEST LYKA GEMS\n(c) reneaparri 2022";
+       $ScriptName ="HARVEST LYKA GEMS\n© 2022 Rene Aparri";
        $Web="https://github.com/maximum001/max";
 
        echo "$White";
@@ -659,7 +659,7 @@ function ratepostmenu($ratersaccount, $mainaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="RATE POSTS\n(c) reneaparri 2022";
+$ScriptName ="RATE POSTS\n© 2022 Rene Aparri";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -786,7 +786,7 @@ function max2u($raters,$raterstype)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-    $ScriptName ="$raterstype account to max-rate other account\n(c) reneaparri 2022";
+    $ScriptName ="$raterstype account to max-rate other account\n© 2022 Rene Aparri";
     $Web="https://github.com/maximum001/max";
 
     echo "$White";
@@ -855,7 +855,7 @@ function other2other()
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
     
-    $ScriptName ="Other 2 Other Account \n(c) reneaparri 2022";
+    $ScriptName ="Other 2 Other Account \n© 2022 Rene Aparri";
     $Web="https://github.com/maximum001/max"; 
 
 echo "$White";
@@ -1158,7 +1158,7 @@ function addpostmomentMenu($posttype, $ratersaccount, $mainaccounts)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="ADD POST/MOMENTS ROUTINE\n(c) reneaparri 2022";
+$ScriptName ="ADD POST/MOMENTS ROUTINE\n© 2022 Rene Aparri";
 $Web="https://github.com/maximum001/max";
 
 echo "$White";
@@ -1219,7 +1219,7 @@ function addpost2account($newaccounts, $posttype, $accounttype)
    $Cyan     = "\033[0;36m" ;        # Cyan
    $White    = "\033[0;37m" ;       # White
    
-   $ScriptName ="ADD POST/MOMENT ROUTINE\n(c) reneaparri 2022";
+   $ScriptName ="ADD POST/MOMENT ROUTINE\n© 2022 Rene Aparri";
    $Web="https://github.com/maximum001/max";
    
    $acct=0;
