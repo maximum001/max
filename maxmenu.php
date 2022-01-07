@@ -314,7 +314,7 @@ function checkgems($maxaccounts,$mainpassword)
 
    $total=0;
    
-   printf("%-2s. %-19s GEMS $Green %-4s\n","No","Account Name","GEMS");
+   printf("%-2s. %-19s GEMS\n","No","Account Name");
    printf("$White%'-40s\n","");
 
    $xcount=0;
@@ -339,7 +339,7 @@ function checkgems($maxaccounts,$mainpassword)
        $TotalGEMS = getgembalance($bearer);
        
        echo "$White";  
-       printf("%2s) %-19s >$Green %.2f\n",$xcount,$activeAcct,$TotalGEMS);
+       printf("%2s) %-19s $Green %.2f\n",$xcount,$activeAcct,$TotalGEMS);
        $total=$total + $TotalGEMS;
    
        } else { 
@@ -354,7 +354,7 @@ function checkgems($maxaccounts,$mainpassword)
     } //end of loop for each account
    
      printf("$White%'-40s\n","");
-     printf("%23s GEMS >$Yellow %.2f\n","Total",$total);
+     printf("%18s GEMS >$Yellow %.2f\n","Total",$total);
 
      print("$White\n\n");
      $blank=readline("press enter to continue"); 
@@ -509,7 +509,9 @@ return;
        $harvestedgems=0;
 
        echo "Recipient >$Yellow [reneaparri]\n$White";
-       printf("$White%'-40s\n","");
+
+      printf("%-2s. %-19s GEMS\n","No","Account Name");
+      printf("$White%'-40s\n","");
 
        $xcount=0;
        foreach ($maxaccounts as $activeAcct) {
