@@ -16,7 +16,6 @@ function mainmenu(){
 $Black    = "\033[0;30m" ;     //  # Black
 $CRed     = "\033[0;31m" ;     //  # Red
 $Blue     = "\033[0;34m" ;        # Blue
-$Purple   = "\033[0;35m" ;      # Yellow
 $Cyan     = "\033[0;36m" ;        # Cyan
 $White    = "\033[0;37m" ;       # White
 $Green    = "\033[0;32m" ;       # Green
@@ -28,6 +27,8 @@ $ratersaccount=[];
 #my accounts
 array_push($mainaccounts,"reneaparri");
 array_push($mainaccounts,"rene_wolverine");
+array_push($mainaccounts,"den8698");
+array_push($mainaccounts,"den5332");    
 
 #raters
 array_push($ratersaccount,"lykapro001");
@@ -87,10 +88,6 @@ array_push($ratersaccount,"rod8970");
 array_push($ratersaccount,"rod3164");
 array_push($ratersaccount,"rod8559");
 
-array_push($ratersaccount,"den8698");
-array_push($ratersaccount,"den5332");
-
-    
     
 $ScriptName ="MAXMenu build [1222]\n(c) reneaparri 2022";
 $Web="https://github.com/maximum001/max";
@@ -181,32 +178,32 @@ echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nCHECK GEMS Menu\n";
 echo "-----------------------------";
-echo "$White\n1)$Green main accounts";
-echo "$White\n2)$Green raters accounts";
-echo "$White\n3)$Green other account";
-echo "$White\n4)$Green back to main";
+echo "$White\na)$Green main accounts";
+echo "$White\nb)$Green raters accounts";
+echo "$White\nc)$Green other account";
+echo "$White\nd)$Green back to main";
 echo "$White\n-----------------------------\n$Yellow";
 
    $inputtask = readline("Your selection : ");
 
    switch($inputtask) {
-      case "1" : //main
+      case "a" : //main
         
         checkmaxgems($mainaccounts, "main"); 
         echo "\n\n";
         mainmenu();      
-      case "2" : //raters
+      case "b" : //raters
        
         checkmaxgems($ratersaccount, "raters"); 
         echo "\n\n";
         mainmenu();      
-    case "3" : //other accounts
+    case "c" : //other accounts
        
         checkmaxgems($ratersaccount, "other"); 
         echo "\n\n";
         mainmenu();      
           
-    case "4" :
+    case "d" :
        @system("clear");
        mainmenu();   
 
@@ -240,9 +237,10 @@ return;
    echo "$Web\n\n";
    echo "How many GEMS do you have?\n";
   
+      $maxaccounts=[];
+         
    if($accounttype == "other")
    {
-    $maxaccounts=[];
     $acct=0;
     echo "$Yellow\n";
     echo "Account username to check GEMS\n";
@@ -262,6 +260,23 @@ return;
             mainmenu(); 
     }
 
+   } else
+   {
+        printf("$Green\nYou have %s $accounttype account\n$Yellow",count($accounts));
+        $start = readline("Start with account no.  : ");
+        if ($start == '') { $start=0;} else {$start--;}
+        $end =   readline("End with account no.    : ");
+        if ($end == '') { $end=count($accounts)-1;} else {$end--;}
+        print "$Cyan\nstart [$accounts[$start]]";
+        print "$Cyan\nend   [$accounts[$end]]\n";
+
+          $x=$start;
+        do {
+            array_push($maxaccounts,$accounts[$x]);
+                $x++;
+        } while ($x != $end+1);
+       
+
    }
 
    echo "$Yellow\n";
@@ -273,10 +288,10 @@ return;
        mainmenu();    
    }
    
-   if ($accounttype != "other")
-   {
-   $maxaccounts = $accounts; 
-   }
+//   if ($accounttype != "other")
+//   {
+//   $maxaccounts = $accounts; 
+//   }
 
    @system("clear");
    echo "$White\n";
@@ -290,6 +305,7 @@ return;
    return;
 }
 // AN OOP we can use anywhere
+
 function checkgems($maxaccounts,$mainpassword)
 {
    $Cyan     = "\033[0;36m" ;        # Cyan
@@ -370,25 +386,25 @@ echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nHARVEST GEMS Menu\n";
 echo "-----------------------------";
-echo "$White\n1)$Green from raters accounts";
-echo "$White\n2)$Green from other accounts";
-echo "$White\n3)$Green back to main";
+echo "$White\na)$Green from raters accounts";
+echo "$White\nb)$Green from other accounts";
+echo "$White\nc)$Green back to main";
 echo "$White\n-----------------------------\n";
 
    $inputtask = readline("Your selection : ");
 
    switch($inputtask) {
-      case "1" : //raters
+      case "a" : //raters
         
         harvestmaxgems($accounts, "raters"); 
         echo "\n\n";
         mainmenu();      
-      case "2" : //other
+      case "b" : //other
                 harvestmaxgems("", "other"); 
         echo "\n\n";
         mainmenu();      
       
-      case "3" :
+      case "c" :
        @system("clear");
        mainmenu();   
 
@@ -398,10 +414,9 @@ echo "$White\n-----------------------------\n";
    }     
 return;
 
-
 }
 
-  function harvestmaxgems($accounts, $acctType)
+  function harvestmaxgems($accounts, $accounttype)
   {
     @system("clear");
     $Cyan     = "\033[0;36m" ;        # Cyan
@@ -420,9 +435,10 @@ return;
        echo "$White\n";
        echo "Note: GEMS will be sent to$Green [reneaparri]\n";
 
-       if($acctType == "other")
+              $maxaccounts=[];
+
+       if($accounttype == "other")
        {
-        $maxaccounts=[];
         $acct=0;
         echo "\n$Yellow\n";
         echo "Input username to harvest GEMS from\n";
@@ -442,10 +458,26 @@ return;
                 mainmenu(); 
         }
     
+       } else
+       {
+        printf("$Green\nYou have %s $accounttype account\n$Yellow",count($accounts));
+        $start = readline("Start with account no.  : ");
+        if ($start == '') { $start=0;} else {$start--;}
+        $end =   readline("End with account no.    : ");
+        if ($end == '') { $end=count($accounts)-1;} else {$end--;}
+        print "$Cyan\nStart [$accounts[$start]]";
+        print "$Cyan\nEnd   [$accounts[$end]]\n";
+
+          $x=$start;
+        do {
+            array_push($maxaccounts,$accounts[$x]);
+                $x++;
+        } while ($x != $end+1);
+       
        }
    
        echo "$Yellow\n";
-       echo "Input $acctType account password\n$Green\n";
+       echo "Input $accounttype account password\n$Green\n";
        $mainpassword=readline('Password : ');
        if ($mainpassword == '')
        {
@@ -453,11 +485,6 @@ return;
            mainmenu();    
        }
        
-       if ($acctType != "other")
-       {
-       $maxaccounts = $accounts; 
-       }
-   
        //get the account where the harvested gems will be sent
 
    /*    echo "\nGEMS will be sent to [reneaparri]\n";
@@ -475,7 +502,7 @@ return;
        echo "$White\n";
        echo "$ScriptName\n";
        echo "$Web\n$Yellow\n";
-       echo "details have been collected\n";
+       echo "we are good to go,\n";
        echo "let's harvest your GEMS...\n$White\n";
        sleep(2);
        
@@ -555,7 +582,7 @@ return;
 
                $jsonbals = json_decode($respbals);
                echo "$White";
-               printf("%2s) %-19s GEMS >$Green %.2f >$Cyan sent\n",$xcount,$activeAcct,$TotalGEMS);
+               printf("%2s) %-19s $Green %.2f >$Cyan sent\n",$xcount,$activeAcct,$TotalGEMS);
                $harvestedgems =$harvestedgems+$TotalGEMS;
                
            usleep(100000);
@@ -711,16 +738,16 @@ function max2max($raters,$acct2rate)
     echo "$White";
     echo "$ScriptName\n";
     echo "$Web\n\n";
-    echo "rating of posts\n";
+    echo "max-rate posts\n";
     
     //should use one password per raters account
-    printf("$Green\nYou have %s raters account\n$Yellow",count($raters));
+    printf("$White\nYou have %s raters account\n$Green",count($raters));
     $start = readline("Start with account no.  : ");
     if ($start == '') { $start=0;} else {$start--;}
     $end =   readline("End with account no.    : ");
     if ($end == '') { $end=count($raters)-1;} else {$end--;}
-    print "$Cyan\nstart [$raters[$start]]";
-    print "$Cyan\nend   [$raters[$end]]\n";
+    print "$Green\nStart [$raters[$start]]";
+    print "$Green\nEnd   [$raters[$end]]\n";
 
     $newraters=[];
       $x=$start;
@@ -792,8 +819,8 @@ function max2u($raters,$raterstype)
     if ($start == '') { $start=0;} else {$start--;}
     $end =   readline("End with account no.    : ");
     if ($end == '') { $end=count($raters)-1;} else {$end--;}
-    print "$Cyan\nstart [$raters[$start]]";
-    print "$Cyan\nend   [$raters[$end]]\n";
+    print "$Cyan\nStart [$raters[$start]]";
+    print "$Cyan\nEnd   [$raters[$end]]\n";
 
     $newraters=[];
       $x=$start;
@@ -992,10 +1019,10 @@ $rated++;
                     $timetosleep=1;
                     do {
                         $devID=uniqid('eab');
-                        $devnamemodel=uniqid('bed');
+                        $devnamemodel=uniqid('eea');
                     
                         echo "$White"; 
-                        printf("%-8s$Green %2s > ","..rating","$xcount");
+                        printf("%-5s$Green #%2s > ",".mr.","$xcount");
 
                         $url = "https://posts.mylykaapps.com/api/v3/posts/ratepost";
                         $headers = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28))", "deviceos: android", "Content-Type: application/json",);
@@ -1033,21 +1060,21 @@ $rated++;
                         
                             $timetosleep=1;
                         if (strstr($postmessage,'Congratulations')) {
-                            echo "rated 10+ posts \n";
+                            echo "rated over 10 posts \n";
                            // var_dump($json);
                         } elseif ($postmessage=="You already have rated this post.")
                         {
                          echo "post already rated\n";
                          //var_dump($json);   
                         } elseif (strstr($postmessage,'Too many')) {
-                            echo "too many requests, retrying\n";
+                            echo "failed, retrying\n";
                             $PostNum--;
                             $xcount--;
                             $timetosleep=10;
                            // var_dump($json);
 
                         } elseif (strstr($postmessage,'Forbidden')) {
-                            echo "forbidden\n";
+                            echo "forbidden, retrying\n";
                             $PostNum--;
                             $xcount--;
                             $timetosleep=10;
@@ -1137,34 +1164,34 @@ echo "$ScriptName\n";
 echo "$Web\n\n";
 echo "\nADD $posttype Menu\n";
 echo "-----------------------------";
-echo "$White\n1)$Green add to main accounts";
-echo "$White\n2)$Green add to raters accounts";
-echo "$White\n3)$Green add to other account";
-echo "$White\n4)$Green back to main";
+echo "$White\na)$Green add to main accounts";
+echo "$White\nb)$Green add to raters accounts";
+echo "$White\nc)$Green add to other account";
+echo "$White\nd)$Green back to main";
 echo "$White\n-----------------------------\n";
 
    $inputtask = readline("Your selection : ");
 
    switch($inputtask) {
-      case "1" : //post to main
+      case "a" : //post to main
        
         addpost2account($mainaccounts,"$posttype","main"); 
         echo "\n\n";
         exit;
       
-      case "2" : //post to raters
+      case "b" : //post to raters
      
         addpost2account($ratersaccount,"$posttype","raters");
         echo "\n\n";
         exit;
       
-      case "3" : //post to other 
+      case "c" : //post to other 
     
        addpost2account($ratersaccount,"$posttype","other");
        echo "\n\n";
        exit;
 
-      case "4" :
+      case "d" :
        @system("clear");
        mainmenu();   
 
@@ -1187,7 +1214,6 @@ function addpost2account($newaccounts, $posttype, $accounttype)
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;      # Yellow
    $Blue     = "\033[0;34m" ;        # Blue
-   $Yellow   = "\033[0;35m" ;      # Yellow
    $Cyan     = "\033[0;36m" ;        # Cyan
    $White    = "\033[0;37m" ;       # White
    
@@ -1227,24 +1253,13 @@ function addpost2account($newaccounts, $posttype, $accounttype)
 
    } else {
 
-    /*        foreach($mainaccounts as $acct)
-            {
-              array_push($acct2post,$acct);
-            }
-        
-           foreach($ratersaccount as $acct)
-           {
-            array_push($acct2post,$acct);      
-           }
-    */
-
     printf("$Green\nYou have %s $accounttype accounts\n$Yellow",count($newaccounts));
     $start = readline("Start with account no.  : ");
     if ($start == '') { $start=0;} else {$start--;}
     $end =   readline("End with account no.    : ");
     if ($end == '') { $end=count($newaccounts)-1;} else {$end--;}
-    print "$Cyan\nstart [$newaccounts[$start]]";
-    print "$Cyan\nend   [$newaccounts[$end]]\n";
+    print "$Cyan\nStart [$newaccounts[$start]]";
+    print "$Cyan\nEnd   [$newaccounts[$end]]\n";
 
       $x=$start;
     do {
@@ -1296,7 +1311,6 @@ function loop2accounts($acct2post,$mainpassword,$posttype,$postcount)
     $Green    = "\033[0;32m" ;       # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
     $Blue     = "\033[0;34m" ;        # Blue
-    $Yellow   = "\033[0;35m" ;      # Yellow
     $Cyan     = "\033[0;36m" ;        # Cyan
     $White    = "\033[0;37m" ;       # White
     
@@ -1347,37 +1361,27 @@ if ($jsonn != NULL) :
      do {  
         
        echo "$White";
-//       echo "..$posttype #$postloop > "; 
-       printf("..%-6s #%-2s > ",$posttype,$postloop);
+       printf(".%-6s #%-2s > ",$posttype,$postloop);
 
-       $deviceid = uniqid('daf');//$PhoneID[rand(0,9)];
-    
+//       $deviceid = uniqid('daf');
+         
        echo "$Cyan";
        
-         $title_content=$hash_tags[rand(0,57)];
-         $xhash=$hash_tags[rand(0,57)];
-    
-         $poststatus = postmoments($vuser, $bearer, $deviceid, $title_content, $xhash, $posttype);
+         $poststatus = postmoments($vuser, $bearer, $posttype);
        
          if ($poststatus !='')
          {
          if (strstr($poststatus,"Too many")) {
-             echo "failed, retrying ($postretry)";
+             echo "retrying ($postretry)";
              sleep(5);
              $postloop--;
-         //    $postretry++; 
+             $postretry++; 
           } else {
            echo "$poststatus";
          }
         }  else { echo "error"; }
          
          echo "\n";
-       //  if ($postretry==6){
-       //      echo "$Yellow";
-       //      echo "..maximum tries reached..\n";
-       //      $postretry=1;
-       //      $postloop++;
-       //  }
         
          $postloop++;
     
@@ -1388,8 +1392,7 @@ if ($jsonn != NULL) :
     
     } else {
         echo "$Yellow";
-        echo "$msgn\n";
-        echo "$White";
+        echo "$msgn $White\n";
         break;
     } //end of "User logged in"
 
@@ -1411,8 +1414,10 @@ endif;
 } // loop2accts
 
 
-function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $posttype) {
+function postmoments($currentUser, $bearer, $posttype) {
 
+    $device_id=uniqid('eaf');
+    
    $currUsrID = getUserId($device_id, $bearer);
 
    $uploadLegacy = "https://media.mylykaapps.com/api/v1/media/social/multi-upload-url";
@@ -1570,7 +1575,6 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
                curl_setopt($deleteCurlx, CURLOPT_HTTPHEADER, $delHeader);
                $deleteResp = curl_exec($deleteCurlx);
                curl_close($deleteCurlx);
-
                 
                 if ($posttype == "post") :
                   $uploadurl="https://posting.mylykaapps.com/api/v3/posts/AddImagePost";
@@ -1595,8 +1599,8 @@ function postmoments($currentUser, $bearer, $device_id, $contents, $xhash, $post
                     "isSharedLink":false,
                     "mediaTags":"[[]]",
                     title:"#'.date("l").'",
-                    hashtags:"'.$xhash.'",
-                    content: "'.$contents.'"'),
+                    hashtags:"#LYKA GEMS",
+                    content: "'.date("m.d.y").'"'),
                     $bearer);
                 else : 
                    $postresponse = postX($uploadurl, 
