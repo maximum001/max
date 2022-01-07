@@ -510,7 +510,7 @@ return;
 
        echo "Recipient >$Yellow [reneaparri]\n$White\n";
 
-      printf("%-2s. %-20s GEMS     Status\n","No","Account Name");
+      printf("%-2s. %-20s GEMS   Status\n","No","Account Name");
       printf("$White%'-40s\n","");
 
        $xcount=0;
