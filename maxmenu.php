@@ -37,13 +37,13 @@ array_push($ratersaccount,"im100pretty");
 array_push($ratersaccount,"im200pretty");
 array_push($ratersaccount,"im300pretty");
 array_push($ratersaccount,"xianmig2022");
-
+/*
 array_push($ratersaccount,"lykapro001");
 array_push($ratersaccount,"lykapro002");
 array_push($ratersaccount,"lykapro003");
 array_push($ratersaccount,"pretty01lyca");
 array_push($ratersaccount,"pretty02lyca");
-
+*/
 array_push($ratersaccount,"max1318569");
 array_push($ratersaccount,"max1603820");
 array_push($ratersaccount,"max1603295");
@@ -83,8 +83,8 @@ array_push($ratersaccount,"rod8970");
 
 array_push($ratersaccount,"rod3164");
 array_push($ratersaccount,"rod8559");
-array_push($ratersaccount,"den8698");
-array_push($ratersaccount,"den5332");  
+//array_push($ratersaccount,"den8698");
+//array_push($ratersaccount,"den5332");  
 array_push($ratersaccount,"zero9691255118");
 
 array_push($ratersaccount,"ninesixnine1690606");
