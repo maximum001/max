@@ -37,13 +37,13 @@ array_push($ratersaccount,"im100pretty");
 array_push($ratersaccount,"im200pretty");
 array_push($ratersaccount,"im300pretty");
 array_push($ratersaccount,"xianmig2022");
-/*
+
 array_push($ratersaccount,"lykapro001");
 array_push($ratersaccount,"lykapro002");
 array_push($ratersaccount,"lykapro003");
 array_push($ratersaccount,"pretty01lyca");
 array_push($ratersaccount,"pretty02lyca");
-*/
+
 array_push($ratersaccount,"max1318569");
 array_push($ratersaccount,"max1603820");
 array_push($ratersaccount,"max1603295");
@@ -83,8 +83,9 @@ array_push($ratersaccount,"rod8970");
 
 array_push($ratersaccount,"rod3164");
 array_push($ratersaccount,"rod8559");
-//array_push($ratersaccount,"den8698");
-//array_push($ratersaccount,"den5332");  
+array_push($ratersaccount,"den8698");
+array_push($ratersaccount,"den5332");  
+
 array_push($ratersaccount,"zero9691255118");
 
 array_push($ratersaccount,"ninesixnine1690606");
@@ -272,12 +273,12 @@ return;
         print "$Cyan\nStart [$accounts[$start]]";
         print "$Cyan\nEnd   [$accounts[$end]]\n";
 
-          $x=$start;
-        do {
-            array_push($maxaccounts,$accounts[$x]);
-                $x++;
-        } while ($x != $end+1);
-       
+//          $x=$start;
+//        do {
+//            array_push($maxaccounts,$accounts[$x]);
+//                $x++;
+//        } while ($x != $end+1);
+    $maxaccounts=$accounts;     
 
    }
 
@@ -302,12 +303,12 @@ return;
    print "let's check your GEMS...\n\n";
    sleep(1);
 
-   checkgems($maxaccounts, $mainpassword);
+   checkgems($maxaccounts, $start, $end, $mainpassword);
    return;
 }
 // AN OOP we can use anywhere
 
-function checkgems($maxaccounts,$mainpassword)
+function checkgems($maxaccounts, $start, $end, $mainpassword)
 {
    $Cyan     = "\033[0;36m" ;      # Cyan
    $White    = "\033[0;37m" ;      # White
@@ -319,14 +320,19 @@ function checkgems($maxaccounts,$mainpassword)
    printf("%-2s. %-20s GEMS\n","No","Account Name");
    printf("$White%'-40s\n","");
 
-   $xcount=0;
-   foreach ($maxaccounts as $activeaccount) {
-   $xcount++; 
+   $xcount=$start;
    
+   do {
+//   foreach ($maxaccounts as $activeaccount) {
+  // $xcount++; 
+   
+       $activeaccount=$maxaccounts[$xcount];
        #Login to each account
 
-        $jsonn=logintoaccount($activeaccount,$mainpassword);       
-
+       $jsonn=logintoaccount($activeaccount,$mainpassword);       
+       
+       $xcount++;
+               
        if ($jsonn != NULL) {
 
        $msgn = $jsonn->message;
@@ -353,8 +359,12 @@ function checkgems($maxaccounts,$mainpassword)
    
     } else { print "\nLYKA server down\n";}
 
-    } //end of loop for each account
-   
+     
+     
+  //  } //end of loop for each account
+   } while ($xcount != $end+1);
+  
+  
      printf("$White%'-40s\n","");
      printf("%17s GEMS >$Yellow %.2f\n","Total",$total);
 
@@ -471,12 +481,7 @@ return;
         print "$Cyan\nStart [$accounts[$start]]";
         print "$Cyan\nEnd   [$accounts[$end]]\n";
 
-          $x=$start;
-        do {
-            array_push($maxaccounts,$accounts[$x]);
-                $x++;
-        } while ($x != $end+1);
-       
+         $maxaccounts=$accounts;
        }
    
        print "$Yellow\n";
@@ -491,10 +496,6 @@ return;
        //get the account where the harvested gems will be sent
 
        print "\nInput LYKA GEMS recipient\n";
-//       foreach ($mainaccounts as $targetrecipient)
-//       {
-//         print "Main account -> [$targetrecipient]\n";
-//       }
              
        print "[Default = $mainaccounts[0]]\n$White\n";
     
@@ -512,7 +513,7 @@ return;
        print "$Web\n$Yellow\n";
        print "we are good to go,\n";
        print "let's harvest your GEMS...\n$White\n";
-       sleep(2);
+       usleep(200000);
        
        $harvestedgems=0;
 
@@ -522,14 +523,13 @@ return;
        printf("%-2s. %-20s GEMS   Status\n","No","Account Name");
        printf("$White%'-40s\n","");
 				
-       $xcount=0;
+       $xcount=$start;
        
-//       print count($maxaccounts);
        
        do {
        //foreach ($maxaccounts as $activeaccount) {
 			
-			$activeaccount=$maxaccounts[$xcount];	
+       $activeaccount=$maxaccounts[$xcount];	
                
        $xcount++; 
 
@@ -612,7 +612,7 @@ return;
 
        		usleep(100000);
        			
-       		} while ($xcount !=count($maxaccounts)); //end of loop for each acct
+       		} while ($xcount != $end +1); //end of loop for each acct
        				
        printf("\n$White%'-40s\n","");
        printf ("%17s GEMS >$Yellow %.2f\n","Total harvested",$harvestedgems);
@@ -768,22 +768,23 @@ function max2max($raters,$acct2rate)
     print "$Green\nStart [$raters[$start]]";
     print "$Green\nEnd   [$raters[$end]]\n";
 
-    $newraters=[];
-      $x=$start;
-    do {
-        array_push($newraters,$raters[$x]);
-            $x++;
-    } while ($x != $end+1);
+//    $newraters=[];
+//      $x=$start;
+//    do {
+//        array_push($newraters,$raters[$x]);
+//            $x++;
+//    } while ($x != $end+1);
 
     print "$Yellow\n";
     print "Input RATERS password\n$Green\n";
+  
     $mainpassword=readline('Password : ');
     if ($mainpassword == '')
     {
         print "$Yellow\n**empty password**\n\n";
         mainmenu();    }
     
-    ratemypost($ScriptName,$Web,$newraters,$mainpassword,$acct2rate);
+    ratemypost($ScriptName,$Web,$raters,$mainpassword, $start, $end, $acct2rate);
     return;
 
 }   //end of max2max
@@ -841,12 +842,12 @@ function max2u($raters,$raterstype)
     print "$Cyan\nStart [$raters[$start]]";
     print "$Cyan\nEnd   [$raters[$end]]\n";
 
-    $newraters=[];
-      $x=$start;
-    do {
-        array_push($newraters,$raters[$x]);
-            $x++;
-    } while ($x != $end+1);
+ //   $newraters=[];
+ //     $x=$start;
+ //  do {
+ //       array_push($newraters,$raters[$x]);
+ //           $x++;
+ //   } while ($x != $end+1);
 
     print "$Green\n";
     print "$raterstype account password\n$Green";
@@ -856,7 +857,7 @@ function max2u($raters,$raterstype)
         print "$Yellow\n**empty password**\n\n";
         mainmenu();    }
 
-    ratemypost($ScriptName,$Web,$newraters,$mainpassword,$acct2rate);
+    ratemypost($ScriptName,$Web,$raters, $mainpassword, $start, $end, $acct2rate);
     return;
           
 
@@ -930,9 +931,10 @@ if ($mainpassword == '')
     print "\n**empty password**\n\n";
         mainmenu();
 }
+$start=0;
+$end = count($raters);
 
-
-ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate);
+ratemypost($ScriptName, $Web, $raters, $mainpassword, $start, $end, $acct2rate);
 return;
 
 } //end of other2other
@@ -943,14 +945,14 @@ return;
    #//
    #//////////////////////////////////////////
 
-function ratemypost($ScriptName,$Web,$raters,$mainpassword,$acct2rate)
+function ratemypost($ScriptName, $Web, $raters, $mainpassword, $start, $end, $acct2rate)
 {
 
 // Regular Colors
 $Cyan     = "\033[0;36m" ;        # Cyan
-$White    = "\033[0;37m" ;       # White
-$Green    = "\033[0;32m" ;       # Green
-$Yellow   = "\033[0;33m" ;      # Yellow
+$White    = "\033[0;37m" ;        # White
+$Green    = "\033[0;32m" ;        # Green
+$Yellow   = "\033[0;33m" ;        # Yellow
 
 
 @system("clear");
@@ -963,10 +965,13 @@ sleep(2);
 
 #/////////////////// start rating ////////////////////
 
-$noofraters=count($raters);
-$rated=0;
+$noofraters=$end+1; //count($raters);
 
-foreach ($raters as $currentRater) :  #//raters
+$rated=$start;
+
+//foreach ($raters as $currentRater) :  #//raters
+do {
+   $currentRater = $raters[$rated];
 $rated++;
 
     #login to raters
@@ -1031,8 +1036,9 @@ $rated++;
                        $x++;
                    } while ($x !=10);
     
-    #actual rating of posts
-    #loop 10 times
+                   #actual rating of posts
+                   #loop 10 times
+                   
                     $PostNum=0;
                     $xcount=1;
                     $timetosleep=1;
@@ -1044,7 +1050,8 @@ $rated++;
                         printf("%-5s$Green #%2s > ",".mr.","$xcount");
 
                         $url = "https://posts.mylykaapps.com/api/v3/posts/ratepost";
-                        $headers = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28))", "deviceos: android", "Content-Type: application/json",);
+                        $headers = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android R))",
+                                        "deviceos: android", "Content-Type: application/json",);
                         $curl = curl_init($url);
                         curl_setopt($curl, CURLOPT_URL, $url);
                         curl_setopt($curl, CURLOPT_POST, true);
@@ -1070,7 +1077,11 @@ $rated++;
                         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
                         $resp = curl_exec($curl);
                         curl_close($curl);
+             
+             
                         $json = json_decode($resp);
+        
+             
         
                         if ($json != NULL)
                         {    
@@ -1131,6 +1142,9 @@ $rated++;
             endif; //raters!=rated
                 usleep(100000);
            endforeach;
+      
+  
+         
   #  ///////////// end of loop to each account to rate /////////////
   
     
@@ -1141,10 +1155,10 @@ $rated++;
 
     endif;    
 
-
-    sleep(2);
-    
-    endforeach;
+    usleep(200000);
+      
+       } while ($rated != $end + 1);    
+    //endforeach;
     
      print "$White\n";
      print "Summary of Rate Posts\n";
@@ -1274,11 +1288,13 @@ function addpost2account($newaccounts, $posttype, $accounttype)
     print "$Cyan\nStart [$newaccounts[$start]]";
     print "$Cyan\nEnd   [$newaccounts[$end]]\n";
 
-      $x=$start;
-    do {
-        array_push($acct2post,$newaccounts[$x]);
-            $x++;
-    } while ($x != $end+1);
+//      $x=$start;
+//    do {
+//        array_push($acct2post,$newaccounts[$x]);
+//            $x++;
+//    } while ($x != $end+1);
+   
+     $acct2post=$newaccounts; 
         }
 
    print "$Green\n";
@@ -1310,13 +1326,13 @@ function addpost2account($newaccounts, $posttype, $accounttype)
    print "pls. wait ...\n";
    usleep(50000);
    
-   loop2accounts($acct2post,$mainpassword,$posttype,$postcount, $accounttype);
+   loop2accounts($acct2post, $mainpassword, $posttype, $postcount, $accounttype, $start, $end);
 
 } //end of postit
 //////////////////////////////////////////////////////////////////////////////////
 
 
-function loop2accounts($acct2post, $mainpassword, $posttype, $postcount, $accounttype)
+function loop2accounts($acct2post, $mainpassword, $posttype, $postcount, $accounttype, $start, $end)
 {
 
     $Black    = "\033[0;30m" ;       # Black
@@ -1328,11 +1344,13 @@ function loop2accounts($acct2post, $mainpassword, $posttype, $postcount, $accoun
     $White    = "\033[0;37m" ;       # White
     
  
-    $noofaccounts=count($acct2post);
-    $posted=0;
+    $noofaccounts=$end+1; //count($acct2post);
+    $posted=$start;
 
-    foreach ($acct2post as $currentUser) {
-   
+//    foreach ($acct2post as $currentUser) {
+   do {
+      
+        $currentUser=$acct2post[$posted];
         $posted++;
     
 
@@ -1399,7 +1417,8 @@ endif;
     print "--------------------------------\n";
     usleep(100000);
     
-    } //end of loop for x username
+    } while ($posted != $end+1); 
+    //end of loop for x username
     
     if ($jsonn->message != "Invalid username/password")
     {
