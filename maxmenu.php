@@ -88,12 +88,9 @@ array_push($ratersaccount,"den5332");
 
 array_push($ratersaccount,"zero9691255118");
 array_push($ratersaccount,"ninesixnine1690606");
-
-
     
-$ScriptName ="MAXMenu build [01.22]\n© 2022 Rene Aparri";
+$ScriptName ="MAXmenu build [01.12.22]\n© 2022 Rene Aparri";
 $Web="https://github.com/maximum001/max";
-
 
 print "$White";
 print "$ScriptName\n";
