@@ -168,13 +168,13 @@ function checkgemsmenu($ratersaccount, $mainaccounts)
     $Green    = "\033[0;32m" ;      # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="CHECK LYKA GEMS\n© 2022 Rene Aparri";
+$ScriptName ="CHECK ACCOUNTS\n© 2022 Rene Aparri";
 $Web="https://github.com/maximum001/max";
 
 print "$White";
 print "$ScriptName\n";
 print "$Web\n\n";
-print "\nCHECK GEMS Menu\n";
+print "\nMenu\n";
 print "-----------------------------";
 print "$White\na )$Green main accounts";
 print "$White\nb )$Green raters accounts";
@@ -228,7 +228,7 @@ return;
    $Green    = "\033[0;32m" ;       # Green
    $Yellow   = "\033[0;33m" ;       # Yellow
    
-   $ScriptName ="CHECK LYKA GEMs\n© 2022 Rene Aparri";
+   $ScriptName ="CHECK ACCOUNTS\n© 2022 Rene Aparri";
    $Web="https://github.com/maximum001/max";
 
    print "$White";
@@ -242,7 +242,7 @@ return;
    {
     $acct=0;
     print "$Yellow\n";
-    print "Account username to check GEMS\n";
+    print "Account username to check\n";
     print "press enter when done\n$Green\n";
     do {
         $inputusername = readline("Username : ");
@@ -286,7 +286,7 @@ return;
    print "$White\n";
    print "$ScriptName\n";
    print "$Web\n$Yellow\n";
-   print "let's check your GEMS...\n\n";
+   print "let's check your accounts...\n\n";
    sleep(1);
 
    checkgems($maxaccounts, $start, $end, $mainpassword);
@@ -370,13 +370,13 @@ function harvestgemsmenu($accounts, $mainaccounts)
     $Green    = "\033[0;32m" ;      # Green
     $Yellow   = "\033[0;33m" ;      # Yellow
 
-$ScriptName ="HARVEST LYKA GEMS\n© 2022 Rene Aparri";
+$ScriptName ="HARVEST GEMS\n© 2022 Rene Aparri";
 $Web="https://github.com/maximum001/max";
 
 print "$White";
 print "$ScriptName\n";
 print "$Web\n\n";
-print "\nHARVEST GEMS Menu\n";
+print "\nMenu\n";
 print "-----------------------------";
 print "$White\na )$Green from raters accounts";
 print "$White\nb )$Green from other accounts";
@@ -841,9 +841,9 @@ function other2other()
     @system("clear");
 
     $Cyan     = "\033[0;36m" ;        # Cyan
-    $White    = "\033[0;37m" ;       # White
-    $Green    = "\033[0;32m" ;       # Green
-    $Yellow   = "\033[0;33m" ;      # Yellow
+    $White    = "\033[0;37m" ;        # White
+    $Green    = "\033[0;32m" ;        # Green
+    $Yellow   = "\033[0;33m" ;        # Yellow
     
     $ScriptName ="Rate Friends Account \n© 2022 Rene Aparri";
     $Web="https://github.com/maximum001/max"; 
@@ -931,7 +931,7 @@ $Yellow   = "\033[0;33m" ;        # Yellow
 print "$White\n";
 print "$ScriptName\n";
 print "$Web\n$Yellow\n";
-print "we have enough data needed to procedd\n";
+print "we have enough data needed to proceed\n";
 print "posts rating is starting ...\n\n";
 usleep(100000);
 
@@ -1068,7 +1068,8 @@ do {
                          print "post already rated\n";
                          //var_dump($json);   
                         } elseif (strstr($postmessage,'Too many')) {
-                            print "failed, retrying\n";
+                            print "$Yellow";
+			    print "failed, retrying\n";
                             $PostNum--;
                             $xcount--;
                             $timetosleep=10;
@@ -1264,7 +1265,7 @@ function addpost2account($newaccounts, $posttype, $accounttype)
     }
 
    print "$White";
-   print "\nHow many $posttype to add [default=10]\n";
+   print "\nHow many $posttype(s) to add [default=10]\n";
    $postcount=readline("Count : ");
    
    if ($postcount =='') {
@@ -1354,13 +1355,15 @@ function loop2accounts($acct2post, $mainpassword, $posttype, $postcount, $accoun
          if ($poststatus !='')
          {
          if (strstr($poststatus,"Too many")) {
-             print "retrying ($postretry)";
+             print "$Yellow";
+		 print "retrying ($postretry)";
              sleep(5);
              $postloop--;
              $postretry++; 
           } elseif ($poststatus == "Forbidden")
           {
-             print "retrying ($postretry)";
+             print "$Yellow";
+		 print "retrying ($postretry)";
              sleep(5);
              $postloop--;
              $postretry++; 
@@ -1395,7 +1398,7 @@ endif;
     {
     print "$White\n";
     print "Summary - add $posttype(s)\n";
-    checkgems($acct2post,$start, $end, $mainpassword);
+    checkgems($acct2post, $start, $end, $mainpassword);
     }
     else
     {
