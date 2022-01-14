@@ -1,4 +1,5 @@
 <?PHP
+$Webs="https://github.com/maximum001/max\n\n";
 
 @system("clear");
 
@@ -15,11 +16,11 @@ function mainmenu(){
     // Regular Colors
 $Black    = "\033[0;30m" ;     //  # Black
 $CRed     = "\033[0;31m" ;     //  # Red
-$Blue     = "\033[0;34m" ;        # Blue
-$Cyan     = "\033[0;36m" ;        # Cyan
-$White    = "\033[0;37m" ;       # White
-$Green    = "\033[0;32m" ;       # Green
-$Yellow   = "\033[0;33m" ;      # Yellow
+$Blue     = "\033[0;34m" ;         # Blue
+$Cyan     = "\033[0;36m" ;         # Cyan
+$White    = "\033[0;37m" ;         # White
+$Green    = "\033[0;32m" ;         # Green
+$Yellow   = "\033[0;33m" ;         # Yellow
 
 $mainaccounts=[];
 $ratersaccount=[];
@@ -27,20 +28,19 @@ $ratersaccount=[];
 #my accounts
 array_push($mainaccounts,"reneaparri");
 array_push($mainaccounts,"rene_wolverine");
-array_push($mainaccounts,"iamaaparri");  
+array_push($mainaccounts,"icarus2022");
 array_push($mainaccounts,"imaparri");
 
 #raters
-array_push($ratersaccount,"icarus2022");
-array_push($ratersaccount,"shib_aparri");
-array_push($ratersaccount,"im100pretty");
-array_push($ratersaccount,"im200pretty");
-array_push($ratersaccount,"im300pretty");
-array_push($ratersaccount,"xianmig2022");
-
 array_push($ratersaccount,"lykapro001");
 array_push($ratersaccount,"lykapro002");
 array_push($ratersaccount,"lykapro003");
+array_push($ratersaccount,"iamaaparri");
+array_push($ratersaccount,"shib_aparri");
+
+array_push($ratersaccount,"im100pretty");
+array_push($ratersaccount,"im200pretty");
+array_push($ratersaccount,"im300pretty");
 array_push($ratersaccount,"pretty01lyca");
 array_push($ratersaccount,"pretty02lyca");
 
@@ -85,16 +85,16 @@ array_push($ratersaccount,"rod3164");
 array_push($ratersaccount,"rod8559");
 array_push($ratersaccount,"den8698");
 array_push($ratersaccount,"den5332");  
+array_push($ratersaccount,"xianmig2022");
 
 array_push($ratersaccount,"zero9691255118");
 array_push($ratersaccount,"ninesixnine1690606");
     
-$ScriptName ="MAXmenu build [01.12.22]\n© 2022 Rene Aparri";
-$Web="https://github.com/maximum001/max";
+$ScriptName ="MAXmenu build [01.15.22]\n© 2022 Rene Aparri";
 
 print "$White";
 print "$ScriptName\n";
-print "$Web\n\n";
+print $GLOBALS['Webs'];
     
 print "$White\nMAIN MENU";
 print "$White\n-----------------------------";
@@ -169,16 +169,15 @@ function checkgemsmenu($ratersaccount, $mainaccounts)
     $Yellow   = "\033[0;33m" ;      # Yellow
 
 $ScriptName ="CHECK ACCOUNTS\n© 2022 Rene Aparri";
-$Web="https://github.com/maximum001/max";
 
 print "$White";
 print "$ScriptName\n";
-print "$Web\n\n";
+print $GLOBALS['Webs'];
 print "\nMenu\n";
 print "-----------------------------";
 print "$White\na )$Green main accounts";
 print "$White\nb )$Green raters accounts";
-print "$White\nc )$Green other account";
+print "$White\nc )$Green friends account";
 print "$White\nd )$Green back to main";
 print "$White\n-----------------------------\n$Yellow";
 
@@ -196,9 +195,9 @@ print "$White\n-----------------------------\n$Yellow";
         checkmaxgems($ratersaccount, "raters"); 
         print "\n\n";
         mainmenu();      
-    case "c" : //other accounts
+    case "c" : //friends accounts
        
-        checkmaxgems($ratersaccount, "other"); 
+        checkmaxgems($ratersaccount, "friends"); 
         print "\n\n";
         mainmenu();      
           
@@ -229,16 +228,16 @@ return;
    $Yellow   = "\033[0;33m" ;       # Yellow
    
    $ScriptName ="CHECK ACCOUNTS\n© 2022 Rene Aparri";
-   $Web="https://github.com/maximum001/max";
+  
 
    print "$White";
    print "$ScriptName\n";
-   print "$Web\n\n";
+   print $GLOBALS['Webs'];
    print "How many GEMS do you have?\n";
   
       $maxaccounts=[];
          
-   if($accounttype == "other")
+   if($accounttype == "friends")
    {
     $acct=0;
     print "$Yellow\n";
@@ -371,15 +370,15 @@ function harvestgemsmenu($accounts, $mainaccounts)
     $Yellow   = "\033[0;33m" ;      # Yellow
 
 $ScriptName ="HARVEST GEMS\n© 2022 Rene Aparri";
-$Web="https://github.com/maximum001/max";
+
 
 print "$White";
 print "$ScriptName\n";
-print "$Web\n\n";
+print $GLOBALS['Webs'];
 print "\nMenu\n";
 print "-----------------------------";
-print "$White\na )$Green from raters accounts";
-print "$White\nb )$Green from other accounts";
+print "$White\na )$Green raters accounts";
+print "$White\nb )$Green friends accounts";
 print "$White\nc )$Green back to main";
 print "$White\n-----------------------------\n";
 
@@ -392,8 +391,8 @@ print "$White\n-----------------------------\n";
         harvestmaxgems($accounts, $mainaccounts, "raters"); 
         print "\n\n";
         mainmenu();      
-      case "b" : //other
-        harvestmaxgems("", $mainaccounts, "other"); 
+      case "b" : //friends
+        harvestmaxgems("", $mainaccounts, "friends"); 
         print "\n\n";
         mainmenu();      
       
@@ -401,9 +400,9 @@ print "$White\n-----------------------------\n";
        @system("clear");
        mainmenu();   
 
-      default :
-       @system("clear");
-       mainmenu();   
+     // default :
+     //  @system("clear");
+     //  mainmenu();   
    }     
 return;
 
@@ -418,20 +417,20 @@ return;
    $Yellow   = "\033[0;33m" ;      # Yellow
 
        $ScriptName ="HARVEST LYKA GEMs\n© 2022 Rene Aparri";
-       $Web="https://github.com/maximum001/max";
+       
 
        print "$White";
        print "$ScriptName\n";
-       print "$Web\n\n";
-       print "Let's harvest max GEMS\n";
+       print $GLOBALS['Webs'];
+       print "Let's harvest your GEMS\n";
 
               $maxaccounts=[];
 
-       if($accounttype == "other")
+       if($accounttype == "friends")
        {
         $acct=0;
         print "$Yellow\n";
-        print "Input username to harvest GEMS from\n";
+        print "Input friends account to harvest GEMS from\n";
         print "press enter when done\n$Green\n";
         do {
             $inputusername = readline("Username : ");
@@ -486,12 +485,11 @@ return;
            $GEMReceiver=$mainaccounts[0];
        }
 
-
        @system("clear");
        print "$White\n";
        print "$ScriptName\n";
-       print "$Web\n$Yellow\n";
-       print "we are good to go,\n";
+       print $GLOBALS['Webs'];
+       print "$Yellow\nwe are good to go,\n";
        print "let's harvest your GEMS...\n$White\n";
        usleep(200000);
        
@@ -538,7 +536,7 @@ return;
 				
            $jsonx = json_decode($respx, true);
            
-           if ($jsonx['message'] !="No users were found.")
+           if ($jsonx['message'] != "No users were found.")
            {
            
            $recID = $jsonx["data"]["0"]["id"];
@@ -562,7 +560,8 @@ return;
            	"deviceModel":"$devicenamemodel",
            	"deviceName":"$devicenamemodel",
            	"deviceOs":"Android",
-           	"isEmulator":false,          						       "notificationToken":"eFEXEC5pTAeXLu7JjIlpNX:APA91bF8I2ZGs8wUNDjpw5lSnzrz8fB652HYMxWBdTGtFRSUaBEd0pHZQvWXAd00ESKVUO_VtYieRQxtfEU7f3RUIHEs5zXGZSVqk5PfbzjZTJQcue0vHYRiEobXHk8JUlTa0nmPCdgR",
+           	"isEmulator":false,          						       
+            "notificationToken":"eFEXEC5pTAeXLu7JjIlpNX:APA91bF8I2ZGs8wUNDjpw5lSnzrz8fB652HYMxWBdTGtFRSUaBEd0pHZQvWXAd00ESKVUO_VtYieRQxtfEU7f3RUIHEs5zXGZSVqk5PfbzjZTJQcue0vHYRiEobXHk8JUlTa0nmPCdgR",
 			"osVersion":"11"
          				},
 			"recipientId":' . $recID . '}';
@@ -655,18 +654,17 @@ function ratepostmenu($ratersaccount, $mainaccounts)
     $Yellow   = "\033[0;33m" ;      # Yellow
 
 $ScriptName ="POSTS RATING\n© 2022 Rene Aparri";
-$Web="https://github.com/maximum001/max";
 
 print "$White";
 print "$ScriptName\n";
-print "$Web\n\n";
-print "\nSub Menu\n";
+print $GLOBALS['Webs'];
+print "\nMenu\n";
 print "-----------------------------";
 
 print "$White\na )$Cyan raters > main accounts";
 print "$White\nb )$Cyan raters > friends account";
 print "$White\nc )$Cyan main > main accounts";
-print "$White\nd )$Cyan main > friends accounts";
+print "$White\nd )$Cyan main > friends account";
 print "$White\ne )$Cyan friends > friends account";
 print "$White\nf )$Cyan back to main";
 print "$White\n-----------------------------\n";
@@ -682,7 +680,7 @@ print "$White\n-----------------------------\n";
         print "\n\n";
         mainmenu();        
 
-    case "b" : //raters to other
+    case "b" : //raters to friends
         max2u($ratersaccount,"Raters");     
         print "\n\n";
         mainmenu();    
@@ -697,12 +695,12 @@ print "$White\n-----------------------------\n";
         print "\n\n";
         mainmenu();     
 
-    case "e" : //other to other
-        other2other();     
+    case "e" : //friends to friends
+        friendsaccount();     
         print "\n\n";
         mainmenu();        
     
-    case "f" : //other
+    case "f" : //friends
         @system("clear");
         mainmenu();        
             
@@ -731,11 +729,11 @@ function max2max($raters,$acct2rate)
     $Yellow   = "\033[0;33m" ;      # Yellow
     
     $ScriptName ="main > main | raters > main";
-    $Web="https://github.com/maximum001/max";
+    
 
     print "$White";
     print "$ScriptName\n";
-    print "$Web\n\n";
+    print $GLOBALS['Webs'];
     print "max-rate posts\n";
     
     //should use one password per raters account
@@ -784,11 +782,11 @@ function max2u($raters,$raterstype)
     $Yellow   = "\033[0;33m" ;      # Yellow
 
     $ScriptName ="$raterstype account to max-rate friends account\n© 2022 Rene Aparri";
-    $Web="https://github.com/maximum001/max";
+  
 
     print "$White";
     print "$ScriptName\n";
-    print "$Web\n\n";
+    print $GLOBALS['Webs'];
     print "Needed: usernames to RATE\n";
     
          #get acct names to rate
@@ -836,7 +834,7 @@ function max2u($raters,$raterstype)
 } //end of max2u
 
 
-function other2other()
+function friendsaccount()
 {
     @system("clear");
 
@@ -846,19 +844,19 @@ function other2other()
     $Yellow   = "\033[0;33m" ;        # Yellow
     
     $ScriptName ="Rate Friends Account \n© 2022 Rene Aparri";
-    $Web="https://github.com/maximum001/max"; 
+  
 
 print "$White";
 print "$ScriptName\n";
-print "$Web\n\n";
+print $GLOBALS['Webs'];
 print "this routine will help you rate the post of your friend\n";
 
 $acct2rate=[];
 $acct=0;
 
 print "$Green\n";
-print "Friends account to RATE [max of 4]\n";
-print "press enter when done\n$Green\n";
+print "Friends account to RATE$Yellow [max of 4]$Green\n";
+print "press enter when done\n$Yellow\n";
 do {
     $inputusername = readline("Username : ");
     if ($inputusername !='') {
@@ -891,7 +889,8 @@ if ($usr != 1)
     print "$Yellow\n";
     print "no RATERS account entered\n";
     print "pls. enter atleast one (1) account\n\n";
-    mainmenu();}
+    mainmenu();
+}
 
 #should use one password for all accounts
 print "$Yellow\n";
@@ -909,7 +908,7 @@ $end = count($raters);
 ratemypost($ScriptName, $Web, $raters, $mainpassword, $start, $end, $acct2rate);
 return;
 
-} //end of other2other
+} //end of friends2friends
 
 
    #///////////////////////////////////////////
@@ -930,8 +929,8 @@ $Yellow   = "\033[0;33m" ;        # Yellow
 @system("clear");
 print "$White\n";
 print "$ScriptName\n";
-print "$Web\n$Yellow\n";
-print "we have enough data needed to proceed\n";
+print $GLOBALS['Webs'];
+print "$Yellow\nwe have enough data needed to proceed\n";
 print "posts rating is starting ...\n\n";
 usleep(100000);
 
@@ -942,12 +941,12 @@ $noofraters=$end+1; //count($raters);
 $rated=$start;
 
 do {
-   $currentRater = $raters[$rated];
+   $currentrater = $raters[$rated];
 
 	$rated++;
 
     //#login to raters
-    $jsonn = logintoaccount($currentRater,$mainpassword);
+    $jsonn = logintoaccount($currentrater,$mainpassword);
 
     if ($jsonn->message == "User logged in") :
 
@@ -965,16 +964,16 @@ do {
     $toratecount=count($acct2rate);
     $donerating=0;
     
-    foreach ($acct2rate as $BeingRated) : 
+    foreach ($acct2rate as $beingrated) : 
     
         $donerating++;
-        if ($currentRater != $BeingRated) : #avoid rating own post
+        if ($currentrater != $beingrated) : #avoid rating own post
               
-        $urlm = "https://users.mylykaapps.com/api/v3/users/searchsuggestedpeople?searchText=$BeingRated&os=android&pageIndex=1&pageSize=16";
+        $urlm = "https://users.mylykaapps.com/api/v3/users/searchsuggestedpeople?searchText=$beingrated&os=android&pageIndex=1&pageSize=16";
         $curlm = curl_init($urlm);
         curl_setopt($curlm, CURLOPT_URL, $urlm);
         curl_setopt($curlm, CURLOPT_RETURNTRANSFER, true);
-        $headersm = array("user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android O_MR1 28)", "authorization: Bearer $bearer",);
+        $headersm = array("user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android 11)", "authorization: Bearer $bearer",);
         curl_setopt($curlm, CURLOPT_HTTPHEADER, $headersm);
         $respm = curl_exec($curlm);
         curl_close($curlm);
@@ -987,8 +986,8 @@ do {
         $verifiedaccount = $jsonm["data"]["0"]["userName"];
     
             print "$White\n";
-            printf("%-5s (%2s/%2s) | %-15s\n","Rater",$rated,$noofraters,$currentRater);
-            printf("%-5s (%2s/%2s) | %-15s\n","Rated",$donerating,$toratecount,$BeingRated);
+            printf("%-5s (%2s/%2s) | %-15s\n","Rater",$rated,$noofraters,$currentrater);
+            printf("%-5s (%2s/%2s) | %-15s\n","Rated",$donerating,$toratecount,$beingrated);
   
             usleep(200000);  
             $urld = "https://profiles.mylykaapps.com/api/v3/profiles/GetProfilePosts?os=android&pageIndex=1&pageSize=50&id=$verifiedaccountID&category=ALL";
@@ -1022,7 +1021,7 @@ do {
                         printf("%-5s$Green #%2s > ",".mr.","$xcount");
 
                         $url = "https://posts.mylykaapps.com/api/v3/posts/ratepost";
-                        $headers = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android R))",
+                        $headers = array("authorization:Bearer $bearer", "user-agent:Lyka/3.6.65 (com.thingsilikeapp; build:865 Android 11))",
                                         "deviceos: android", "Content-Type: application/json",);
                         $curl = curl_init($url);
                         curl_setopt($curl, CURLOPT_URL, $url);
@@ -1069,7 +1068,7 @@ do {
                          //var_dump($json);   
                         } elseif (strstr($postmessage,'Too many')) {
                             print "$Yellow";
-			    print "failed, retrying\n";
+			                print "failed, retrying\n";
                             $PostNum--;
                             $xcount--;
                             $timetosleep=10;
@@ -1102,21 +1101,20 @@ do {
     
                     } while ($PostNum !=10);
 
-                    print "$White\n[$BeingRated] >>> ratings done\n";
+                    print "$White\n[$beingrated] >>> ratings done\n";
                     print "-------------\n";   
    #                 //// end of do...while /////////
                 else :
-                    print "\n$Yellow >> error connecting to [$BeingRated]\n"  ; 
+                    print "\n$Yellow >> error connecting to [$beingrated]\n"  ; 
                           endif;
                   
                 else:
-                    print "\n$Yellow >> skip rating [$BeingRated]\n";
+                    print "\n$Yellow >> skip rating [$beingrated]\n";
     
             endif; //raters!=rated
                 usleep(100000);
            endforeach;
       
-  
          
   #  ///////////// end of loop to each account to rate /////////////
   
@@ -1156,12 +1154,12 @@ function addpostmomentMenu($posttype, $ratersaccount, $mainaccounts)
     $Yellow   = "\033[0;33m" ;       # Yellow
 
 $ScriptName ="ADD POSTS/MOMENTS ROUTINE\n© 2022 Rene Aparri";
-$Web="https://github.com/maximum001/max";
+
 
 print "$White";
 print "$ScriptName\n";
-print "$Web\n\n";
-print "\nADD $posttype Menu\n";
+print $GLOBALS['Webs'];
+print "\nadd $posttype menu\n";
 print "-----------------------------";
 print "$White\na )$Green add to main accounts";
 print "$White\nb )$Green add to raters accounts";
@@ -1185,9 +1183,9 @@ print "$White\n-----------------------------\n";
         print "\n\n";
         exit;
       
-      case "c" : //post to other 
+      case "c" : //post to friends 
     
-       addpost2account($ratersaccount,"$posttype","other");
+       addpost2account($ratersaccount,"$posttype","friends");
        print "\n\n";
        exit;
 
@@ -1218,21 +1216,21 @@ function addpost2account($newaccounts, $posttype, $accounttype)
    $White    = "\033[0;37m" ;     //White
    
    $ScriptName ="ADD POSTS/MOMENT ROUTINE\n© 2022 Rene Aparri";
-   $Web="https://github.com/maximum001/max";
+   
    
    $acct=0;
    
    print "$White";
    print "$ScriptName\n";
-   print "$Web\n\n";
+   print $GLOBALS['Webs'];
    print "add $posttype(s) to $accounttype account\n";
    
    $acct2post = []; 
 
-   if ($accounttype == 'other')
+   if ($accounttype == 'friends')
    {
    $acct=0;
-
+   $start=0; 
    print "$Yellow\n";
    print "Input username to add $posttype(s)\n";
    print "press enter when done\n$Green\n";
@@ -1250,6 +1248,7 @@ function addpost2account($newaccounts, $posttype, $accounttype)
        print " > pls. enter atleast one (1) username\n\n";
            mainmenu(); 
            }
+    $end=count($acct2post)-1;
 
    } else {
 
@@ -1288,8 +1287,8 @@ function addpost2account($newaccounts, $posttype, $accounttype)
    @system("clear");
    print "$White\n";
    print "$ScriptName\n";
-   print "$Web\n$Yellow\n";
-   print "let's now add $posttype to $accounttype account\n";
+   print $GLOBALS['Webs'];
+   print "$Yellow\nlet's now add $posttype to $accounttype account\n";
    print "pls. wait ...\n";
    usleep(50000);
    
@@ -1584,7 +1583,7 @@ function postmoments($currentuser, $bearer, $posttype, $accounttype) {
 
                 if ($posttype == "post") :
 
-                 if ($accounttype != 'other')
+                 if ($accounttype != 'friends')
                  {                
                    $postresponse = postX($uploadurl, 
                    payload($deviceid,
@@ -1598,7 +1597,7 @@ function postmoments($currentuser, $bearer, $posttype, $accounttype) {
                     "isSharedLink":false,
                     "mediaTags":"[[]]",
                     title:"'.date("l jS \of F").'",
-                    hashtags:"#LYKA GEMS",
+                    hashtags:"ActiveLYKA"'.date("l").',
                     content: "'.date("Ymd").'"'),
                     $bearer);
                   } else
