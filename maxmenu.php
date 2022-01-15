@@ -284,8 +284,8 @@ return;
    @system("clear");
    print "$White\n";
    print "$ScriptName\n";
-   print "$Web\n$Yellow\n";
-   print "let's check your accounts...\n\n";
+   print $GLOBALS['Webs'];
+   print "$Yellow\nlet's check your accounts...\n\n";
    sleep(1);
 
    checkgems($maxaccounts, $start, $end, $mainpassword);
@@ -1597,7 +1597,7 @@ function postmoments($currentuser, $bearer, $posttype, $accounttype) {
                     "isSharedLink":false,
                     "mediaTags":"[[]]",
                     title:"'.date("l jS \of F").'",
-                    hashtags:"ActiveLYKA"'.date("l").',
+                    hashtags:"#ActiveLYKA",
                     content: "'.date("Ymd").'"'),
                     $bearer);
                   } else
